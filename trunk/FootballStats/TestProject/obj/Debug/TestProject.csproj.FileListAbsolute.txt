@@ -1,0 +1,6 @@
+F:\Google Drive\Telerik Academy\Homeworks\Programming\OOP\football-stats\FootballStats\TestProject\bin\Debug\TestProject.exe.config
+F:\Google Drive\Telerik Academy\Homeworks\Programming\OOP\football-stats\FootballStats\TestProject\bin\Debug\TestProject.exe
+F:\Google Drive\Telerik Academy\Homeworks\Programming\OOP\football-stats\FootballStats\TestProject\bin\Debug\TestProject.pdb
+F:\Google Drive\Telerik Academy\Homeworks\Programming\OOP\football-stats\FootballStats\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+F:\Google Drive\Telerik Academy\Homeworks\Programming\OOP\football-stats\FootballStats\TestProject\obj\Debug\TestProject.exe
+F:\Google Drive\Telerik Academy\Homeworks\Programming\OOP\football-stats\FootballStats\TestProject\obj\Debug\TestProject.pdb
