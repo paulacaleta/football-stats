@@ -1,6 +1,0 @@
-C:\Users\Martin\Desktop\football-stats\FootballStats\TestCommit.cs\bin\Debug\TestCommit.cs.exe.config
-C:\Users\Martin\Desktop\football-stats\FootballStats\TestCommit.cs\bin\Debug\TestCommit.cs.exe
-C:\Users\Martin\Desktop\football-stats\FootballStats\TestCommit.cs\bin\Debug\TestCommit.cs.pdb
-C:\Users\Martin\Desktop\football-stats\FootballStats\TestCommit.cs\obj\Debug\TestCommit.cs.csprojResolveAssemblyReference.cache
-C:\Users\Martin\Desktop\football-stats\FootballStats\TestCommit.cs\obj\Debug\TestCommit.cs.exe
-C:\Users\Martin\Desktop\football-stats\FootballStats\TestCommit.cs\obj\Debug\TestCommit.cs.pdb
