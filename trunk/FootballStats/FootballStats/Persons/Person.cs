@@ -1,14 +1,13 @@
-﻿using System;
-using System.Linq;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
+    using System;
+
     public abstract class Person : IPerson
     {
         Name name;
         DateTime birthDate;
         Nationality nationality;
-        
+
         protected Person(Name name, DateTime birthDate, Nationality nationality)
         {
             this.Name = name;
@@ -22,18 +21,20 @@ namespace FootballStats.Persons
             {
                 return this.name;
             }
+
             set
             {
                 this.name = value;
             }
         }
-                
+
         public DateTime BirthDate
         {
             get
             {
                 return this.birthDate;
             }
+
             set
             {
                 // TODO: Check for inappropriate input
@@ -47,6 +48,7 @@ namespace FootballStats.Persons
             {
                 return this.nationality;
             }
+
             set
             {
                 this.nationality = value;

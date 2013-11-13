@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
     public interface IPerson
     {
