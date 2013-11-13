@@ -1,6 +1,0 @@
-G:\SVNLocal\FootballStats\FootballStats\bin\Debug\FootballStats.exe.config
-G:\SVNLocal\FootballStats\FootballStats\obj\Debug\FootballStats.csprojResolveAssemblyReference.cache
-G:\SVNLocal\FootballStats\FootballStats\bin\Debug\FootballStats.exe
-G:\SVNLocal\FootballStats\FootballStats\bin\Debug\FootballStats.pdb
-G:\SVNLocal\FootballStats\FootballStats\obj\Debug\FootballStats.exe
-G:\SVNLocal\FootballStats\FootballStats\obj\Debug\FootballStats.pdb
