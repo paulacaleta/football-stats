@@ -4,9 +4,9 @@ namespace FootballStats.Persons
 {
     public interface IPerson
     {
-        Name Name { get; }
+        string GetName();
         Nationality Nationality { get; }
-
         int GetAge();
+        void ChangeName(string firstName, string middleName, string lastName);
     }
 }

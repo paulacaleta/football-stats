@@ -41,10 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Persons\ClubAffiliatedPerson.cs" />
+    <Compile Include="Persons\IClubAffiliated.cs" />
+    <Compile Include="Persons\IPlayer.cs" />
     <Compile Include="Persons\IPerson.cs" />
+    <Compile Include="Persons\IStaffMember.cs" />
     <Compile Include="Persons\Name.cs" />
     <Compile Include="Common\Nationality.cs" />
     <Compile Include="Persons\Person.cs" />
+    <Compile Include="Persons\Player.cs" />
+    <Compile Include="Persons\PlayerPosition.cs" />
+    <Compile Include="Persons\Referee.cs" />
+    <Compile Include="Persons\StaffMember.cs" />
+    <Compile Include="Persons\StaffPosition.cs" />
     <Compile Include="TestProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
