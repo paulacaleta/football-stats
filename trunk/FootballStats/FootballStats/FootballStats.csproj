@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Persons\IPerson.cs" />
     <Compile Include="Persons\Name.cs" />
-    <Compile Include="Persons\Nationality.cs" />
+    <Compile Include="Common\Nationality.cs" />
     <Compile Include="Persons\Person.cs" />
     <Compile Include="TestProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

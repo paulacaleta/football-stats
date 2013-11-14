@@ -1,4 +1,6 @@
-﻿namespace FootballStats.Persons
+﻿using FootballStats.Common;
+
+namespace FootballStats.Persons
 {
     public interface IPerson
     {

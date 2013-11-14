@@ -1,6 +1,7 @@
 ﻿namespace FootballStats.Persons
 {
     using System;
+    using FootballStats.Common;
 
     public abstract class Person : IPerson
     {
