@@ -8,9 +8,9 @@
         const int LastNameMaxLength = 20;
         const int MinNameLength = 2;
 
-        string firstName;
-        string middleName;
-        string lastName;
+        private string firstName;
+        private string middleName;
+        private string lastName;
 
         public string FirstName
         {

@@ -6,9 +6,9 @@
 
     public abstract class Person : IPerson
     {
-        Name name;
-        DateTime birthDate;
-        Nationality nationality;
+        private Name name;
+        private DateTime birthDate;
+        private Nationality nationality;
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {
@@ -44,7 +44,14 @@
             set
             {
                 // TODO: Check for inappropriate input
-                this.birthDate = value;
+                if (value.Year >= 1920 && value.Year <= 2013)
+                {
+                    this.birthDate = value;
+                }
+                else
+                {
+                    throw new Exception("Invalid birth date input!");
+                }
             }
         }
 

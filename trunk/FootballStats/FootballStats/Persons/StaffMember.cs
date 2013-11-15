@@ -9,7 +9,7 @@ namespace FootballStats.Persons
 {
     public class StaffMember : ClubAffiliatedPerson, IStaffMember
     {
-        StaffPosition staffPosition = StaffPosition.NotSet;
+        private StaffPosition staffPosition = StaffPosition.NotSet;
         
         public StaffMember(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
