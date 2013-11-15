@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clubs\IClub.cs" />
+    <Compile Include="Clubs\IClubStats.cs" />
     <Compile Include="Persons\ClubAffiliatedPerson.cs" />
     <Compile Include="Persons\IClubAffiliated.cs" />
     <Compile Include="Persons\IPlayer.cs" />
