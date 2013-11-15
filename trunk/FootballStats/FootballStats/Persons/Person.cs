@@ -6,9 +6,9 @@
 
     public abstract class Person : IPerson
     {
-        private Name name;
-        private DateTime birthDate;
-        private Nationality nationality;
+        Name name;
+        DateTime birthDate;
+        Nationality nationality;
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {

@@ -9,7 +9,7 @@ namespace FootballStats.Persons
 {
     public abstract class ClubAffiliatedPerson : Person, IClubAffiliated
     {
-        private decimal weeklyWage;
+        decimal weeklyWage;
 
         public ClubAffiliatedPerson(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
