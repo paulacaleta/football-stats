@@ -12,13 +12,11 @@ namespace FootballStats.Clubs
     {
         string Name { get; }
         Nationality Nationality { get; }
-        string Location { get; }        
         List<Player> Team { get; }
         List<StaffMember> Staff { get; }
 
         void ChangeName(string newName);
         void ChangeNationality(Nationality newNationality);
-        void ChangeLocation(string newLocation);
         void AddPlayer(Player player);
         void RemovePlayer(Player player);
         void AddStaffMember(StaffMember staffMember);
