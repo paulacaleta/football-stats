@@ -14,7 +14,8 @@ namespace FootballStats.Clubs
         int TotalDefenders();
         int TotalForwards();
         bool HasManager();
-        decimal AverageWage();
+        decimal AverageWageForTeam();
+        decimal AverageWageForStaff();
         decimal HighestWage();
     }
 }
