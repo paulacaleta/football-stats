@@ -44,6 +44,8 @@
     <Compile Include="Clubs\Club.cs" />
     <Compile Include="Clubs\IClub.cs" />
     <Compile Include="Clubs\IClubStats.cs" />
+    <Compile Include="Matches\Goal.cs" />
+    <Compile Include="Matches\Match.cs" />
     <Compile Include="Persons\ClubAffiliatedPerson.cs" />
     <Compile Include="Persons\IClubAffiliated.cs" />
     <Compile Include="Persons\IPlayer.cs" />
@@ -64,6 +66,7 @@
     <None Include="App.config" />
     <None Include="Persons\PersonsClassDiagram.cd" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
