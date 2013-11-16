@@ -11,7 +11,7 @@ namespace FootballStats.Clubs
     {
         double TeamAverageAge();
         int TotalPlayersAtClub();
-        int TotalPlayersPerPosition(PlayerPosition position); // TODO: Implement this method
+        int TotalPlayersPerPosition(PlayerPosition position);
         bool HasManager();
         decimal AverageWageOfPlayers();
         decimal AverageWageOfStaff();

@@ -33,6 +33,10 @@ namespace FootballStats.Persons
         }
         public void SetWeeklyWage(decimal wage)
         {
+            if (wage <= 0 )
+            {
+                throw new Exception("Can't have negative or 0 amount for wage!");
+            }
             this.weeklyWage = wage;
         }
     }

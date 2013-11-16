@@ -12,13 +12,13 @@ namespace FootballStats.Clubs
     {
         string name;
         Nationality nationality;
-        List<Persons.Player> team;
-        List<Persons.StaffMember> staff;
+        List<Player> team;
+        List<StaffMember> staff;
 
         int clubMaxLenght = 50;
         int clubMinLenght = 2;
 
-        public Club(string name, Nationality nationality, List<Persons.Player> team, List<Persons.StaffMember> staff) 
+        public Club(string name, Nationality nationality, List<Player> team, List<StaffMember> staff) 
         {
             this.Name = name;
             this.Nationality = nationality;
@@ -54,7 +54,7 @@ namespace FootballStats.Clubs
                 }
             }
         }
-        public Common.Nationality Nationality
+        public Nationality Nationality
         {
             get { return this.nationality; }
 
@@ -63,13 +63,13 @@ namespace FootballStats.Clubs
                 this.nationality = value;
             }
         }
-        public List<Persons.Player> Team
+        public List<Player> Team
         {
             get { return this.team; }
 
             private set
             {
-                if (value is List<Persons.Player>)
+                if (value is List<Player>)
                 {
                     this.team = value;
                 }
@@ -79,13 +79,13 @@ namespace FootballStats.Clubs
                 }
             }
         }
-        public List<Persons.StaffMember> Staff
+        public List<StaffMember> Staff
         {
             get { return this.staff; }
 
             private set
             {
-                if (value is List<Persons.StaffMember>)
+                if (value is List<StaffMember>)
                 {
                     this.staff = value;
                 }
@@ -101,23 +101,23 @@ namespace FootballStats.Clubs
         {
             this.Name = newName;
         }
-        public void ChangeNationality(Common.Nationality newNationality)
+        public void ChangeNationality(Nationality newNationality)
         {
             this.Nationality = newNationality;
         }
-        public void AddPlayer(Persons.Player player)
+        public void AddPlayer(Player player)
         {
             this.team.Add(player);
         }
-        public void RemovePlayer(Persons.Player player)
+        public void RemovePlayer(Player player)
         {
             this.team.Remove(player);
         }
-        public void AddStaffMember(Persons.StaffMember staffMember)
+        public void AddStaffMember(StaffMember staffMember)
         {
             this.staff.Add(staffMember);
         }
-        public void RemoveStaffMember(Persons.StaffMember staffMember)
+        public void RemoveStaffMember(StaffMember staffMember)
         {
             this.staff.Remove(staffMember);
         }
@@ -137,44 +137,19 @@ namespace FootballStats.Clubs
         {
             return this.team.Count;
         }
-        public int TotalGoalkeepers() 
+        public int TotalPlayersPerPosition(PlayerPosition position)
         {
-            int totalGK = 0;
+            int playersPerPosition = 0;
+
             foreach (var player in team)
             {
-                if (player.Positions.Contains(PlayerPosition.GK))
+                if (player.Positions.Contains(position))
                 {
-                    totalGK++;
+                    playersPerPosition++;
                 }
             }
 
-            return totalGK;
-        }
-        public int TotalDefenders() 
-        {
-            int totalDF = 0;
-            foreach (var player in team)
-            {
-                if (player.Positions.Contains(PlayerPosition.DF))
-                {
-                    totalDF++;
-                }
-            }
-
-            return totalDF;
-        }
-        public int TotalForwards() 
-        {
-            int totalFW = 0;
-            foreach (var player in team)
-            {
-                if (player.Positions.Contains(PlayerPosition.FW))
-                {
-                    totalFW++;
-                }
-            }
-
-            return totalFW;
+            return playersPerPosition;
         }
         public bool HasManager() 
         {
@@ -197,7 +172,7 @@ namespace FootballStats.Clubs
                 avregeWage += player.MonthlyWage();
             }
 
-            return avregeWage;
+            return avregeWage / this.team.Count;
         }
         public decimal AverageWageOfStaff() 
         {
@@ -208,29 +183,24 @@ namespace FootballStats.Clubs
                 avregeWage += staffmember.MonthlyWage();
             }
 
-            return avregeWage;
+            return avregeWage / this.team.Count;
         }
         public decimal HighestPlayerWage() 
         {
-            decimal highestWage = 0;
-
-            foreach (var staffmember in staff)
-            {
-                if (staffmember.MonthlyWage() > highestWage)
-                {
-                    highestWage = staffmember.MonthlyWage();
-                }
-            }
+            decimal highestPlayerWage = 0;
 
             foreach (var player in team)
             {
-                if (player.MonthlyWage() > highestWage)
+                if (player.MonthlyWage() > highestPlayerWage)
                 {
-                     highestWage = player.MonthlyWage();
+                    highestPlayerWage = player.MonthlyWage();
                 }
             }
 
-            return highestWage;
+            return highestPlayerWage;
         }
+
+
+       
     }
 }

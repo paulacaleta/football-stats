@@ -43,7 +43,6 @@
 
             set
             {
-                // TODO: Check for inappropriate input
                 if (value.Year >= 1920 && value.Year <= 2013)
                 {
                     this.birthDate = value;
