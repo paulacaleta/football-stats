@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FootballStats.Persons;
 
 namespace FootballStats.Clubs
 {
@@ -10,12 +11,10 @@ namespace FootballStats.Clubs
     {
         double TeamAverageAge();
         int TotalPlayersAtClub();
-        int TotalGoalkeepers();
-        int TotalDefenders();
-        int TotalForwards();
+        int TotalPlayersPerPosition(PlayerPosition position); // TODO: Implement this method
         bool HasManager();
-        decimal AverageWageForTeam();
-        decimal AverageWageForStaff();
-        decimal HighestWage();
+        decimal AverageWageOfPlayers();
+        decimal AverageWageOfStaff();
+        decimal HighestPlayerWage();
     }
 }

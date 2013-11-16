@@ -188,7 +188,7 @@ namespace FootballStats.Clubs
 
             return false;
         }
-        public decimal AverageWageForTeam() 
+        public decimal AverageWageOfPlayers() 
         {
             decimal avregeWage = 0;
             
@@ -199,7 +199,7 @@ namespace FootballStats.Clubs
 
             return avregeWage;
         }
-        public decimal AverageWageForStaff() 
+        public decimal AverageWageOfStaff() 
         {
             decimal avregeWage = 0;
 
@@ -210,7 +210,7 @@ namespace FootballStats.Clubs
 
             return avregeWage;
         }
-        public decimal HighestWage() 
+        public decimal HighestPlayerWage() 
         {
             decimal highestWage = 0;
 
