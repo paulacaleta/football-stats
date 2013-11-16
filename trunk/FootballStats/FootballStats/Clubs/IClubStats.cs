@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FootballStats.Persons;
+using FootballStats.Common;
 
 namespace FootballStats.Clubs
 {
@@ -16,5 +17,6 @@ namespace FootballStats.Clubs
         decimal AverageWageOfPlayers();
         decimal AverageWageOfStaff();
         decimal HighestPlayerWage();
+        int CountPlayersWithSameNationality(Nationality nationality);
     }
 }

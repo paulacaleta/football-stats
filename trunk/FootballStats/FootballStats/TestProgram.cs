@@ -22,7 +22,7 @@
             List<Player> team = new List<Player>()
             {
                 new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian),
-                new Player("Gacov", "Gacov", "Gacov", "15.10.1979", Nationality.Bulgarian),
+                new Player("Gacov", "Gacov", "Gacov", "15.10.1979", Nationality.Cambodian),
                 new Player("Baco", "Bacov", "Bacov", "15.10.1979", Nationality.Bulgarian),
                 new Player("Baco", "Gacov", "Stoyanov", "15.10.1987", Nationality.Bulgarian),
                 new Player("Baco", "Gacov", "Stoyanov", "15.10.1986", Nationality.Bulgarian),
@@ -79,6 +79,7 @@
             Console.WriteLine("Team average age: {0}",(int)(testClub.TeamAverageAge()));
             Console.WriteLine("This club higest wage : {0:C2}", testClub.HighestPlayerWage());
             Console.WriteLine("Total players at club: {0}", testClub.TotalPlayersAtClub());
+            Console.WriteLine("Players with Bulgarian nationality : {0}", testClub.CountPlayersWithSameNationality(Nationality.Bulgarian));
         }
   
         private static void PlayerCreationTest()

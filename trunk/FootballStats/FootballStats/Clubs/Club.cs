@@ -199,7 +199,20 @@ namespace FootballStats.Clubs
 
             return highestPlayerWage;
         }
+        public int CountPlayersWithSameNationality(Nationality nationality) 
+        {
+            int count = 0;
 
+            foreach (var player in this.team)
+            {
+                if (player.Nationality.Equals(nationality))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        } 
 
        
     }
