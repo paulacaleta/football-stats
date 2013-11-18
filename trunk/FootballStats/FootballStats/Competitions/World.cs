@@ -6,10 +6,86 @@ using FootballStats.Persons;
 
 namespace FootballStats.Competitions
 {
-    public class World
+    public static class World
     {
-        private List<Person> allPersons;
-        private List<Club> allClubs;
-        private List<Competition> allCompetitions;
+        private static List<Person> allPersons = new List<Person>();
+        private static List<Club> allClubs = new List<Club>();
+        private static List<Competition> allCompetitions = new List<Competition>();
+
+        static public List<Club> AllClubs
+        {
+            get
+            {
+                return allClubs;
+            }
+        }
+
+        static public List<Person> AllPersons
+        {
+            get
+            {
+                return allPersons;
+            }
+        }
+
+        static public List<Competition> AllCompetitions
+        {
+            get
+            {
+                return allCompetitions;
+            }
+        }
+
+        public static void AddPerson(Person person)
+        {
+            if (!allPersons.Contains(person))
+            {
+                allPersons.Add(person);
+            }
+            else
+            {
+                // TODO: Implement exception
+                throw new NotImplementedException();
+            }            
+        }
+
+        public static void AddClub(Club club)
+        {
+            if (!allClubs.Contains(club))
+            {
+                allClubs.Add(club);
+                
+            }
+            else
+            {
+                // TODO: Implement exception
+                throw new NotImplementedException(); 
+            }            
+        }
+
+        public static void AddCompetition(Competition competition)
+        {
+            if (!allCompetitions.Contains(competition))
+            {
+                allCompetitions.Add(competition);
+            }
+            else
+            {
+                // TODO: Implement exception
+                throw new NotImplementedException(); 
+            }
+        }
+
+        public static void SaveWorld()
+        {
+            // TODO: Implement method
+            throw new NotImplementedException();
+        }
+
+        public static void LoadWorld()
+        {
+            // TODO: Implement method
+            throw new NotImplementedException();
+        }
     }
 }

@@ -24,15 +24,21 @@ using System.Threading.Tasks;
                 
         public void SetCompetition(Competition competition)
         {
-            // TODO: Implement this method
-            // Note: Competition must be an existing one. Can't be implemented right now!
-            throw new NotImplementedException();
+            if (World.AllCompetitions.Contains(competition))
+            {
+                this.competition = competition;
+            }
+            else
+            {
+                // TODO: Implement exception
+                throw new NotImplementedException();
+            }            
         }
 
         public void SetSeason(Season season)
         {
             // TODO: Implement this method
-            // Note: season must be an existing one- use HasSeason method in Competition class
+            // Note: season must be an existing one - use HasSeason method in Competition class
             throw new NotImplementedException();
         }
 
