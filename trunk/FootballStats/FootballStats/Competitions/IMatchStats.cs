@@ -4,8 +4,9 @@
 
     interface IMatchStats
     {
-        List<Goal> Goal { get; }
-        List<Corner> Corner { get; }
-        List<PenaltyKick> PenaltyKick { get; }
+        List<MatchEvent> GetEvents(EventType eventType);
+        List<MatchEvent> GetAllEvents();
+
+
     }
 }

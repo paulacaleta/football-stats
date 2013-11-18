@@ -21,5 +21,6 @@ namespace FootballStats.Clubs
         void RemovePlayer(Player player);
         void AddStaffMember(StaffMember staffMember);
         void RemoveStaffMember(StaffMember staffMember);
+        bool ContainsPlayer(Player player);
     }
 }

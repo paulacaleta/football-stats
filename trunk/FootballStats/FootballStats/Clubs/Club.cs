@@ -214,6 +214,13 @@ namespace FootballStats.Clubs
             return count;
         } 
 
-       
+        public bool ContainsPlayer(Player player)
+        {
+            if (Team.Contains(player))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
