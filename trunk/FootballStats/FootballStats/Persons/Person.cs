@@ -10,6 +10,7 @@
         DateTime birthDate;
         Nationality nationality;
 
+       
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {
             Name name = new Name();

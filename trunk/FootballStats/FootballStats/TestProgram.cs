@@ -11,33 +11,33 @@
     {
         static void Main()
         {
-            PlayerCreationTest();
+            //PlayerCreationTest();
             //ClubTest();
             //Engine engine = new Engine();
             //engine.Run();
-            //TestInteroperability();
+            TestInteroperability();
         }
 
         private static void TestInteroperability()
         {
-            Player ivanov = new Player("Ivan", "Ivanov", "Petrov", "10.11.1990", Nationality.Bulgarian);
-            
-            Club cska = new Club("CSKA", Nationality.Bulgarian);
-            World.AddClub(cska);
-            cska.AddPlayer(ivanov);
 
-            cska.AddPlayer(ivanov);
+            Club Levski = new Club("Levski", Nationality.Bulgarian);
+            Club Cska = new Club("Cska", Nationality.Bulgarian);
 
-            Club levski = new Club("Levski", Nationality.Bulgarian);
-            Player iliev = new Player("Plamen", "Petrov", "Iliev", "5.6.1998", Nationality.Bulgarian);
-            World.AddClub(levski);
-            levski.AddPlayer(iliev);
+            Match testMtach = new Match(Levski, Cska);
+            testMtach.AddEvent(new MatchEvent(15, Cska, Levski, new Player("noname", "noname", "noname", "5/5/1990", Nationality.Bulgarian), EventType.Offside));
+            testMtach.AddEvent(new MatchEvent(40, Levski, Cska, new Player("SomeName", "SomeName", "SomeName", "5/5/1992", Nationality.Bulgarian), EventType.Goal));
 
-            Competition comp = new Competition("A Group", Nationality.Bulgarian);
-            World.AddCompetition(comp);            
-            Season s = new Season(1);
-            comp.AddSeason(s);
-            
+            foreach (var item in testMtach.GetAllEvents())
+            {
+                Console.WriteLine(item.ToString());
+                Console.WriteLine();
+            }
+
+            while (true)
+            {
+                
+            }
         }
 
         private static void ClubTest()

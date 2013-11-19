@@ -129,8 +129,6 @@
         public void SetDate(DateTime date)
         {
             this.dateOfMatch = date;
-            // TODO: Implement an exception
-            throw new NotImplementedException();
         }
 
         public void SetReferee(Referee referee)

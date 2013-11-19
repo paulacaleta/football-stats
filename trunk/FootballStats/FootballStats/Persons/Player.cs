@@ -32,7 +32,6 @@ namespace FootballStats.Persons
 
             throw new InvalidPlayerPositionException("This player position already exists.", position);
         }
-
         public void RemovePosition(PlayerPosition position)
         {
             if (this.Positions.Contains(position))
