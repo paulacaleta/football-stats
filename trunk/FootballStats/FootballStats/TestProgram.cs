@@ -37,26 +37,6 @@
             World.AddCompetition(comp);            
             Season s = new Season(1);
             comp.AddSeason(s);
-
-            Match testMatch = new Match();
-            testMatch.SetSeason(s);
-            s.SetCompetition(comp);
-            s.AddClub(cska);
-            s.AddClub(levski);
-            testMatch.SetTeams(cska, levski);
-            testMatch.AddPlayerToList(ivanov, cska);
-            testMatch.AddPlayerToList(iliev, levski);
-            MatchEvent firstGoal = new MatchEvent(15, cska, levski, ivanov, EventType.Goal);
-            MatchEvent yellow = new MatchEvent(70, levski, cska, iliev, EventType.YellowCard);
-            testMatch.AddEvent(firstGoal);
-            testMatch.AddEvent(yellow);
-
-            testMatch.CompleteMatch();
-            foreach (var mat in s.Matches)
-            {
-                Console.WriteLine(mat);
-            }
-
             
         }
 
@@ -126,8 +106,7 @@
             Console.WriteLine("This club higest wage : {0:C2}", testClub.HighestPlayerWage());
             Console.WriteLine("Total players at club: {0}", testClub.TotalPlayersAtClub());
             Console.WriteLine("Players with Bulgarian nationality : {0}", testClub.CountPlayersWithSameNationality(Nationality.Bulgarian));
-        }
-  
+        } 
         private static void PlayerCreationTest()
         {
             Console.WriteLine("TESTING PLAYER CREATION");

@@ -16,7 +16,13 @@
         private List<Player> awayTeam = new List<Player>();
         private Referee referee;
         private List<MatchEvent> matchEvents = new List<MatchEvent>();
-        
+
+        public Match(Club homeClub, Club awayClub) 
+        {
+            this.homeClub = homeClub;
+            this.awayClub = awayClub;
+        }
+
         public void SetCompetition(Competition competition)
         {
             if (World.AllCompetitions.Contains(competition))
@@ -133,8 +139,11 @@
             {
                 this.referee = referee;
             }
-            // TODO: Implement an exception
-            throw new NotImplementedException();
+            else
+            {
+                // TODO: Implement an exception
+                throw new NotImplementedException();
+            }
         }
         public List<MatchEvent> GetEvents(EventType eventType)
         {
@@ -164,7 +173,15 @@
 
         public void CompleteMatch()
         {
-            this.season.AddMatch(this);
+            if (this.dateOfMatch != null)
+            {
+                this.season.AddMatch(this);
+            }
+            else
+            {
+                // TODO: inmplement exception
+                throw new NotImplementedException();
+            }
         }
     }
 }
