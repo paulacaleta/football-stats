@@ -10,20 +10,18 @@ namespace FootballStats.Clubs
 {
     public class Club : IClub, IClubStats
     {
-        string name;
-        Nationality nationality;
-        List<Player> team;
-        List<StaffMember> staff;
+        private string name;
+        private Nationality nationality;
+        private List<Player> team = new List<Player>();
+        private List<StaffMember> staff = new List<StaffMember>();
 
         int clubMaxLenght = 50;
         int clubMinLenght = 2;
 
-        public Club(string name, Nationality nationality, List<Player> team, List<StaffMember> staff) 
+        public Club(string name, Nationality nationality) 
         {
             this.Name = name;
             this.Nationality = nationality;
-            this.Team = team;
-            this.Staff = staff;
         }
 
         public string Name

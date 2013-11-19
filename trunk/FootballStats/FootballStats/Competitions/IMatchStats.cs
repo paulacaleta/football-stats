@@ -6,7 +6,5 @@
     {
         List<MatchEvent> GetEvents(EventType eventType);
         List<MatchEvent> GetAllEvents();
-
-
     }
 }

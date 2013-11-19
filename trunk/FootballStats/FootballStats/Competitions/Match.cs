@@ -1,13 +1,10 @@
 ﻿namespace FootballStats.Competitions
 {
     using FootballStats.Clubs;
-using FootballStats.Persons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+    using FootballStats.Persons;
+    using System;
+    using System.Collections.Generic;
+        
     public class Match : IMatchStats
     {
         private Competition competition;
@@ -15,13 +12,11 @@ using System.Threading.Tasks;
         private DateTime dateOfMatch;
         private Club homeClub;
         private Club awayClub;
-        private List<Player> homeFirstTeam = new List<Player>();
-        private List<Player> awayFirstTeam = new List<Player>();
-        private List<Player> homeReserves = new List<Player>();
-        private List<Player> awayReserves = new List<Player>();
+        private List<Player> homeTeam = new List<Player>();
+        private List<Player> awayTeam = new List<Player>();
         private Referee referee;
         private List<MatchEvent> matchEvents = new List<MatchEvent>();
-                
+        
         public void SetCompetition(Competition competition)
         {
             if (World.AllCompetitions.Contains(competition))
@@ -32,11 +27,13 @@ using System.Threading.Tasks;
             {
                 // TODO: Implement exception
                 throw new NotImplementedException();
-            }            
+            }
         }
 
         public void SetSeason(Season season)
         {
+            this.season = season;
+            return;
             // TODO: Implement this method
             // Note: season must be an existing one - use HasSeason method in Competition class
             throw new NotImplementedException();
@@ -44,6 +41,11 @@ using System.Threading.Tasks;
 
         public void SetTeams(Club homeTeam, Club awayTeam)
         {
+            if (this.season == null)
+            {
+                // TODO: Implement this exception "Must set season"
+                throw new NotImplementedException();
+            }
             if (this.season.ContainsClub(homeTeam))
             {
                 this.homeClub = homeTeam;
@@ -53,7 +55,7 @@ using System.Threading.Tasks;
                 // TODO: Implement this exception
                 throw new NotImplementedException();
             }
-            
+
             if (this.season.ContainsClub(awayTeam))
             {
                 this.awayClub = awayTeam;
@@ -62,23 +64,19 @@ using System.Threading.Tasks;
             {
                 // TODO: Implement this exception
                 throw new NotImplementedException();
-            }            
+            }
         }
 
-        public void AddEvent()
+        public void AddEvent(MatchEvent ev)
         {
+            this.matchEvents.Add(ev);
             // TODO: Implement this method
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
-        public void AddPlayerToList(Player player, Club club, string team)
+        public void AddPlayerToList(Player player, Club club)
         {
             if (club != this.homeClub && club != this.awayClub)
-            {
-                 // TODO: Implement this
-                throw new NotImplementedException();
-            }
-            if (team != "first" && team != "reserves")
             {
                 // TODO: Implement this
                 throw new NotImplementedException();
@@ -87,26 +85,12 @@ using System.Threading.Tasks;
             {
                 if (club == homeClub)
                 {
-                    if (team == "first")
-                    {
-                        homeFirstTeam.Add(player);
-                    }
-                    else if (team == "reserves")
-                    {
-                        homeReserves.Add(player);
-                    }
+                    homeTeam.Add(player);
                     return;
                 }
                 else if (club == awayClub)
                 {
-                    if (team == "first")
-                    {
-                        awayFirstTeam.Add(player);
-                    }
-                    else if (team == "reserves")
-                    {
-                        awayReserves.Add(player);
-                    }
+                    awayTeam.Add(player);
                     return;
                 }
             }
@@ -116,8 +100,7 @@ using System.Threading.Tasks;
 
         public void RemovePlayerFromList(Player player, List<Player> team)
         {
-            if (team != this.homeFirstTeam && team != this.homeReserves
-                && team != this.awayFirstTeam && team != this.awayReserves)
+            if (team != this.homeTeam && team != this.awayTeam)
             {
                 // TODO: Implement this exception
                 throw new NotImplementedException();
@@ -163,6 +146,11 @@ using System.Threading.Tasks;
         {
             // TODO: Implement this method
             throw new NotImplementedException();
+        }
+
+        public void CompleteMatch()
+        {
+            this.season.AddMatch(this);
         }
     }
 }

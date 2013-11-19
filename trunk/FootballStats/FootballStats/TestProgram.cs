@@ -5,13 +5,59 @@
     using FootballStats.Persons;
     using FootballStats.Common;
     using FootballStats.Clubs;
+    using FootballStats.Competitions;
 
     class TestProgram
     {
         static void Main()
         {
             //PlayerCreationTest();
-            ClubTest();
+            //ClubTest();
+            //Engine engine = new Engine();
+            //engine.Run();
+            TestInteroperability();
+        }
+
+        private static void TestInteroperability()
+        {
+            Player ivanov = new Player("Ivan", "Ivanov", "Petrov", "10.11.1990", Nationality.Bulgarian);
+            
+            Club cska = new Club("CSKA", Nationality.Bulgarian);
+            World.AddClub(cska);
+            cska.AddPlayer(ivanov);
+
+            cska.AddPlayer(ivanov);
+
+            Club levski = new Club("Levski", Nationality.Bulgarian);
+            Player iliev = new Player("Plamen", "Petrov", "Iliev", "5.6.1998", Nationality.Bulgarian);
+            World.AddClub(levski);
+            levski.AddPlayer(iliev);
+
+            Competition comp = new Competition("A Group", Nationality.Bulgarian);
+            World.AddCompetition(comp);            
+            Season s = new Season(1);
+            comp.AddSeason(s);
+
+            Match testMatch = new Match();
+            testMatch.SetSeason(s);
+            s.SetCompetition(comp);
+            s.AddClub(cska);
+            s.AddClub(levski);
+            testMatch.SetTeams(cska, levski);
+            testMatch.AddPlayerToList(ivanov, cska);
+            testMatch.AddPlayerToList(iliev, levski);
+            MatchEvent firstGoal = new MatchEvent(15, cska, levski, ivanov, EventType.Goal);
+            MatchEvent yellow = new MatchEvent(70, levski, cska, iliev, EventType.YellowCard);
+            testMatch.AddEvent(firstGoal);
+            testMatch.AddEvent(yellow);
+
+            testMatch.CompleteMatch();
+            foreach (var mat in s.Matches)
+            {
+                Console.WriteLine(mat);
+            }
+
+            
         }
 
         private static void ClubTest()
@@ -65,7 +111,7 @@
                 staffMember.SetWeeklyWage(rdm.Next(200, 400));
             }
 
-            Club testClub = new Club("NekvoIme", Nationality.Bulgarian, team, staff);
+            Club testClub = new Club("NekvoIme", Nationality.Bulgarian);
             Player playerToTestAddAndRemove = new Player("Test", "Player", "Testing", "15.10.1940", Nationality.Bulgarian);
             StaffMember staStaffMemberToTestAddAndRemove = new StaffMember("Test", "Player", "Testing", "15.10.1940", Nationality.Bulgarian);
 

@@ -7,8 +7,7 @@ using FootballStats.Persons;
 namespace FootballStats.Competitions
 {
     public static class World
-    {
-        private static List<Person> allPersons = new List<Person>();
+    {        
         private static List<Club> allClubs = new List<Club>();
         private static List<Competition> allCompetitions = new List<Competition>();
 
@@ -20,33 +19,12 @@ namespace FootballStats.Competitions
             }
         }
 
-        static public List<Person> AllPersons
-        {
-            get
-            {
-                return allPersons;
-            }
-        }
-
         static public List<Competition> AllCompetitions
         {
             get
             {
                 return allCompetitions;
             }
-        }
-
-        public static void AddPerson(Person person)
-        {
-            if (!allPersons.Contains(person))
-            {
-                allPersons.Add(person);
-            }
-            else
-            {
-                // TODO: Implement exception
-                throw new NotImplementedException();
-            }            
         }
 
         public static void AddClub(Club club)

@@ -1,34 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FootballStats.Clubs;
+﻿using FootballStats.Clubs;
 using FootballStats.Persons;
+using System;
+using System.Collections.Generic;
 
 namespace FootballStats.Competitions
 {
     public class Season
     {
         private int identificator;
-        private Competition competition;
+        private Competition competition = null;
         private int totalTeams;
-        private List<Club> participatingClubs;
+        private List<Club> participatingClubs = new List<Club>();
         private List<Referee> referees;        
         private DateTime startDate;
         private DateTime endDate;
+        private List<Match> matches = new List<Match>();
         
         public Season(int identificator)
         {
             // TODO: must be unique number! There shouldn't be seasons with identical ID's
             this.identificator = identificator;
         }
+        
+        // TODO: Method that returns the goalscorers and the total goals each player has scored
 
-        // TODO: Method that sets the competition to an existing one
+        public List<Match> Matches
+        {
+            get
+            {
+                return this.matches;
+            }
+        }
+
+        public void SetCompetition(Competition competition)
+        {
+            // TODO: Method that sets the competition to an existing one.
+            this.competition = competition;            
+        }
 
         // TODO: Method that sets max number of teams
 
-        // TODO: Method that adds an existing club
+        public void AddClub(Club club)
+        {
+            this.participatingClubs.Add(club);
+            // TODO: Method that adds an existing club
+        }
+        
         
         public void AddReferee(Referee referee)
         {
@@ -59,6 +76,11 @@ namespace FootballStats.Competitions
                 return true;
             }
             return false;
+        }
+
+        public void AddMatch(Match match)
+        {
+            this.matches.Add(match);
         }
     }
 }

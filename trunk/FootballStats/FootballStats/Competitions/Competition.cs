@@ -24,8 +24,9 @@ namespace FootballStats.Competitions
             get { return this.name; }
         }
 
-        public void AddSeason()
+        public void AddSeason(Season season)
         {
+            this.seasons.Add(season);
             // TODO: Implement
             // Adding season is only allowed if List is empty or previous season has finished
         }
