@@ -29,8 +29,14 @@
             }
             set
             {
-                // TODO: 1 to 130
-                this.minuteOfEvent = value;
+                if (value > 0 && value < 130)
+                {
+                    this.minuteOfEvent = value;
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
         }
 

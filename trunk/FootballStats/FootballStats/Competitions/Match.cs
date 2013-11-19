@@ -138,14 +138,28 @@
         }
         public List<MatchEvent> GetEvents(EventType eventType)
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
-        }
+            List<MatchEvent> newEventList = new List<MatchEvent>();
 
+            for (int i = 0; i < this.matchEvents.Count; i++)
+            {
+                if (this.matchEvents[i].EventType.Equals(eventType))
+                {
+                    newEventList.Add(this.matchEvents[i]);
+                }
+            }
+
+            return newEventList;
+        }
         public List<MatchEvent> GetAllEvents()
         {
-            // TODO: Implement this method
-            throw new NotImplementedException();
+            List<MatchEvent> newEventList = new List<MatchEvent>();
+
+            for (int i = 0; i < this.matchEvents.Count; i++)
+            {
+                newEventList.Add(this.matchEvents[i]);
+            }
+
+            return newEventList;
         }
 
         public void CompleteMatch()
