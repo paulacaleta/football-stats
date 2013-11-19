@@ -85,7 +85,7 @@
             set
             {
                 // Last name is mandatory
-                if (value.Length < 2 || value == null)
+                if (value.Length < MinNameLength || value == null)
                 {
                     string message = string.Format(
                             "Last name should be at least {0} characters.", MinNameLength);

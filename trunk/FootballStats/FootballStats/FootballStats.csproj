@@ -44,6 +44,7 @@
     <Compile Include="Clubs\Club.cs" />
     <Compile Include="Clubs\IClub.cs" />
     <Compile Include="Clubs\IClubStats.cs" />
+    <Compile Include="Common\InvalidPlayerPositionException.cs" />
     <Compile Include="Competitions\Competition.cs" />
     <Compile Include="Competitions\EventType.cs" />
     <Compile Include="Competitions\MatchEvent.cs" />

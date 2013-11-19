@@ -43,7 +43,7 @@
 
             set
             {
-                if (value.Year >= 1920 && value.Year <= 2013)
+                if (value.Year >= 1920 && value.Year <= DateTime.Today.Year)
                 {
                     this.birthDate = value;
                 }
@@ -69,9 +69,14 @@
 
         public int GetAge()
         {
-            // Age is calculated up to the current moment
-            // TODO: Improve at later stage
-            return (int)(((DateTime.Now - BirthDate).TotalDays) / 365);
+            // Age is calculated up to the current moment    
+            DateTime today = DateTime.Today;
+            int personAge = today.Year - this.BirthDate.Year;
+            if (this.BirthDate > today.AddYears(-personAge))
+            {
+                personAge--;
+            }
+            return personAge;
         }
 
         public string GetName()

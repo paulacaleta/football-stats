@@ -29,8 +29,8 @@ namespace FootballStats.Persons
                 this.positions.Add(position);
                 return;
             }
-            // TODO: Throw Custom Exception;
-            throw new NotImplementedException();
+
+            throw new InvalidPlayerPositionException("This player position already exists.", position);
         }
 
         public void RemovePosition(PlayerPosition position)
@@ -46,8 +46,8 @@ namespace FootballStats.Persons
                     }
                 }
             }
-            // TODO: Throw Custom Exception;
-            throw new NotImplementedException();
+
+            throw new InvalidPlayerPositionException("Cannot find this player position.", position);
         }
     }
 }
