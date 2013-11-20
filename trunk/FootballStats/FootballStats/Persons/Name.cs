@@ -4,13 +4,13 @@
 
     public struct Name
     {
-        const int FirstAndMiddleNameMaxLength = 15;
-        const int LastNameMaxLength = 20;
-        const int MinNameLength = 2;
+        private const int FirstAndMiddleNameMaxLength = 15;
+        private const int LastNameMaxLength = 20;
+        private const int MinNameLength = 2;
 
-        string firstName;
-        string middleName;
-        string lastName;
+        private string firstName;
+        private string middleName;
+        private string lastName;
 
         public string FirstName
         {

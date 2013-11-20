@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
-using FootballStats.Common;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
+    using FootballStats.Common;
+
     public class Referee : Person
     {
         public Referee(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FootballStats.Common;
-using FootballStats.Persons;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
+    using System;
+    using FootballStats.Common;
+
     public abstract class ClubAffiliatedPerson : Person, IClubAffiliated
     {
-        decimal weeklyWage = 0;
+        private decimal weeklyWage = 0.0m;
 
         public ClubAffiliatedPerson(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
@@ -29,14 +25,16 @@ namespace FootballStats.Persons
 
         public decimal YearlyWage()
         {
-            return this.MonthlyWage() * 12;
+            decimal monthlyWage = this.MonthlyWage();
+            return monthlyWage * 12;
         }
         public void SetWeeklyWage(decimal wage)
         {
             if (wage <= 0 )
             {
-                throw new Exception("Can't have negative or 0 amount for wage!");
+                throw new ArgumentOutOfRangeException("Can't have negative or 0 amount for wage!");
             }
+
             this.weeklyWage = wage;
         }
     }

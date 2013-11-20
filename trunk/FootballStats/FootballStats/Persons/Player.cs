@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FootballStats.Common;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
+    using System.Collections.Generic;
+    using FootballStats.Common;
+
     public class Player : ClubAffiliatedPerson, IPlayer
     {
-        // Fields
-        List<PlayerPosition> positions = new List<PlayerPosition>();
+        private IList<PlayerPosition> positions = new List<PlayerPosition>();
         // TODO: Affiliated club
 
         public Player(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
@@ -16,7 +13,7 @@ namespace FootballStats.Persons
         {
         }
 
-        public List<PlayerPosition> Positions
+        public IList<PlayerPosition> Positions
         {
             get { return this.positions; }
         }
@@ -30,8 +27,10 @@ namespace FootballStats.Persons
                 return;
             }
 
-            throw new InvalidPlayerPositionException("This player position already exists.", position);
+            string message = string.Format("This player position '{0}' already exists.", position);
+            throw new InvalidPlayerPositionException(message, position);
         }
+
         public void RemovePosition(PlayerPosition position)
         {
             if (this.Positions.Contains(position))
@@ -46,7 +45,8 @@ namespace FootballStats.Persons
                 }
             }
 
-            throw new InvalidPlayerPositionException("Cannot find this player position.", position);
+            string message = string.Format("Cannot find '{0}' player position.", position);
+            throw new InvalidPlayerPositionException(message, position);
         }
     }
 }

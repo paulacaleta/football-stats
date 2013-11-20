@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FootballStats;
-using FootballStats.Common;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
+    using FootballStats.Common;
+
     public class StaffMember : ClubAffiliatedPerson, IStaffMember
     {
-        StaffPosition staffPosition = StaffPosition.NotSet;
-        
+        private StaffPosition staffPosition = StaffPosition.NotSet;
+
         public StaffMember(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
@@ -18,7 +13,10 @@ namespace FootballStats.Persons
 
         public StaffPosition StaffPosition
         {
-            get { return this.staffPosition; }
+            get
+            {
+                return this.staffPosition;
+            }
         }
 
         public void SetStaffPosition(StaffPosition newStaffPosition)

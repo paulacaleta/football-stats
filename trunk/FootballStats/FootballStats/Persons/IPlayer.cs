@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
+    using System.Collections.Generic;
+
     public interface IPlayer
     {
-        List<PlayerPosition> Positions { get; }
+        IList<PlayerPosition> Positions { get; }
+
         void AddPosition(PlayerPosition position);
+
         void RemovePosition(PlayerPosition position);
     }
 }

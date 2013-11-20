@@ -1,16 +1,15 @@
 ﻿namespace FootballStats.Persons
 {
     using System;
-    using FootballStats.Common;
     using System.Text;
+    using FootballStats.Common;
 
     public abstract class Person : IPerson
     {
-        Name name;
-        DateTime birthDate;
-        Nationality nationality;
+        private Name name;
+        private DateTime birthDate;
+        private Nationality nationality;
 
-       
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {
             Name name = new Name();
@@ -50,7 +49,7 @@
                 }
                 else
                 {
-                    throw new Exception("Invalid birth date input!");
+                    throw new ArgumentOutOfRangeException("Invalid birth date input!");
                 }
             }
         }
@@ -77,6 +76,7 @@
             {
                 personAge--;
             }
+
             return personAge;
         }
 
@@ -88,6 +88,7 @@
             {
                 name.AppendFormat(" {0}", this.Name.MiddleName);
             }
+
             name.AppendFormat(" {0}", this.Name.LastName);
             return name.ToString();
         }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FootballStats.Persons
+﻿namespace FootballStats.Persons
 {
     public enum StaffPosition
     {
