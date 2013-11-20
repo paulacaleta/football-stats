@@ -1,0 +1,6 @@
+D:\C#\FootballStats\FootballStats\bin\Debug\FootballStats.exe.config
+D:\C#\FootballStats\FootballStats\bin\Debug\FootballStats.exe
+D:\C#\FootballStats\FootballStats\bin\Debug\FootballStats.pdb
+D:\C#\FootballStats\FootballStats\obj\Debug\FootballStats.csprojResolveAssemblyReference.cache
+D:\C#\FootballStats\FootballStats\obj\Debug\FootballStats.exe
+D:\C#\FootballStats\FootballStats\obj\Debug\FootballStats.pdb
