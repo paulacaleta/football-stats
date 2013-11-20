@@ -9,11 +9,11 @@ namespace FootballStats.Competitions
     {
         private int identificator;
         private Competition competition = null;
-        private int totalTeams;
+        // private int totalTeams;
         private List<Club> participatingClubs = new List<Club>();
         private List<Referee> referees;        
-        private DateTime startDate;
-        private DateTime endDate;
+        // private DateTime startDate;
+        // private DateTime endDate;
         private List<Match> matches = new List<Match>();
         
         public Season(int identificator)
@@ -22,7 +22,7 @@ namespace FootballStats.Competitions
             this.identificator = identificator;
         }
         
-        // TODO: Method that returns the goalscorers and the total goals each player has scored
+        // TODO: Method that returns the goal scorers and the total goals each player has scored
 
         public List<Match> Matches
         {

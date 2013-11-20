@@ -70,7 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Persons\PersonsClassDiagram.cd" />
+    <None Include="Competitions\_CompetitionsClassDiagram.cd" />
+    <None Include="Persons\_PersonsClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

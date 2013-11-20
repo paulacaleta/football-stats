@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FootballStats.Common;
-using FootballStats.Persons;
-
-namespace FootballStats.Clubs
+﻿namespace FootballStats.Clubs
 {
+    using System;
+    using System.Collections.Generic;
+    using FootballStats.Common;
+    using FootballStats.Persons;
+
     public class Club : IClub, IClubStats
     {
+        private const int ClubMaxLenght = 50;
+        private const int ClubMinLenght = 2;
+
         private string name;
         private Nationality nationality;
         private List<Player> team = new List<Player>();
         private List<StaffMember> staff = new List<StaffMember>();
 
-        int clubMaxLenght = 50;
-        int clubMinLenght = 2;
-
-        public Club(string name, Nationality nationality) 
+        public Club(string name, Nationality nationality)
         {
             this.Name = name;
             this.Nationality = nationality;
@@ -26,24 +23,25 @@ namespace FootballStats.Clubs
 
         public string Name
         {
-            get { return this.name; }
+            get
+            {
+                return this.name;
+            }
 
             set
             {
                 if (value != null)
                 {
-                    if (value.Length < clubMinLenght)
+                    if (value.Length < ClubMinLenght)
                     {
-                        string message = string.Format(
-                            "Club name should be at least {0} characters.", clubMinLenght);
+                        string message = string.Format("Club name should be at least {0} characters.", ClubMinLenght);
 
                         throw new ArgumentOutOfRangeException(message);
                     }
 
-                    if (value.Length > clubMaxLenght)
+                    if (value.Length > ClubMaxLenght)
                     {
-                        string message = string.Format(
-                            "Club name should be no longer than {0} characters.", clubMaxLenght);
+                        string message = string.Format("Club name should be no longer than {0} characters.", ClubMaxLenght);
 
                         throw new ArgumentOutOfRangeException(message);
                     }
@@ -52,18 +50,26 @@ namespace FootballStats.Clubs
                 }
             }
         }
+
         public Nationality Nationality
         {
-            get { return this.nationality; }
+            get
+            {
+                return this.nationality;
+            }
 
             set
             {
                 this.nationality = value;
             }
         }
+
         public List<Player> Team
         {
-            get { return this.team; }
+            get
+            {
+                return this.team;
+            }
 
             private set
             {
@@ -73,13 +79,17 @@ namespace FootballStats.Clubs
                 }
                 else
                 {
-                    throw new Exception("Invalid Team.");
+                    throw new ArgumentException("Invalid Team.");
                 }
             }
         }
+
         public List<StaffMember> Staff
         {
-            get { return this.staff; }
+            get
+            {
+                return this.staff;
+            }
 
             private set
             {
@@ -89,57 +99,70 @@ namespace FootballStats.Clubs
                 }
                 else
                 {
-                    throw new Exception("Invalid staff.");
+                    throw new ArgumentException("Invalid staff.");
                 }
             }
         }
 
-        //Methods
+        #region Methods
+
         public void ChangeName(string newName)
         {
             this.Name = newName;
         }
+
         public void ChangeNationality(Nationality newNationality)
         {
             this.Nationality = newNationality;
         }
+
         public void AddPlayer(Player player)
         {
-            this.team.Add(player);
+            // TODO: verification
+            this.Team.Add(player);
         }
+
         public void RemovePlayer(Player player)
         {
-            this.team.Remove(player);
+            // TODO: verification
+            this.Team.Remove(player);
         }
+
         public void AddStaffMember(StaffMember staffMember)
         {
-            this.staff.Add(staffMember);
+            // TODO: verification
+            this.Staff.Add(staffMember);
         }
+
         public void RemoveStaffMember(StaffMember staffMember)
         {
-            this.staff.Remove(staffMember);
+            // TODO: verification
+            this.Staff.Remove(staffMember);
         }
 
-
-        public double TeamAverageAge() 
+        public double TeamAverageAge()
         {
+            // TODO: verification
             double averageAge = 0;
-            foreach (var player in this.team)
+            foreach (var player in this.Team)
             {
                 averageAge += (double)player.GetAge();
             }
 
-            return averageAge / this.team.Count;
+            return averageAge / this.Team.Count;
         }
-        public int TotalPlayersAtClub() 
+
+        public int TotalPlayersAtClub()
         {
-            return this.team.Count;
+            return this.Team.Count;
         }
+
         public int TotalPlayersPerPosition(PlayerPosition position)
         {
+            // TODO: verification ??
             int playersPerPosition = 0;
 
-            foreach (var player in team)
+            foreach (var player in this.Team)
             {
                 if (player.Positions.Contains(position))
                 {
@@ -149,9 +172,10 @@ namespace FootballStats.Clubs
 
             return playersPerPosition;
         }
-        public bool HasManager() 
+
+        public bool HasManager()
         {
-            foreach (var staffMember in staff)
+            foreach (var staffMember in this.Staff)
             {
                 if (staffMember.StaffPosition.Equals(StaffPosition.Coach))
                 {
@@ -161,33 +185,39 @@ namespace FootballStats.Clubs
 
             return false;
         }
-        public decimal AverageWageOfPlayers() 
+
+        public decimal AverageWageOfPlayers()
         {
+            // TODO: verification
             decimal avregeWage = 0;
-            
-            foreach (var player in this.team)
+
+            foreach (var player in this.Team)
             {
                 avregeWage += player.MonthlyWage();
             }
 
-            return avregeWage / this.team.Count;
+            return avregeWage / this.Team.Count;
         }
-        public decimal AverageWageOfStaff() 
+
+        public decimal AverageWageOfStaff()
         {
+            // TODO: verification
             decimal avregeWage = 0;
 
-            foreach (var staffmember in this.staff)
+            foreach (var staffmember in this.Staff)
             {
                 avregeWage += staffmember.MonthlyWage();
             }
 
-            return avregeWage / this.team.Count;
+            return avregeWage / this.Team.Count; // !
         }
-        public decimal HighestPlayerWage() 
+
+        public decimal HighestPlayerWage()
         {
+            // TODO: verification
             decimal highestPlayerWage = 0;
 
-            foreach (var player in team)
+            foreach (var player in this.Team)
             {
                 if (player.MonthlyWage() > highestPlayerWage)
                 {
@@ -197,11 +227,13 @@ namespace FootballStats.Clubs
 
             return highestPlayerWage;
         }
-        public int CountPlayersWithSameNationality(Nationality nationality) 
+
+        public int CountPlayersWithSameNationality(Nationality nationality)
         {
+            // TODO: verification
             int count = 0;
 
-            foreach (var player in this.team)
+            foreach (var player in this.Team)
             {
                 if (player.Nationality.Equals(nationality))
                 {
@@ -210,15 +242,20 @@ namespace FootballStats.Clubs
             }
 
             return count;
-        } 
+        }
 
         public bool ContainsPlayer(Player player)
         {
-            if (Team.Contains(player))
+            // TODO: verification
+            // we may use this method to verify other methods
+            if (this.Team.Contains(player))
             {
                 return true;
             }
+
             return false;
         }
+
+        #endregion
     }
 }

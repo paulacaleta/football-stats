@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FootballStats.Persons;
-
-namespace FootballStats.Common
+﻿namespace FootballStats.Common
 {
-    class InvalidPlayerPositionException : Exception
+    using System;
+    using FootballStats.Persons;
+
+    public class InvalidPlayerPositionException : Exception
     {
         private PlayerPosition position;
 

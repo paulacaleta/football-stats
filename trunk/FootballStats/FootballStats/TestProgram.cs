@@ -11,11 +11,11 @@
     {
         static void Main()
         {
-            //PlayerCreationTest();
+            PlayerCreationTest();
             //ClubTest();
             //Engine engine = new Engine();
             //engine.Run();
-            TestInteroperability();
+            //TestInteroperability();
         }
 
         private static void TestInteroperability()
@@ -99,6 +99,18 @@
             testClub.RemovePlayer(playerToTestAddAndRemove);
             testClub.AddStaffMember(staStaffMemberToTestAddAndRemove);
             testClub.RemoveStaffMember(staStaffMemberToTestAddAndRemove);
+
+            // Fill the club with players
+            for (int i = 0; i < team.Count; i++)
+            {
+                testClub.AddPlayer(team[i]);
+            }
+
+            // Fill the club with staff members
+            for (int i = 0; i < staff.Count; i++)
+            {
+                testClub.AddStaffMember(staff[i]);
+            }
 
             Console.WriteLine("Player's average wage: {0:C2}",testClub.AverageWageOfPlayers());
             Console.WriteLine("Staff's average wage: {0:C2}", testClub.AverageWageOfStaff());
