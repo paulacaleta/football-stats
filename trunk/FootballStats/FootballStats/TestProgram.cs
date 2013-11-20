@@ -11,28 +11,25 @@
     {
         static void Main()
         {
-            PlayerCreationTest();
+            //PlayerCreationTest();
             //ClubTest();
             //Engine engine = new Engine();
             //engine.Run();
-            //TestInteroperability();
+            TestInteroperability();
         }
 
         private static void TestInteroperability()
         {
-
-            Club Levski = new Club("Levski", Nationality.Bulgarian);
-            Club Cska = new Club("Cska", Nationality.Bulgarian);
-
-            Match testMtach = new Match(Levski, Cska);
-            testMtach.AddEvent(new MatchEvent(15, Cska, Levski, new Player("noname", "noname", "noname", "5/5/1990", Nationality.Bulgarian), EventType.Offside));
-            testMtach.AddEvent(new MatchEvent(40, Levski, Cska, new Player("SomeName", "SomeName", "SomeName", "5/5/1992", Nationality.Bulgarian), EventType.Goal));
-
-            foreach (var item in testMtach.GetAllEvents())
-            {
-                Console.WriteLine(item.ToString());
-                Console.WriteLine();
-            }
+            var player = new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
+            var player2 = new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
+            var staff = new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
+            
+            player.AddPosition(PlayerPosition.FW);
+            staff.SetStaffPosition(StaffPosition.Coach);
+            
+            Console.WriteLine(player.ToString());
+            Console.WriteLine(player2.ToString());
+            Console.WriteLine(staff.ToString());
 
             while (true)
             {

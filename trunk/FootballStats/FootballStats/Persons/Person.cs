@@ -101,5 +101,13 @@
             newName.LastName = lastName;
             this.Name = newName;
         }
+
+        public override string ToString()
+        {
+            string returnValue = String.Format("{0}\nBirthDate: {1}\nNationality: {2}",
+                Name.ToString(), birthDate.ToString(), nationality.ToString());
+
+            return returnValue.ToString();
+        }
     }
 }

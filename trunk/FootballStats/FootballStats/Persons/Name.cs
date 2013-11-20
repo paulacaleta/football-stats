@@ -41,7 +41,6 @@
                 this.firstName = value;
             }
         }
-
         public string MiddleName
         {
             get
@@ -51,7 +50,6 @@
 
             set
             {
-                // Middle name is NOT mandatory
                 if (value != null)
                 {
                     if (value.Length < MinNameLength)
@@ -74,7 +72,6 @@
                 this.middleName = value;
             }
         }
-
         public string LastName
         {
             get
@@ -103,6 +100,13 @@
 
                 this.lastName = value;
             }
+        }
+
+        public override string ToString()
+        {
+            string returnValue = String.Format("Name: {0} {1} {2}", firstName, middleName, lastName);
+
+            return returnValue.ToString();
         }
     }
 }
