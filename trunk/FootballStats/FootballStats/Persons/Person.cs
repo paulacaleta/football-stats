@@ -3,12 +3,15 @@
     using System;
     using System.Text;
     using FootballStats.Common;
+    using FootballStats.Competitions;
 
     public abstract class Person : IPerson
     {
         private Name name;
         private DateTime birthDate;
         private Nationality nationality;
+
+        private int personID;
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {
@@ -19,6 +22,8 @@
             this.Name = name;
             this.BirthDate = DateTime.Parse(birthDate);
             this.Nationality = nationality;
+
+            this.personID = World.PersonID++;
         }
 
         public Name Name
@@ -102,10 +107,33 @@
             this.Name = newName;
         }
 
+        public override bool Equals(object obj)
+        {
+            Person person = obj as Person;
+
+            if (person == null)
+            {
+                return false;
+            }
+
+            if (this.personID != person.personID)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            // TODO: implement the method
+            return this.personID ^ this.personID;
+        }
+
         public override string ToString()
         {
-            string returnValue = String.Format("{0}\nBirthDate: {1}\nNationality: {2}",
-                Name.ToString(), birthDate.ToString(), nationality.ToString());
+            string returnValue = string.Format("{0}\nBirthDate: {1}\nNationality: {2}",
+                this.Name.ToString(), this.BirthDate.ToString(), this.Nationality.ToString());
 
             return returnValue.ToString();
         }

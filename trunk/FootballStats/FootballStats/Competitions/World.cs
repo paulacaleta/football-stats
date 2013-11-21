@@ -10,6 +10,7 @@ namespace FootballStats.Competitions
     {        
         private static List<Club> allClubs = new List<Club>();
         private static List<Competition> allCompetitions = new List<Competition>();
+        private static int personID = 1;
 
         static public List<Club> AllClubs
         {
@@ -24,6 +25,19 @@ namespace FootballStats.Competitions
             get
             {
                 return allCompetitions;
+            }
+        }
+
+        public static int PersonID
+        {
+            get
+            {
+                return personID;
+            }
+
+            set
+            {
+                personID = value;
             }
         }
 

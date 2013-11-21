@@ -2,9 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
     using FootballStats.Common;
     using FootballStats.Persons;
-    using System.Text;
 
     public class Club : IClub, IClubStats
     {
@@ -119,31 +119,60 @@
 
         public void AddPlayer(Player player)
         {
-            // TODO: verification
-            this.Team.Add(player);
+            if (!this.Team.Contains(player))
+            {
+                this.Team.Add(player);
+                return;
+            }
+
+            // TODO: implement custom exception
+            throw new NotImplementedException();
         }
 
         public void RemovePlayer(Player player)
         {
-            // TODO: verification
-            this.Team.Remove(player);
+            if (this.Team.Contains(player))
+            {
+                this.Team.Remove(player);
+                return;
+            }
+
+            // TODO: implement custom exception
+            throw new NotImplementedException();
         }
 
         public void AddStaffMember(StaffMember staffMember)
         {
-            // TODO: verification
-            this.Staff.Add(staffMember);
+            if (!this.Staff.Contains(staffMember))
+            {
+                this.Staff.Add(staffMember);
+                return;
+            }
+
+            // TODO: implement custom exception
+            throw new NotImplementedException();
         }
 
         public void RemoveStaffMember(StaffMember staffMember)
         {
-            // TODO: verification
-            this.Staff.Remove(staffMember);
+            if (this.Staff.Contains(staffMember))
+            {
+                this.Staff.Remove(staffMember);
+                return;
+            }
+
+            // TODO: implement custom exception
+            throw new NotImplementedException();
         }
 
         public double TeamAverageAge()
         {
-            // TODO: verification
+            if (this.Team.Count == 0)
+            {
+                // TODO: implement custom exception
+                throw new NotImplementedException();
+            }
+
             double averageAge = 0;
             foreach (var player in this.Team)
             {
@@ -189,7 +218,12 @@
 
         public decimal AverageWageOfPlayers()
         {
-            // TODO: verification
+            if (this.Team.Count == 0)
+            {
+                // TODO: implement custom exception
+                throw new NotImplementedException();
+            }
+
             decimal avregeWage = 0;
 
             foreach (var player in this.Team)
@@ -202,7 +236,12 @@
 
         public decimal AverageWageOfStaff()
         {
-            // TODO: verification
+            if (this.Staff.Count == 0)
+            {
+                // TODO: implement custom exception
+                throw new NotImplementedException();
+            }
+
             decimal avregeWage = 0;
 
             foreach (var staffmember in this.Staff)
@@ -210,12 +249,17 @@
                 avregeWage += staffmember.MonthlyWage();
             }
 
-            return avregeWage / this.Team.Count; // !
+            return avregeWage / this.Team.Count;
         }
 
         public decimal HighestPlayerWage()
         {
-            // TODO: verification
+            if (this.Team.Count == 0)
+            {
+                // TODO: implement custom exception
+                throw new NotImplementedException();
+            }
+
             decimal highestPlayerWage = 0;
 
             foreach (var player in this.Team)
@@ -231,7 +275,12 @@
 
         public int CountPlayersWithSameNationality(Nationality nationality)
         {
-            // TODO: verification
+            if (this.Team.Count == 0)
+            {
+                // TODO: implement custom exception
+                throw new NotImplementedException();
+            }
+
             int count = 0;
 
             foreach (var player in this.Team)
@@ -247,8 +296,6 @@
 
         public bool ContainsPlayer(Player player)
         {
-            // TODO: verification
-            // we may use this method to verify other methods
             if (this.Team.Contains(player))
             {
                 return true;
@@ -263,8 +310,8 @@
         {
             string teamAndStaffForPrint = null;
             StringBuilder sb = new StringBuilder();
-           
-            if (this.Team.Count != 0 )
+
+            if (this.Team.Count != 0)
             {
                 sb.AppendLine(new string('#', 80));
                 sb.AppendLine("Team :");
@@ -283,7 +330,7 @@
                 sb.AppendLine("Staff :");
                 sb.AppendLine(new string('#', 80));
                 sb.AppendLine();
-                foreach (var player in this.Team)
+                foreach (var player in this.Staff)
                 {
                     sb.Append(player.ToString());
                     sb.Append('\n');
@@ -292,7 +339,7 @@
 
             teamAndStaffForPrint = sb.ToString();
 
-            string stringValue = String.Format("Club Name: {0}\nNationality: {1}\n{2}", name, nationality.ToString(), teamAndStaffForPrint ?? "null");
+            string stringValue = string.Format("Club Name: {0}\nNationality: {1}\n{2}", this.Name, this.Nationality.ToString(), teamAndStaffForPrint ?? "null");
 
             return stringValue.ToString();
         }

@@ -28,9 +28,10 @@
             decimal monthlyWage = this.MonthlyWage();
             return monthlyWage * 12;
         }
+
         public void SetWeeklyWage(decimal wage)
         {
-            if (wage <= 0 )
+            if (wage <= 0)
             {
                 throw new ArgumentOutOfRangeException("Can't have negative or 0 amount for wage!");
             }

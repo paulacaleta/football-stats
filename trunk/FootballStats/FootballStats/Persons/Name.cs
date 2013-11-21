@@ -41,6 +41,7 @@
                 this.firstName = value;
             }
         }
+
         public string MiddleName
         {
             get
@@ -72,6 +73,7 @@
                 this.middleName = value;
             }
         }
+
         public string LastName
         {
             get
@@ -104,7 +106,7 @@
 
         public override string ToString()
         {
-            string returnValue = String.Format("Name: {0}, {1}, {2}", firstName, middleName, lastName);
+            string returnValue = string.Format("Name: {0}, {1}, {2}", this.FirstName, this.MiddleName, this.LastName);
 
             return returnValue.ToString();
         }

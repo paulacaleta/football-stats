@@ -1,8 +1,8 @@
 ﻿namespace FootballStats.Persons
 {
-    using FootballStats.Common;
     using System;
     using System.Text;
+    using FootballStats.Common;
 
     public class StaffMember : ClubAffiliatedPerson, IStaffMember
     {
@@ -28,7 +28,7 @@
 
         public override string ToString()
         {
-            string returnValue = String.Format("{0}\nPossition: {1}\n", base.ToString(), staffPosition.ToString());
+            string returnValue = string.Format("{0}\nPosition: {1}\n", base.ToString(), this.StaffPosition.ToString());
 
             return returnValue.ToString();
         }

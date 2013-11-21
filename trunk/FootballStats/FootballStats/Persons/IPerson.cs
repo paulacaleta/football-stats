@@ -4,9 +4,9 @@
 
     public interface IPerson
     {
-        string GetName();
-
         Nationality Nationality { get; }
+
+        string GetName();
 
         int GetAge();
 

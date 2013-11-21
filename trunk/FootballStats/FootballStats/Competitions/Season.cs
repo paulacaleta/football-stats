@@ -11,7 +11,7 @@ namespace FootballStats.Competitions
         private Competition competition = null;
         // private int totalTeams;
         private List<Club> participatingClubs = new List<Club>();
-        private List<Referee> referees;        
+        private List<Referee> referees = new List<Referee>();        
         // private DateTime startDate;
         // private DateTime endDate;
         private List<Match> matches = new List<Match>();

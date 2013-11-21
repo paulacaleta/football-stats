@@ -1,9 +1,9 @@
 ﻿namespace FootballStats.Persons
 {
     using System;
-    using System.Text;
     using System.Collections.Generic;
-    using FootballStats.Common;  
+    using System.Text;
+    using FootballStats.Common;
 
     public class Player : ClubAffiliatedPerson, IPlayer
     {
@@ -19,6 +19,7 @@
         {
             get { return this.positions; }
         }
+
         public void AddPosition(PlayerPosition position)
         {
             // Ensures no position is contained more than once.
@@ -31,6 +32,7 @@
             string message = string.Format("This player position '{0}' already exists.", position);
             throw new InvalidPlayerPositionException(message, position);
         }
+
         public void RemovePosition(PlayerPosition position)
         {
             if (this.Positions.Contains(position))
@@ -51,20 +53,21 @@
 
         public override string ToString()
         {
-            if (Positions.Count != null)
+            if (this.Positions.Count != 0)
             {
                 string positionToPrint = null;
                 StringBuilder sb = new StringBuilder();
 
-                for (int i = 0; i < Positions.Count; i++)
+                for (int i = 0; i < this.Positions.Count; i++)
                 {
-                    sb.Append(Positions[i]);
+                    sb.Append(this.Positions[i]);
                     sb.Append(';');
                 }
+
                 positionToPrint = sb.ToString();
 
-                string returnValue = String.Format("{0}\nPlayer possition: {1}\n", base.ToString(), positionToPrint);
-               
+                string returnValue = string.Format("{0}\nPlayer position: {1}\n", base.ToString(), positionToPrint);
+
                 return returnValue.ToString();
             }
             else
