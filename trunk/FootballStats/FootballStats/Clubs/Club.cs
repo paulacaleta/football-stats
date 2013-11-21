@@ -313,28 +313,14 @@
 
             if (this.Team.Count != 0)
             {
-                sb.AppendLine(new string('#', 80));
-                sb.AppendLine("Team :");
-                sb.AppendLine(new string('#', 80));
-                sb.AppendLine();
-                foreach (var player in this.Team)
-                {
-                    sb.Append(player.ToString());
-                    sb.Append('\n');
-                }
+                sb.Append("TEAM:\n");
+                sb.Append(this.Team.ExtendedToString());
             }
 
             if (this.Staff.Count != 0)
             {
-                sb.AppendLine(new string('#', 80));
-                sb.AppendLine("Staff :");
-                sb.AppendLine(new string('#', 80));
-                sb.AppendLine();
-                foreach (var player in this.Staff)
-                {
-                    sb.Append(player.ToString());
-                    sb.Append('\n');
-                }
+                sb.Append("STAFF:\n");
+                sb.Append(this.Staff.ExtendedToString());
             }
 
             teamAndStaffForPrint = sb.ToString();

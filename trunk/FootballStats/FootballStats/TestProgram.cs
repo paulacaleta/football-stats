@@ -20,57 +20,61 @@
 
         private static void TestInteroperability()
         {
-            Club newClub = new Club("Levski", Nationality.Bulgarian);
+            Club levski = new Club("Levski", Nationality.Bulgarian);
 
-            //List<Player> team = new List<Player>()
-            //{
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian),
-            //    new Player("Gacov", "Gacov", "Gacov", "15.10.1979", Nationality.Cambodian),
-            //    new Player("Baco", "Bacov", "Bacov", "15.10.1979", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1987", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1986", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1992", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1976", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1989", Nationality.Bulgarian),
-            //    new Player("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian)
-            //};
+            List<Player> team = new List<Player>()
+            {
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian),
+                new Player("Gacov", "Gacov", "Gacov", "15.10.1979", Nationality.Cambodian),
+                new Player("Baco", "Bacov", "Bacov", "15.10.1979", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1987", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1986", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1992", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1976", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1989", Nationality.Bulgarian),
+                new Player("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian)
+            };
 
-            //List<StaffMember> staff = new List<StaffMember>()
-            //{
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian),
-            //    new StaffMember("Gacov", "Gacov", "Gacov", "15.10.1979", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Bacov", "Bacov", "15.10.1979", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1987", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1986", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1992", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1976", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1989", Nationality.Bulgarian),
-            //    new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian)
-            //};
+            List<StaffMember> staff = new List<StaffMember>()
+            {
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian),
+                new StaffMember("Gacov", "Gacov", "Gacov", "15.10.1979", Nationality.Bulgarian),
+                new StaffMember("Baco", "Bacov", "Bacov", "15.10.1979", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1987", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1986", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1990", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1992", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1976", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1991", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1989", Nationality.Bulgarian),
+                new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian)
+            };
 
-            //newClub.Team = team;
-            //newClub.Staff = staff;         
+            levski.Team = team;
+            levski.Staff = staff;         
 
             Player testMember = new Player("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian);
-            //newClub.AddPlayer(testMember);
-            //testMember.SetWeeklyWage(12345);
+            levski.AddPlayer(testMember);
+            testMember.SetWeeklyWage(12345);
 
-            Console.WriteLine(newClub.ToString());
-            Console.WriteLine(newClub.CountPlayersWithSameNationality(Nationality.Bulgarian));
+            Club cska = new Club("Cska", Nationality.Bulgarian);
 
-            //FootballStatsIO.SaveClubInformation(newClub);
+            Match testMatch = new Match(levski, cska, "21/11/2013");
 
-            //Console.WriteLine(FootballStatsIO.LoadClubInformation("LEvski"));
+            Console.WriteLine(testMatch.ToString());
+
+            while (true)
+            {
+                
+            }
 
         }
 

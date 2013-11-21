@@ -2,147 +2,56 @@
 {
     using FootballStats.Clubs;
     using FootballStats.Persons;
+    using FootballStats.Common;
     using System;
     using System.Collections.Generic;
         
-    public class Match : IMatchStats
+    public class Match
     {
-        private Competition competition;
-        private Season season;
         private DateTime dateOfMatch;
         private Club homeClub;
         private Club awayClub;
+
         private List<Player> homeTeam = new List<Player>();
         private List<Player> awayTeam = new List<Player>();
         private Referee referee;
         private List<MatchEvent> matchEvents = new List<MatchEvent>();
 
-        public Match(Club homeClub, Club awayClub) 
+        public Match(Club homeClub, Club awayClub, string dateOfMatch) 
         {
+            this.DateOfMatch = DateTime.Parse(dateOfMatch);
             this.homeClub = homeClub;
             this.awayClub = awayClub;
+            this.homeTeam = homeClub.Team;
+            this.awayTeam = awayClub.Team;
         }
 
-        public void SetCompetition(Competition competition)
+        //properties
+        public DateTime DateOfMatch 
         {
-            if (World.AllCompetitions.Contains(competition))
+            get { return this.dateOfMatch; }
+            private set 
             {
-                this.competition = competition;
-            }
-            else
-            {
-                // TODO: Implement exception
-                throw new NotImplementedException();
-            }
-        }
-
-        public void SetSeason(Season season)
-        {
-            this.season = season;
-            return;
-            // TODO: Implement this method
-            // Note: season must be an existing one - use HasSeason method in Competition class
-            throw new NotImplementedException();
-        }
-
-        public void SetTeams(Club homeTeam, Club awayTeam)
-        {
-            if (this.season == null)
-            {
-                // TODO: Implement this exception "Must set season"
-                throw new NotImplementedException();
-            }
-            if (this.season.ContainsClub(homeTeam))
-            {
-                this.homeClub = homeTeam;
-            }
-            else
-            {
-                // TODO: Implement this exception
-                throw new NotImplementedException();
-            }
-
-            if (this.season.ContainsClub(awayTeam))
-            {
-                this.awayClub = awayTeam;
-            }
-            else
-            {
-                // TODO: Implement this exception
-                throw new NotImplementedException();
-            }
-        }
-
-        public void AddEvent(MatchEvent ev)
-        {
-            this.matchEvents.Add(ev);
-            // TODO: Implement this method
-            //throw new NotImplementedException();
-        }
-
-        public void AddPlayerToList(Player player, Club club)
-        {
-            if (club != this.homeClub && club != this.awayClub)
-            {
-                // TODO: Implement this
-                throw new NotImplementedException();
-            }
-            if (club.ContainsPlayer(player))
-            {
-                if (club == homeClub)
+                try
                 {
-                    homeTeam.Add(player);
-                    return;
-                }
-                else if (club == awayClub)
-                {
-                    awayTeam.Add(player);
-                    return;
-                }
-            }
-            // TODO: Implement this exception
-            throw new NotImplementedException();
-        }
-
-        public void RemovePlayerFromList(Player player, List<Player> team)
-        {
-            if (team != this.homeTeam && team != this.awayTeam)
-            {
-                // TODO: Implement this exception
-                throw new NotImplementedException();
-            }
-            if (team.Contains(player))
-            {
-                for (int i = 0; i < team.Count; i++)
-                {
-                    if (team[i] == player)
+                    if (value.Year > 1950 && value.Year <= 2013)
                     {
-                        team.RemoveAt(i);
+                        this.dateOfMatch = value;
+                    }
+                    else
+                    {
+                        throw new Exception("Year must be in this [1950-2013] time frame.");
                     }
                 }
-                return;
+                catch (InvalidCastException)
+                {
+                    throw new InvalidCastException("Inccorect Year");
+                } 
             }
-            // TODO: Implement this exception
-            throw new NotImplementedException();
         }
 
-        public void SetDate(DateTime date)
-        {
-            this.dateOfMatch = date;
-        }
+        //Methods    
 
-        public void SetReferee(Referee referee)
-        {
-            if (this.season.ContainsReferee(referee))
-            {
-                this.referee = referee;
-            }
-            else
-            {
-                // TODO: Implement an exception
-                throw new NotImplementedException();
-            }
-        }
         public List<MatchEvent> GetEvents(EventType eventType)
         {
             List<MatchEvent> newEventList = new List<MatchEvent>();
@@ -168,18 +77,13 @@
 
             return newEventList;
         }
-
-        public void CompleteMatch()
+       
+        public override string ToString()
         {
-            if (this.dateOfMatch != null)
-            {
-                this.season.AddMatch(this);
-            }
-            else
-            {
-                // TODO: inmplement exception
-                throw new NotImplementedException();
-            }
+            string returnValue = String.Format("HOME TEAM:\n{0}\nAWAY TEAM:\n{1}", homeTeam.ExtendedToString(), awayTeam.ExtendedToString());
+
+            return returnValue.ToString();
         }
+
     }
 }
