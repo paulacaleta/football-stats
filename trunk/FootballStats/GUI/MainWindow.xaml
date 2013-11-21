@@ -12,12 +12,13 @@
                 Margin="40,41,191,396"
                 FontWeight="Bold"
                 FontSize="18"
-                Content="Create Person" Click="Button_Click"/>
+                Name="CreatePerson"
+                Content="Create Person" Click="OnButtonCreatePersonClick"/>
         <Button Grid.Column="0"
         	Margin="193,41,38,396"
         	FontWeight="Bold"
         	FontSize="18" 
-            Content="Edit Person"/>
+            Content="Edit Person" Click="OnButtonEditPersonClick"/>
 
         <Button Grid.Column="1"
         	Margin="116,41,115,396"
