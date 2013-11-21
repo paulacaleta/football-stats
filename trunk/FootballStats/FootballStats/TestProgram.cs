@@ -6,13 +6,13 @@
     using FootballStats.Common;
     using FootballStats.Clubs;
     using FootballStats.Competitions;
+    using FootballStats.IO;
 
     class TestProgram
     {
         static void Main()
         {
             //PlayerCreationTest();
-            //ClubTest();
             //Engine engine = new Engine();
             //engine.Run();
             TestInteroperability();
@@ -20,27 +20,7 @@
 
         private static void TestInteroperability()
         {
-            var player = new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
-            var player2 = new Player("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
-            var staff = new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
-            
-            player.AddPosition(PlayerPosition.FW);
-            staff.SetStaffPosition(StaffPosition.Coach);
-            
-            Console.WriteLine(player.ToString());
-            Console.WriteLine(player2.ToString());
-            Console.WriteLine(staff.ToString());
-
-            while (true)
-            {
-                
-            }
-        }
-
-        private static void ClubTest()
-        {
-            Console.WriteLine("Testing Club class :\n\n");
-            Random rdm = new Random();
+            Club newClub = new Club("Levski", Nationality.Bulgarian);
 
             List<Player> team = new List<Player>()
             {
@@ -60,11 +40,6 @@
                 new Player("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian)
             };
 
-            foreach (var player in team)
-            {
-                player.SetWeeklyWage(rdm.Next(300, 600));
-            }
-            
             List<StaffMember> staff = new List<StaffMember>()
             {
                 new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian),
@@ -83,39 +58,19 @@
                 new StaffMember("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian)
             };
 
-            foreach (var staffMember in staff)
+            newClub.Team = team;
+            newClub.Staff = staff;
+
+            FootballStatsIO.SaveClubInformation(newClub);
+
+            Console.WriteLine(FootballStatsIO.LoadClubInformation("LEvski"));
+
+            while (true)
             {
-                staffMember.SetWeeklyWage(rdm.Next(200, 400));
+
             }
+        }
 
-            Club testClub = new Club("NekvoIme", Nationality.Bulgarian);
-            Player playerToTestAddAndRemove = new Player("Test", "Player", "Testing", "15.10.1940", Nationality.Bulgarian);
-            StaffMember staStaffMemberToTestAddAndRemove = new StaffMember("Test", "Player", "Testing", "15.10.1940", Nationality.Bulgarian);
-
-            testClub.AddPlayer(playerToTestAddAndRemove);
-            testClub.RemovePlayer(playerToTestAddAndRemove);
-            testClub.AddStaffMember(staStaffMemberToTestAddAndRemove);
-            testClub.RemoveStaffMember(staStaffMemberToTestAddAndRemove);
-
-            // Fill the club with players
-            for (int i = 0; i < team.Count; i++)
-            {
-                testClub.AddPlayer(team[i]);
-            }
-
-            // Fill the club with staff members
-            for (int i = 0; i < staff.Count; i++)
-            {
-                testClub.AddStaffMember(staff[i]);
-            }
-
-            Console.WriteLine("Player's average wage: {0:C2}",testClub.AverageWageOfPlayers());
-            Console.WriteLine("Staff's average wage: {0:C2}", testClub.AverageWageOfStaff());
-            Console.WriteLine("Team average age: {0}",(int)(testClub.TeamAverageAge()));
-            Console.WriteLine("This club higest wage : {0:C2}", testClub.HighestPlayerWage());
-            Console.WriteLine("Total players at club: {0}", testClub.TotalPlayersAtClub());
-            Console.WriteLine("Players with Bulgarian nationality : {0}", testClub.CountPlayersWithSameNationality(Nationality.Bulgarian));
-        } 
         private static void PlayerCreationTest()
         {
             Console.WriteLine("TESTING PLAYER CREATION");

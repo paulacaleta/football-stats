@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using FootballStats.Common;
     using FootballStats.Persons;
+    using System.Text;
 
     public class Club : IClub, IClubStats
     {
@@ -71,7 +72,7 @@
                 return this.team;
             }
 
-            private set
+            set
             {
                 if (value is List<Player>)
                 {
@@ -91,7 +92,7 @@
                 return this.staff;
             }
 
-            private set
+            set
             {
                 if (value is List<StaffMember>)
                 {
@@ -257,5 +258,43 @@
         }
 
         #endregion
+
+        public override string ToString()
+        {
+            string teamAndStaffForPrint = null;
+            StringBuilder sb = new StringBuilder();
+           
+            if (this.Team.Count != 0 )
+            {
+                sb.AppendLine(new string('#', 80));
+                sb.AppendLine("Team :");
+                sb.AppendLine(new string('#', 80));
+                sb.AppendLine();
+                foreach (var player in this.Team)
+                {
+                    sb.Append(player.ToString());
+                    sb.Append('\n');
+                }
+            }
+
+            if (this.Staff.Count != 0)
+            {
+                sb.AppendLine(new string('#', 80));
+                sb.AppendLine("Staff :");
+                sb.AppendLine(new string('#', 80));
+                sb.AppendLine();
+                foreach (var player in this.Team)
+                {
+                    sb.Append(player.ToString());
+                    sb.Append('\n');
+                }
+            }
+
+            teamAndStaffForPrint = sb.ToString();
+
+            string stringValue = String.Format("Club Name: {0}\nNationality: {1}\n{2}", name, nationality.ToString(), teamAndStaffForPrint ?? "null");
+
+            return stringValue.ToString();
+        }
     }
 }
