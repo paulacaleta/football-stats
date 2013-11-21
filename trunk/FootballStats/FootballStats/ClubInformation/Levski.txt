@@ -5,72 +5,72 @@ Team :
 ################################################################################
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1978 г. 00:00:00 ч.
+BirthDate: 15.10.1978 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Gacov, Gacov, Gacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15.10.1979 г. 0:00:00
 Nationality: Cambodian
 Player possition: 
 
 Name: Baco, Bacov, Bacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15.10.1979 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1987 г. 00:00:00 ч.
+BirthDate: 15.10.1987 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1986 г. 00:00:00 ч.
+BirthDate: 15.10.1986 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15.10.1990 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15.10.1990 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15.10.1991 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1992 г. 00:00:00 ч.
+BirthDate: 15.10.1992 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15.10.1980 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1976 г. 00:00:00 ч.
+BirthDate: 15.10.1976 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15.10.1991 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1989 г. 00:00:00 ч.
+BirthDate: 15.10.1989 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15.10.1980 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
@@ -79,72 +79,72 @@ Staff :
 ################################################################################
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1978 г. 00:00:00 ч.
+BirthDate: 15.10.1978 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Gacov, Gacov, Gacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15.10.1979 г. 0:00:00
 Nationality: Cambodian
 Player possition: 
 
 Name: Baco, Bacov, Bacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15.10.1979 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1987 г. 00:00:00 ч.
+BirthDate: 15.10.1987 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1986 г. 00:00:00 ч.
+BirthDate: 15.10.1986 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15.10.1990 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15.10.1990 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15.10.1991 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1992 г. 00:00:00 ч.
+BirthDate: 15.10.1992 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15.10.1980 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1976 г. 00:00:00 ч.
+BirthDate: 15.10.1976 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15.10.1991 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1989 г. 00:00:00 ч.
+BirthDate: 15.10.1989 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15.10.1980 г. 0:00:00
 Nationality: Bulgarian
 Player possition: 
 
