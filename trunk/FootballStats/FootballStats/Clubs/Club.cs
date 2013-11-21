@@ -125,8 +125,8 @@
                 return;
             }
 
-            // TODO: implement custom exception
-            throw new NotImplementedException();
+            string message = string.Format("{0} already exists!", player);
+            throw new InvalidClubException(message);
         }
 
         public void RemovePlayer(Player player)
@@ -137,8 +137,8 @@
                 return;
             }
 
-            // TODO: implement custom exception
-            throw new NotImplementedException();
+            string message = string.Format("{0} does not exist!", player);
+            throw new InvalidClubException(message);
         }
 
         public void AddStaffMember(StaffMember staffMember)
@@ -149,8 +149,8 @@
                 return;
             }
 
-            // TODO: implement custom exception
-            throw new NotImplementedException();
+            string message = string.Format("{0} already exists!", staffMember);
+            throw new InvalidClubException(message);
         }
 
         public void RemoveStaffMember(StaffMember staffMember)
@@ -161,16 +161,16 @@
                 return;
             }
 
-            // TODO: implement custom exception
-            throw new NotImplementedException();
+            string message = string.Format("{0} does not exist!", staffMember);
+            throw new InvalidClubException(message);
         }
 
         public double TeamAverageAge()
         {
             if (this.Team.Count == 0)
             {
-                // TODO: implement custom exception
-                throw new NotImplementedException();
+                string message = string.Format("Team {0} does not have players!", this.Team);
+                throw new InvalidClubException(message);
             }
 
             double averageAge = 0;
@@ -189,7 +189,6 @@
 
         public int TotalPlayersPerPosition(PlayerPosition position)
         {
-            // TODO: verification ??
             int playersPerPosition = 0;
 
             foreach (var player in this.Team)
@@ -220,8 +219,8 @@
         {
             if (this.Team.Count == 0)
             {
-                // TODO: implement custom exception
-                throw new NotImplementedException();
+                string message = string.Format("Team {0} does not have players!", this.Team);
+                throw new InvalidClubException(message);
             }
 
             decimal avregeWage = 0;
@@ -238,8 +237,8 @@
         {
             if (this.Staff.Count == 0)
             {
-                // TODO: implement custom exception
-                throw new NotImplementedException();
+                string message = string.Format("Team {0} does not have staff members!", this.Staff);
+                throw new InvalidClubException(message);
             }
 
             decimal avregeWage = 0;
@@ -256,8 +255,8 @@
         {
             if (this.Team.Count == 0)
             {
-                // TODO: implement custom exception
-                throw new NotImplementedException();
+                string message = string.Format("Team {0} does not have players!", this.Team);
+                throw new InvalidClubException(message);
             }
 
             decimal highestPlayerWage = 0;
@@ -277,8 +276,8 @@
         {
             if (this.Team.Count == 0)
             {
-                // TODO: implement custom exception
-                throw new NotImplementedException();
+                string message = string.Format("Team {0} does not have players!", this.Team);
+                throw new InvalidClubException(message);
             }
 
             int count = 0;
