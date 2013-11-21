@@ -69,9 +69,11 @@
 
             Match testMatch = new Match(levski, cska, "21/11/2013", new FinalScore(2, 2));
             testMatch.SetReferee(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
-            
 
-            Console.WriteLine(testMatch.ToString());
+
+            FootballStatsIO.SaveMatchInformation(testMatch);
+
+            Console.WriteLine(FootballStatsIO.ReadMatchInformation("Levski", "Cska"));
 
             while (true)
             {

@@ -54,7 +54,7 @@
         }
     }
 
-    public class Match
+    public class Match : IMatchStats
     {
         private FinalScore finalScore;
         private DateTime dateOfMatch;
@@ -69,8 +69,8 @@
         {
             this.finalScore = finalScore;
             this.DateOfMatch = DateTime.Parse(dateOfMatch);
-            this.homeClub = homeClub;
-            this.awayClub = awayClub;
+            this.HomeClub = homeClub;
+            this.AwayClub = awayClub;
             this.homeTeam = homeClub.Team;
             this.awayTeam = awayClub.Team;
         }
@@ -97,6 +97,16 @@
                     throw new InvalidCastException("Inccorect Year");
                 } 
             }
+        }
+        public Club HomeClub 
+        {
+            get { return this.homeClub; }
+            private set { this.homeClub = value; }
+        }
+        public Club AwayClub 
+        {
+            get { return this.awayClub; }
+            private set { this.awayClub = value; }
         }
 
         //Methods    
