@@ -66,14 +66,18 @@
             testMember.SetWeeklyWage(12345);
 
             Club cska = new Club("Cska", Nationality.Bulgarian);
+            cska.Team = team;
 
             Match testMatch = new Match(levski, cska, "21/11/2013", new FinalScore(2, 2));
             testMatch.SetReferee(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
 
+            Season testSeason = new Season("2013-2014");
+            testSeason.AddClub(cska);
+            testSeason.AddClub(levski);
+            testSeason.AddMatch(testMatch);
+            testSeason.AddReferee(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
 
-            FootballStatsIO.SaveMatchInformation(testMatch);
-
-            Console.WriteLine(FootballStatsIO.ReadMatchInformation("Levski", "Cska"));
+            FootballStatsIO.SaveSeason(testSeason);
 
             while (true)
             {

@@ -143,6 +143,10 @@
 
             return newEventList;
         }
+        public string GetFinalScore() 
+        {
+            return this.finalScore.ToString();
+        }
        
         public override string ToString()
         {

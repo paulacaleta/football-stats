@@ -9,7 +9,6 @@ namespace FootballStats.Competitions
     public static class World
     {        
         private static List<Club> allClubs = new List<Club>();
-        private static List<Competition> allCompetitions = new List<Competition>();
         private static int personID = 1;
 
         static public List<Club> AllClubs
@@ -17,14 +16,6 @@ namespace FootballStats.Competitions
             get
             {
                 return allClubs;
-            }
-        }
-
-        static public List<Competition> AllCompetitions
-        {
-            get
-            {
-                return allCompetitions;
             }
         }
 
@@ -53,31 +44,6 @@ namespace FootballStats.Competitions
                 // TODO: Implement exception
                 throw new NotImplementedException(); 
             }            
-        }
-
-        public static void AddCompetition(Competition competition)
-        {
-            if (!allCompetitions.Contains(competition))
-            {
-                allCompetitions.Add(competition);
-            }
-            else
-            {
-                // TODO: Implement exception
-                throw new NotImplementedException(); 
-            }
-        }
-
-        public static void SaveWorld()
-        {
-            // TODO: Implement method
-            throw new NotImplementedException();
-        }
-
-        public static void LoadWorld()
-        {
-            // TODO: Implement method
-            throw new NotImplementedException();
         }
     }
 }
