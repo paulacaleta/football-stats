@@ -6,19 +6,68 @@
     using System;
     using System.Collections.Generic;
         
+    public class FinalScore
+    {
+        int homeTeam;
+        int awayTeam;
+        public int HomeTeam
+        {
+            get { return this.homeTeam; }
+            set 
+            {
+                if (value > 0)
+                {
+                    this.homeTeam = value; 
+                }
+                else
+                {
+                    throw new Exception("Score can't be negative");
+                }
+            }
+        }
+        public int AwayTeam
+        {
+            get { return this.awayTeam; }
+            set
+            {
+                if (value > 0)
+                {
+                    this.awayTeam = value;
+                }
+                else
+                {
+                    throw new Exception("Score can't be negative");
+                }
+            }
+        }
+
+        public FinalScore(int homeTeam, int awayTeam)
+        {
+            this.HomeTeam = homeTeam;
+            this.AwayTeam = awayTeam;
+        }
+
+        public override string ToString()
+        {
+            string returnValue = String.Format("FINAL GAME SCORE IS: {0}/{1}\n", homeTeam, awayTeam);
+            return returnValue.ToString();
+        }
+    }
+
     public class Match
     {
+        private FinalScore finalScore;
         private DateTime dateOfMatch;
         private Club homeClub;
         private Club awayClub;
-
         private List<Player> homeTeam = new List<Player>();
         private List<Player> awayTeam = new List<Player>();
         private Referee referee;
         private List<MatchEvent> matchEvents = new List<MatchEvent>();
 
-        public Match(Club homeClub, Club awayClub, string dateOfMatch) 
+        public Match(Club homeClub, Club awayClub, string dateOfMatch, FinalScore finalScore) 
         {
+            this.finalScore = finalScore;
             this.DateOfMatch = DateTime.Parse(dateOfMatch);
             this.homeClub = homeClub;
             this.awayClub = awayClub;
@@ -51,7 +100,14 @@
         }
 
         //Methods    
-
+        public void SetReferee(Referee referee) 
+        {
+            this.referee = referee;
+        }
+        public void AddEvents(MatchEvent newEvent)
+        {
+            this.matchEvents.Add(newEvent);
+        }
         public List<MatchEvent> GetEvents(EventType eventType)
         {
             List<MatchEvent> newEventList = new List<MatchEvent>();
@@ -80,10 +136,20 @@
        
         public override string ToString()
         {
-            string returnValue = String.Format("HOME TEAM:\n{0}\nAWAY TEAM:\n{1}", homeTeam.ExtendedToString(), awayTeam.ExtendedToString());
+            if (this.referee != null)
+            {
+                string returnValue = String.Format("{0}\nReferee Name: {2}\n\nMATCH EVENTS\n{1}\nHOME TEAM:\n{3}\nAWAY TEAM:\n{4}",
+                finalScore.ToString(), matchEvents.ExtendedToString(), referee.ToString(), homeTeam.ExtendedToString(), awayTeam.ExtendedToString());
 
-            return returnValue.ToString();
+                return returnValue.ToString();
+            }
+            else
+            {
+                string returnValue = String.Format("{0}\nMATCH EVENTS\n{1}\nHOME TEAM:\n{2}\nAWAY TEAM:\n{3}",
+                finalScore.ToString(), matchEvents.ExtendedToString(), homeTeam.ExtendedToString(), awayTeam.ExtendedToString());
+
+                return returnValue.ToString();
+            }
         }
-
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FootballStats.Persons;
+using FootballStats.Competitions;
 
 namespace FootballStats.Common
 {
@@ -31,6 +32,20 @@ namespace FootballStats.Common
             foreach (var StaffMember in list)
             {
                 sb.AppendLine(StaffMember.ToString());
+                sb.Append('\n');
+            }
+
+            return sb.ToString();
+        }
+
+        public static string ExtendedToString(this List<MatchEvent> list)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine(new string('-', 80));
+            foreach (var events in list)
+            {
+                sb.AppendLine(events.ToString());
                 sb.Append('\n');
             }
 

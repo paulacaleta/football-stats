@@ -28,7 +28,7 @@
 
         public Name Name
         {
-            private get
+            get
             {
                 return this.name;
             }

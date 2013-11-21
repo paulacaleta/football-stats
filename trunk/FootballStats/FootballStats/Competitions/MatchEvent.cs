@@ -91,7 +91,7 @@
         public override string ToString()
         {
             string information = string.Format("Event Type: {0}\nEvent minute:{1}\nEvent active side: {2}\n" +
-            "Event passive side: {3}\nEvent player involved: {4} ", eventType, minuteOfEvent, activeSide.Name, passiveSide.Name, PlayerInvolved.GetName());
+            "Event passive side: {3}\nEvent player involved: {4}\n", eventType, minuteOfEvent, activeSide.Name, passiveSide.Name, PlayerInvolved.GetName());
 
             return information.ToString();
         }
