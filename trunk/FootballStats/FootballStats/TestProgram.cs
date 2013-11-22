@@ -79,6 +79,11 @@
 
             FootballStatsIO.SaveSeason(testSeason);
 
+            Console.WriteLine(FootballStatsIO.ReadSeasonInformation(testSeason.SeasonID));
+            //Console.WriteLine(FootballStatsIO.ReadMatchInformationInSeason("Levski", "Cska", testSeason.SeasonID));
+            
+            
+
             while (true)
             {
                 

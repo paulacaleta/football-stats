@@ -11,6 +11,8 @@ namespace FootballStats.IO
 {
     public static class FootballStatsIO
     {
+        // Club Save/Load information
+        // TODO: additional information
         public static void SaveClubInformation(Club club)
         {
             string path = String.Format(@"..\..\ClubInformation\{0}.txt", club.Name);
@@ -63,6 +65,9 @@ namespace FootballStats.IO
 
         }
 
+        // Season Save/Load information
+        #region Save/Load
+
         private static void SaveMatchInformation(Match match, Season season)
         {
             string path = String.Format(@"..\..\SeasonsDataBase\{2}\Matchs\{0}_vs_{1}.txt",
@@ -72,21 +77,7 @@ namespace FootballStats.IO
             {
                 write.Write(match.ToString());
             }
-        }
-
-        public static string ReadMatchInformation(string homeTeam, string awayTeam)
-        {
-            string returnValue = null;
-            string path = String.Format(@"..\..\SeasonsDataBase\21.11.2013\Matchs\{0}_vs_{1}.txt",
-                homeTeam, awayTeam);
-
-            using (StreamReader read = new StreamReader(path))
-            {
-                returnValue = read.ReadToEnd();
-            }
-
-            return returnValue;
-        }
+        }       
 
         public static void SaveSeason(Season season) 
         {
@@ -106,7 +97,33 @@ namespace FootballStats.IO
             }
            
         }
+       
+        public static string ReadSeasonInformation(string seasonID) 
+        {
+            string path = String.Format(@"..\..\SeasonsDataBase\{0}\SeasonInformation.txt", seasonID);
+            string returnValue = null;
 
+            using (StreamReader read = new StreamReader(path))
+            {
+                returnValue = read.ReadToEnd();
+            }
 
+            return returnValue;
+        }
+
+        public static string ReadMatchInformationInSeason(string homeTeam, string awayTeam, string seasonID)
+        {
+            string returnValue = null;
+            string path = String.Format(@"..\..\SeasonsDataBase\{2}\Matchs\{0}_vs_{1}.txt",
+                homeTeam, awayTeam, seasonID);
+
+            using (StreamReader read = new StreamReader(path))
+            {
+                returnValue = read.ReadToEnd();
+            }
+
+            return returnValue;
+        }
+        #endregion
     }
 }
