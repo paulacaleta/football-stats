@@ -49,7 +49,7 @@ namespace FootballStats.IO
         public static void DeleteClubInformation(string clubName)
         {
             string path = String.Format(@"..\..\ClubInformation\{0}.txt", clubName);
-            string returnValue = null;
+            // TODO: string returnValue = null;
 
             try
             {

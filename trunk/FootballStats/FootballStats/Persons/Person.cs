@@ -23,7 +23,7 @@
             this.BirthDate = DateTime.Parse(birthDate);
             this.Nationality = nationality;
 
-            this.personID = World.PersonID++;
+            this.PersonID = World.PersonID++;
         }
 
         public Name Name
@@ -72,6 +72,19 @@
             }
         }
 
+        private int PersonID
+        {
+            get
+            {
+                return this.personID;
+            }
+
+            set
+            {
+                this.personID = value;
+            }
+        }
+
         public int GetAge()
         {
             // Age is calculated up to the current moment    
@@ -116,7 +129,7 @@
                 return false;
             }
 
-            if (this.personID != person.personID)
+            if (this.PersonID != person.PersonID)
             {
                 return false;
             }
@@ -126,14 +139,12 @@
 
         public override int GetHashCode()
         {
-            // TODO: implement the method
-            return this.personID ^ this.personID;
+            return this.PersonID ^ this.PersonID;
         }
 
         public override string ToString()
         {
-            string returnValue = string.Format("{0}\nBirthDate: {1}\nNationality: {2}",
-                this.Name.ToString(), this.BirthDate.ToString(), this.Nationality.ToString());
+            string returnValue = string.Format("{0}\nBirthDate: {1}\nNationality: {2}", this.Name.ToString(), this.BirthDate.ToString(), this.Nationality.ToString());
 
             return returnValue.ToString();
         }

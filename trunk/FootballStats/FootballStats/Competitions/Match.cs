@@ -1,58 +1,10 @@
 ﻿namespace FootballStats.Competitions
 {
-    using FootballStats.Clubs;
-    using FootballStats.Persons;
-    using FootballStats.Common;
     using System;
     using System.Collections.Generic;
-        
-    public class FinalScore
-    {
-        int homeTeam;
-        int awayTeam;
-        public int HomeTeam
-        {
-            get { return this.homeTeam; }
-            set 
-            {
-                if (value > 0)
-                {
-                    this.homeTeam = value; 
-                }
-                else
-                {
-                    throw new Exception("Score can't be negative");
-                }
-            }
-        }
-        public int AwayTeam
-        {
-            get { return this.awayTeam; }
-            set
-            {
-                if (value > 0)
-                {
-                    this.awayTeam = value;
-                }
-                else
-                {
-                    throw new Exception("Score can't be negative");
-                }
-            }
-        }
-
-        public FinalScore(int homeTeam, int awayTeam)
-        {
-            this.HomeTeam = homeTeam;
-            this.AwayTeam = awayTeam;
-        }
-
-        public override string ToString()
-        {
-            string returnValue = String.Format("FINAL GAME SCORE IS: {0}/{1}\n", homeTeam, awayTeam);
-            return returnValue.ToString();
-        }
-    }
+    using FootballStats.Clubs;
+    using FootballStats.Common;
+    using FootballStats.Persons;
 
     public class Match : IMatchStats
     {
@@ -65,9 +17,9 @@
         private Referee referee;
         private List<MatchEvent> matchEvents = new List<MatchEvent>();
 
-        public Match(Club homeClub, Club awayClub, string dateOfMatch, FinalScore finalScore) 
+        public Match(Club homeClub, Club awayClub, string dateOfMatch, FinalScore finalScore)
         {
-            this.finalScore = finalScore;
+            this.FinalScore = finalScore;
             this.DateOfMatch = DateTime.Parse(dateOfMatch);
             this.HomeClub = homeClub;
             this.AwayClub = awayClub;
@@ -75,11 +27,29 @@
             this.awayTeam = awayClub.Team;
         }
 
-        //properties
-        public DateTime DateOfMatch 
+        #region Properties
+
+        public FinalScore FinalScore
         {
-            get { return this.dateOfMatch; }
-            private set 
+            get
+            {
+                return this.finalScore;
+            }
+
+            private set
+            {
+                this.finalScore = value;
+            }
+        }
+
+        public DateTime DateOfMatch
+        {
+            get 
+            { 
+                return this.dateOfMatch;
+            }
+
+            private set
             {
                 try
                 {
@@ -89,35 +59,69 @@
                     }
                     else
                     {
-                        throw new Exception("Year must be in this [1950-2013] time frame.");
+                        throw new Exception("Year must be in this [1950-2013] time frame!");
                     }
                 }
                 catch (InvalidCastException)
                 {
-                    throw new InvalidCastException("Inccorect Year");
-                } 
+                    throw new InvalidCastException("Incorrect Year!");
+                }
             }
         }
-        public Club HomeClub 
+
+        public Club HomeClub
         {
-            get { return this.homeClub; }
-            private set { this.homeClub = value; }
-        }
-        public Club AwayClub 
-        {
-            get { return this.awayClub; }
-            private set { this.awayClub = value; }
+            get 
+            {
+                return this.homeClub;
+            }
+
+            private set 
+            { 
+                this.homeClub = value;
+            }
         }
 
-        //Methods    
-        public void SetReferee(Referee referee) 
+        public Club AwayClub
         {
-            this.referee = referee;
+            get
+            { 
+                return this.awayClub; 
+            }
+
+            private set 
+            { 
+                this.awayClub = value; 
+            }
         }
+
+        private Referee Referee
+        {
+            get
+            {
+                return this.referee;
+            }
+
+            set
+            {
+                this.referee = value;
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        public void SetReferee(Referee referee)
+        {
+            this.Referee = referee;
+        }
+
         public void AddEvents(MatchEvent newEvent)
         {
             this.matchEvents.Add(newEvent);
         }
+
         public List<MatchEvent> GetEvents(EventType eventType)
         {
             List<MatchEvent> newEventList = new List<MatchEvent>();
@@ -132,6 +136,7 @@
 
             return newEventList;
         }
+
         public List<MatchEvent> GetAllEvents()
         {
             List<MatchEvent> newEventList = new List<MatchEvent>();
@@ -143,24 +148,27 @@
 
             return newEventList;
         }
-        public string GetFinalScore() 
+
+        public string GetFinalScore()
         {
             return this.finalScore.ToString();
         }
-       
+
+        #endregion
+
         public override string ToString()
         {
             if (this.referee != null)
             {
-                string returnValue = String.Format("{0}\nReferee Name: {2}\n\nMATCH EVENTS\n{1}\nHOME TEAM:\n{3}\nAWAY TEAM:\n{4}",
-                finalScore.ToString(), matchEvents.ExtendedToString(), referee.ToString(), homeTeam.ExtendedToString(), awayTeam.ExtendedToString());
+                string returnValue = string.Format("{0}\nReferee Name: {2}\n\nMATCH EVENTS\n{1}\nHOME TEAM:\n{3}\nAWAY TEAM:\n{4}",
+                this.FinalScore.ToString(), this.matchEvents.ExtendedToString(), this.Referee.ToString(), this.homeTeam.ExtendedToString(), this.awayTeam.ExtendedToString());
 
                 return returnValue.ToString();
             }
             else
             {
-                string returnValue = String.Format("{0}\nMATCH EVENTS\n{1}\nHOME TEAM:\n{2}\nAWAY TEAM:\n{3}",
-                finalScore.ToString(), matchEvents.ExtendedToString(), homeTeam.ExtendedToString(), awayTeam.ExtendedToString());
+                string returnValue = string.Format("{0}\nMATCH EVENTS\n{1}\nHOME TEAM:\n{2}\nAWAY TEAM:\n{3}",
+                this.FinalScore.ToString(), this.matchEvents.ExtendedToString(), this.homeTeam.ExtendedToString(), this.awayTeam.ExtendedToString());
 
                 return returnValue.ToString();
             }

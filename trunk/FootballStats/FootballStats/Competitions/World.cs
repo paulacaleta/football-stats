@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FootballStats.Clubs;
-using FootballStats.Persons;
-
-namespace FootballStats.Competitions
+﻿namespace FootballStats.Competitions
 {
+    using System;
+    using System.Collections.Generic;
+    using FootballStats.Clubs;
+    using FootballStats.Common;
+
     public static class World
     {        
         private static List<Club> allClubs = new List<Club>();
         private static int personID = 1;
 
-        static public List<Club> AllClubs
+        public static List<Club> AllClubs
         {
             get
             {
@@ -36,13 +35,12 @@ namespace FootballStats.Competitions
         {
             if (!allClubs.Contains(club))
             {
-                allClubs.Add(club);
-                
+                allClubs.Add(club);                
             }
             else
             {
-                // TODO: Implement exception
-                throw new NotImplementedException(); 
+                string message = string.Format("{0} is already exists!", club);
+                throw new InvalidClubException(message); 
             }            
         }
     }

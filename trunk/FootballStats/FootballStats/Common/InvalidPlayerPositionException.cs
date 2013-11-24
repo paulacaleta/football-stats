@@ -24,13 +24,13 @@
         public InvalidPlayerPositionException(string message, PlayerPosition position)
             : base(message)
         {
-            this.position = position;
+            this.Position = position;
         }
 
         public InvalidPlayerPositionException(string message, PlayerPosition position, Exception innerException)
             : base(message, innerException)
         {
-            this.position = position;
+            this.Position = position;
         }
 
         public PlayerPosition Position
@@ -38,6 +38,11 @@
             get
             {
                 return this.position;
+            }
+
+            private set
+            {
+                this.position = value;
             }
         }
     }

@@ -2,9 +2,10 @@
 {
     using System.Collections.Generic;
 
-    interface IMatchStats
+    public interface IMatchStats
     {
         List<MatchEvent> GetEvents(EventType eventType);
+
         List<MatchEvent> GetAllEvents();
     }
 }

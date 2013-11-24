@@ -14,12 +14,14 @@
 
         public MatchEvent(int minuteOfEvent, Club activeSide, Club passiveSide, Player playerInvolved, EventType eventType)
         {
-            this.minuteOfEvent = minuteOfEvent;
-            this.activeSide = activeSide;
-            this.passiveSide = passiveSide;
-            this.playerInvolved = playerInvolved;
-            this.eventType = eventType;
+            this.MinuteOfEvent = minuteOfEvent;
+            this.ActiveSide = activeSide;
+            this.PassiveSide = passiveSide;
+            this.PlayerInvolved = playerInvolved;
+            this.EventType = eventType;
         }
+
+        #region Properties
 
         public int MinuteOfEvent
         {
@@ -27,6 +29,7 @@
             {
                 return this.minuteOfEvent;
             }
+
             set
             {
                 if (value > 0 && value < 130)
@@ -46,6 +49,7 @@
             {
                 return this.activeSide;
             }
+
             set
             {
                 this.activeSide = value;
@@ -58,6 +62,7 @@
             {
                 return this.passiveSide;
             }
+
             set
             {
                 this.passiveSide = value;
@@ -70,6 +75,7 @@
             {
                 return this.playerInvolved;
             }
+
             set
             {
                 this.playerInvolved = value;
@@ -82,16 +88,20 @@
             {
                 return this.eventType;
             }
+
             set
             {
                 this.eventType = value;
             }
         }
 
+        #endregion
+
         public override string ToString()
         {
             string information = string.Format("Event Type: {0}\nEvent minute:{1}\nEvent active side: {2}\n" +
-            "Event passive side: {3}\nEvent player involved: {4}\n", eventType, minuteOfEvent, activeSide.Name, passiveSide.Name, PlayerInvolved.GetName());
+            "Event passive side: {3}\nEvent player involved: {4}\n",
+            this.EventType, this.MinuteOfEvent, this.ActiveSide.Name, this.PassiveSide.Name, this.PlayerInvolved.GetName());
 
             return information.ToString();
         }

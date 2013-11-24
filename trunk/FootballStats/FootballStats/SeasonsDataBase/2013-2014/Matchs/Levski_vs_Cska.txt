@@ -1,7 +1,7 @@
 FINAL GAME SCORE IS: 2/2
 
 Referee Name: Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 
 MATCH EVENTS
@@ -10,125 +10,125 @@ MATCH EVENTS
 HOME TEAM:
 --------------------------------------------------------------------------------
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1978 г. 00:00:00 ч.
+BirthDate: 15/10/1978 00:00:00
 Nationality: Bulgarian
 
 Name: Gacov, Gacov, Gacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15/10/1979 00:00:00
 Nationality: Cambodian
 
 Name: Baco, Bacov, Bacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15/10/1979 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1987 г. 00:00:00 ч.
+BirthDate: 15/10/1987 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1986 г. 00:00:00 ч.
+BirthDate: 15/10/1986 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15/10/1990 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15/10/1990 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15/10/1991 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1992 г. 00:00:00 ч.
+BirthDate: 15/10/1992 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1976 г. 00:00:00 ч.
+BirthDate: 15/10/1976 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15/10/1991 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1989 г. 00:00:00 ч.
+BirthDate: 15/10/1989 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 
 
 AWAY TEAM:
 --------------------------------------------------------------------------------
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1978 г. 00:00:00 ч.
+BirthDate: 15/10/1978 00:00:00
 Nationality: Bulgarian
 
 Name: Gacov, Gacov, Gacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15/10/1979 00:00:00
 Nationality: Cambodian
 
 Name: Baco, Bacov, Bacov
-BirthDate: 15.10.1979 г. 00:00:00 ч.
+BirthDate: 15/10/1979 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1987 г. 00:00:00 ч.
+BirthDate: 15/10/1987 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1986 г. 00:00:00 ч.
+BirthDate: 15/10/1986 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15/10/1990 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1990 г. 00:00:00 ч.
+BirthDate: 15/10/1990 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15/10/1991 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1992 г. 00:00:00 ч.
+BirthDate: 15/10/1992 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1976 г. 00:00:00 ч.
+BirthDate: 15/10/1976 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1991 г. 00:00:00 ч.
+BirthDate: 15/10/1991 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1989 г. 00:00:00 ч.
+BirthDate: 15/10/1989 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
-BirthDate: 15.10.1980 г. 00:00:00 ч.
+BirthDate: 15/10/1980 00:00:00
 Nationality: Bulgarian
 

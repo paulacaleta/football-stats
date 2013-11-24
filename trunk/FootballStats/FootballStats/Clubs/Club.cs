@@ -22,6 +22,8 @@
             this.Nationality = nationality;
         }
 
+        #region Properties
+
         public string Name
         {
             get
@@ -104,6 +106,8 @@
                 }
             }
         }
+
+        #endregion
 
         #region Methods
 
@@ -304,6 +308,31 @@
         }
 
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            Club club = obj as Club;
+
+            if (club == null)
+            {
+                return false;
+            }
+
+            if (this.Name != club.Name)
+            {
+                if (this.Nationality != club.Nationality)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public override string ToString()
         {

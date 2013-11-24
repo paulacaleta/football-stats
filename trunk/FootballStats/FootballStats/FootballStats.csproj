@@ -48,6 +48,7 @@
     <Compile Include="Common\InvalidPlayerPositionException.cs" />
     <Compile Include="Common\ToStringExtentionsForCollections.cs" />
     <Compile Include="Competitions\EventType.cs" />
+    <Compile Include="Competitions\FinalScore.cs" />
     <Compile Include="Competitions\MatchEvent.cs" />
     <Compile Include="Competitions\IMatchStats.cs" />
     <Compile Include="Competitions\Match.cs" />

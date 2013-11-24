@@ -1,28 +1,27 @@
-﻿using FootballStats.Clubs;
-using FootballStats.Persons;
-using System;
-using System.Text;
-using System.Collections.Generic;
-using FootballStats.Common;
-
-namespace FootballStats.Competitions
+﻿namespace FootballStats.Competitions
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using FootballStats.Clubs;
+    using FootballStats.Persons;
+
     public class Season
     {
         private string season;
-        private int totalTeams;
+        // TODO: private int totalTeams;
 
         private List<Club> participatingClubs = new List<Club>();
-        private List<Referee> referees = new List<Referee>();        
+        private List<Referee> referees = new List<Referee>();
         private List<Match> matches = new List<Match>();
-        
+
         public Season(string season)
         {
             // TODO: must be unique number! There shouldn't be seasons with identical ID's
             this.season = season;
         }
 
-        public string SeasonID 
+        public string SeasonID
         {
             get { return this.season; }
         }
@@ -39,21 +38,22 @@ namespace FootballStats.Competitions
         {
             this.participatingClubs.Add(club);
             // TODO: Method that adds an existing club
-        }        
-        
+        }
+
         public void AddReferee(Referee referee)
         {
             // TODO: Implement this method
             // Referee must be an exiting one. Can't be implemented right now!
             this.referees.Add(referee);
         }
-        
+
         public bool ContainsClub(Club club)
         {
             if (this.participatingClubs.Contains(club))
             {
                 return true;
             }
+
             return false;
         }
 
@@ -63,6 +63,7 @@ namespace FootballStats.Competitions
             {
                 return true;
             }
+
             return false;
         }
 
@@ -73,10 +74,8 @@ namespace FootballStats.Competitions
 
         public override string ToString()
         {
-
-            //TODO : Implement more statistical information.
-
-            string formating = String.Format(new string('-',80));
+            // TODO : Implement more statistical information.
+            string formating = string.Format(new string('-', 80));
             string clubList = null;
             StringBuilder sb = new StringBuilder();
 
@@ -85,17 +84,17 @@ namespace FootballStats.Competitions
 
             for (int i = 0; i < this.participatingClubs.Count; i++)
             {
-                sb.Append(participatingClubs[i].Name);
+                sb.Append(this.participatingClubs[i].Name);
                 sb.Append('\n');
             }
-            
+
             sb.AppendLine(formating);
             sb.AppendLine("LIST OF ALL REFEREES:");
             sb.AppendLine(formating);
 
             for (int i = 0; i < this.referees.Count; i++)
             {
-                sb.Append(referees[i].ToString());
+                sb.Append(this.referees[i].ToString());
                 sb.Append('\n');
             }
 
@@ -105,12 +104,12 @@ namespace FootballStats.Competitions
 
             for (int i = 0; i < this.matches.Count; i++)
             {
-                sb.Append(String.Format("{0} vs {1}\n{2}", matches[i].HomeClub.Name, matches[i].AwayClub.Name,matches[i].GetFinalScore() ));
+                sb.Append(string.Format("{0} vs {1}\n{2}", this.Matches[i].HomeClub.Name, this.Matches[i].AwayClub.Name, this.Matches[i].GetFinalScore()));
             }
+
             clubList = sb.ToString();
-            
-            string returnValue = String.Format("{0}\n",
-                clubList);
+
+            string returnValue = string.Format("{0}\n", clubList);
 
             return returnValue.ToString();
         }

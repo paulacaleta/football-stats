@@ -1,6 +1,5 @@
 ﻿namespace FootballStats.Persons
 {
-    using System;
     using System.Collections.Generic;
     using System.Text;
     using FootballStats.Common;
@@ -17,7 +16,10 @@
 
         public IList<PlayerPosition> Positions
         {
-            get { return this.positions; }
+            get
+            { 
+                return this.positions;
+            }
         }
 
         public void AddPosition(PlayerPosition position)

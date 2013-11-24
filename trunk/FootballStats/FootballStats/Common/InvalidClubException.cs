@@ -24,13 +24,13 @@
         public InvalidClubException(string message, IPerson personException)
             : base(message)
         {
-            this.personException = personException;
+            this.PersonException = personException;
         }
 
         public InvalidClubException(string message, IPerson personException, Exception innerException)
             : base(message, innerException)
         {
-            this.personException = personException;
+            this.PersonException = personException;
         }
 
         public IPerson PersonException
@@ -38,6 +38,11 @@
             get
             {
                 return this.personException;
+            }
+
+            private set
+            {
+                this.personException = value;
             }
         }
     }
