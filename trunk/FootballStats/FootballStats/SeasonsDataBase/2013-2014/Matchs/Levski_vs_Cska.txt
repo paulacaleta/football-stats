@@ -1,7 +1,11 @@
 FINAL GAME SCORE IS: 2/2
 
 Referee Name: Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 MATCH EVENTS
@@ -10,125 +14,245 @@ MATCH EVENTS
 HOME TEAM:
 --------------------------------------------------------------------------------
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1978 г. 0:00:00
+=======
 BirthDate: 15/10/1978 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Gacov, Gacov, Gacov
+<<<<<<< .mine
+BirthDate: 15.10.1979 г. 0:00:00
+=======
 BirthDate: 15/10/1979 00:00:00
+>>>>>>> .r50
 Nationality: Cambodian
 
 Name: Baco, Bacov, Bacov
+<<<<<<< .mine
+BirthDate: 15.10.1979 г. 0:00:00
+=======
 BirthDate: 15/10/1979 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1987 г. 0:00:00
+=======
 BirthDate: 15/10/1987 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1986 г. 0:00:00
+=======
 BirthDate: 15/10/1986 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1990 г. 0:00:00
+=======
 BirthDate: 15/10/1990 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1990 г. 0:00:00
+=======
 BirthDate: 15/10/1990 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1991 г. 0:00:00
+=======
 BirthDate: 15/10/1991 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1992 г. 0:00:00
+=======
 BirthDate: 15/10/1992 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1976 г. 0:00:00
+=======
 BirthDate: 15/10/1976 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1991 г. 0:00:00
+=======
 BirthDate: 15/10/1991 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1989 г. 0:00:00
+=======
 BirthDate: 15/10/1989 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 
 AWAY TEAM:
 --------------------------------------------------------------------------------
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1978 г. 0:00:00
+=======
 BirthDate: 15/10/1978 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Gacov, Gacov, Gacov
+<<<<<<< .mine
+BirthDate: 15.10.1979 г. 0:00:00
+=======
 BirthDate: 15/10/1979 00:00:00
+>>>>>>> .r50
 Nationality: Cambodian
 
 Name: Baco, Bacov, Bacov
+<<<<<<< .mine
+BirthDate: 15.10.1979 г. 0:00:00
+=======
 BirthDate: 15/10/1979 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1987 г. 0:00:00
+=======
 BirthDate: 15/10/1987 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1986 г. 0:00:00
+=======
 BirthDate: 15/10/1986 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1990 г. 0:00:00
+=======
 BirthDate: 15/10/1990 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1990 г. 0:00:00
+=======
 BirthDate: 15/10/1990 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1991 г. 0:00:00
+=======
 BirthDate: 15/10/1991 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1992 г. 0:00:00
+=======
 BirthDate: 15/10/1992 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1976 г. 0:00:00
+=======
 BirthDate: 15/10/1976 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1991 г. 0:00:00
+=======
 BirthDate: 15/10/1991 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1989 г. 0:00:00
+=======
 BirthDate: 15/10/1989 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 

@@ -6,7 +6,11 @@ Levski
 LIST OF ALL REFEREES:
 --------------------------------------------------------------------------------
 Name: Baco, Gacov, Stoyanov
+<<<<<<< .mine
+BirthDate: 15.10.1980 г. 0:00:00
+=======
 BirthDate: 15/10/1980 00:00:00
+>>>>>>> .r50
 Nationality: Bulgarian
 --------------------------------------------------------------------------------
 LIST OF ALL MATCH SCORES:
