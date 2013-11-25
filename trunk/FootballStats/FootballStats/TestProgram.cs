@@ -84,11 +84,6 @@
             
             
 
-            while (true)
-            {
-                
-            }
-
         }
 
         private static void PlayerCreationTest()
