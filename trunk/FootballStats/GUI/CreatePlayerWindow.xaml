@@ -1,17 +1,74 @@
 ﻿<Window x:Class="GUI.CreatePlayerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:createPerson="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
         Title="CreatePlayerWindow" Height="550" Width="725">
-    <Grid ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-
-
-    </Grid>
+    <Window.DataContext>
+        <createPerson:CreatePersonViewModel></createPerson:CreatePersonViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style
+            x:Key="TextBlockStyle"
+        TargetType="TextBlock">
+            <Setter Property="Width" Value="250"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Name="TextBoxStyle" x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
+            
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel>
+        <TextBox Text="Enter new person information bellow"
+                 FontSize="20"
+                 FontWeight="Bold"
+                 TextAlignment="Center">            
+        </TextBox>
+        <StackPanel>
+            <DockPanel>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                    Text="First Name"
+                    DockPanel.Dock="Left">
+                </TextBlock>
+                <TextBox
+                    Text="{Binding FirstName}"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource TextBoxStyle}">
+                </TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                    Text="Middle Name"
+                    DockPanel.Dock="Left">
+                </TextBlock>
+                <TextBox
+                    Text="{Binding MiddleName}"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource TextBoxStyle}">
+                </TextBox>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock
+                    Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                    Text="Last Name"
+                    DockPanel.Dock="Left">
+                </TextBlock>
+                <TextBox
+                    Text="{Binding LastName}"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource TextBoxStyle}">
+                </TextBox>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel>
+            
+        </StackPanel>
+    </StackPanel>
 </Window>
