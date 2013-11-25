@@ -49,19 +49,19 @@ namespace FootballStats.IO
         public static void DeleteClubInformation(string clubName)
         {
             string path = String.Format(@"..\..\ClubInformation\{0}.txt", clubName);
-            // TODO: string returnValue = null;
 
             try
             {
                 File.Delete(path);
             }
-            catch (Exception ex)
+            catch (FileNotFoundException)
             {
-                //TODO: implement custom exception
-                //Ant this is just :D stupid !!! fix later!
-                ex = new Exception("Non existing team!");
-                throw ex;
+                Console.WriteLine("File is missing!");
             }
+            catch(FileLoadException)
+            {
+                Console.WriteLine("Can't load file!");
+            }       
 
         }
 
@@ -117,12 +117,42 @@ namespace FootballStats.IO
             string path = String.Format(@"..\..\SeasonsDataBase\{2}\Matchs\{0}_vs_{1}.txt",
                 homeTeam, awayTeam, seasonID);
 
-            using (StreamReader read = new StreamReader(path))
+            try
             {
-                returnValue = read.ReadToEnd();
+                using (StreamReader read = new StreamReader(path))
+                {
+                    returnValue = read.ReadToEnd();
+                }
             }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found.");
+            }
+            catch (FileLoadException)
+            {
+                Console.WriteLine("File can't load.");
+            }
+            
 
             return returnValue;
+        }
+
+        public static void DeleteSeason(string seasonID) 
+        {
+            string path = String.Format(@"..\..\SeasonsDataBase\{0}", seasonID);
+
+            try
+            {
+                Directory.Delete(path, true);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found.");
+            }
+            catch (FileLoadException)
+            {
+                Console.WriteLine("File can't load.");
+            }
         }
         #endregion
     }

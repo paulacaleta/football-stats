@@ -81,48 +81,18 @@
 
             Console.WriteLine(FootballStatsIO.ReadSeasonInformation(testSeason.SeasonID));
             //Console.WriteLine(FootballStatsIO.ReadMatchInformationInSeason("Levski", "Cska", testSeason.SeasonID));
-            
-            
 
         }
 
         private static void PlayerCreationTest()
         {
-            Console.WriteLine("TESTING PLAYER CREATION");
-            Player firstPlayer = new Player("Vlado", null, "Stoyanov", "8.6.1987", Nationality.Bulgarian);
-            Console.WriteLine(firstPlayer.GetName());
-            Console.WriteLine(firstPlayer.BirthDate.ToShortDateString());
-            Console.WriteLine("Age: {0}",firstPlayer.GetAge());
-            Console.WriteLine("Weekly wage: {0}",firstPlayer.WeeklyWage());
-            Console.WriteLine("Setting weekly wage to 1000");
-            firstPlayer.SetWeeklyWage(1000);
-            Console.WriteLine("Yearly wage {0:0}",firstPlayer.YearlyWage());
-            Console.WriteLine("Monthly wage {0:0}", firstPlayer.MonthlyWage());
-            Console.WriteLine("Weekly wage {0:0}", firstPlayer.WeeklyWage());
+            Referee newRef = new Referee("Baco", "Gacov", "Stoyanov", "15.10.1978", Nationality.Bulgarian);
+
+            Console.WriteLine(newRef.GetName());
+
+            FootballStatsIO.DeleteSeason("2013-2014");
+
             Console.WriteLine();
-
-            Console.WriteLine("POSITIONS TEST");
-            
-            firstPlayer.AddPosition(PlayerPosition.GK);
-            Console.WriteLine("Adding GK:");
-            foreach (var pos in firstPlayer.Positions)
-            {
-                Console.WriteLine(pos);
-            }
-
-            Console.WriteLine("Adding FW:");
-            firstPlayer.AddPosition(PlayerPosition.FW);
-            foreach (var pos in firstPlayer.Positions)
-            {
-                Console.WriteLine(pos);
-            }
-
-            Console.WriteLine("Removing GK:");
-            firstPlayer.RemovePosition(PlayerPosition.GK);
-            foreach (var pos in firstPlayer.Positions)
-            {
-                Console.WriteLine(pos);
-            }
         }
     }
 }

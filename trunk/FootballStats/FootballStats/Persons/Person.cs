@@ -10,7 +10,6 @@
         private Name name;
         private DateTime birthDate;
         private Nationality nationality;
-
         private int personID;
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
@@ -26,7 +25,7 @@
             this.PersonID = World.PersonID++;
         }
 
-        public Name Name
+        private Name Name
         {
             get
             {
@@ -39,7 +38,7 @@
             }
         }
 
-        public DateTime BirthDate
+        private DateTime BirthDate
         {
             get
             {
