@@ -20,8 +20,6 @@ namespace GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        CreatePlayerWindow createPlayerWindow = new CreatePlayerWindow();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -29,6 +27,7 @@ namespace GUI
 
         private void OnButtonCreatePersonClick(object sender, RoutedEventArgs e)
         {
+            CreatePlayerWindow createPlayerWindow = new CreatePlayerWindow();
             createPlayerWindow.ShowDialog();
         }
 
