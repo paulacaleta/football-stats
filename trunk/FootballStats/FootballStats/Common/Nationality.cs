@@ -29,7 +29,7 @@
         Slovakian, Slovenian, SolomonIslander, Somali, SouthAfrican, SouthKorean,
         Spanish, SriLankan, Sudanese, Surinamer, Swazi, Swedish, Swiss, Syrian,
         Taiwanese, Tajik, Tanzanian, Thai, Togolese, Tongan,
-        TrinidadianorTobagonian, Tunisian, Turkish, Tuvaluan, Ugandan, Ukrainian,
+        Trinidadianor, Tobagonian, Tunisian, Turkish, Tuvaluan, Ugandan, Ukrainian,
         Uruguayan, Uzbekistani, Venezuelan, Vietnamese, Welsh, Yemenite, Zambian,
         Zimbabwean
     }

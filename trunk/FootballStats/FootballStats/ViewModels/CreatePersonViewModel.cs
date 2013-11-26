@@ -27,12 +27,8 @@ namespace FootballStats.ViewModels
         public IList<PlayerPosition> PlayerPositions { get; set; }
 
         // Staff
-        public StaffPosition StaffPosition
-        {
-            get;
-            set;
-        }
-        
+        public StaffPosition StaffPosition { get; set; }
+
         public bool CanExecute(object parameter)
         {
             if (this.FirstName != null && this.LastName != null && this.DateOfBirth != null && this.Nationality != null)
@@ -59,13 +55,13 @@ namespace FootballStats.ViewModels
                 CreateReferee();
             }
         }
-  
+
         private void CreateReferee()
         {
             Referee newReferee = new Referee(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
             // TODO: Add where?
         }
-  
+
         private void CreateStaff()
         {
             StaffMember newStaff = new StaffMember(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
@@ -73,7 +69,7 @@ namespace FootballStats.ViewModels
             newStaff.SetStaffPosition(this.StaffPosition);
             // TODO: Add where?
         }
-  
+
         private void CreatePlayer()
         {
             Player newPlayer = new Player(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
@@ -84,5 +80,7 @@ namespace FootballStats.ViewModels
             }
             // TODO: Add where?
         }
+
+        
     }
 }
