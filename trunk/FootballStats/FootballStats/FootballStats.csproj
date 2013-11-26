@@ -68,6 +68,8 @@
     <Compile Include="Persons\Referee.cs" />
     <Compile Include="Persons\StaffMember.cs" />
     <Compile Include="Persons\StaffPosition.cs" />
+	<Compile Include="ViewModels\CreatePersonViewModel.cs" />
+	<Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="TestProgram.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
