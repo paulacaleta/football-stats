@@ -94,6 +94,7 @@
                     </TextBlock>
                     <ComboBox
                         ItemsSource="{Binding Source={StaticResource natsEnum}}"
+                        SelectedItem="{Binding Nationality}"                        
                         Width="150">   
                     </ComboBox>
                 </StackPanel>
@@ -109,33 +110,35 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
+                    
                     <RadioButton
+                        Content="Player"
                         VerticalContentAlignment="Center"
                         TextBlock.FontSize="15"
                         TextBlock.LineHeight="22">
-                        Player
                     </RadioButton>
+                    
                     <RadioButton
                         Grid.Column="1"
+                        Content="Staff"
                         VerticalContentAlignment="Center"
                         TextBlock.FontSize="15"
                         TextBlock.LineHeight="22">
-                        Staff
                     </RadioButton>
                    
                     <RadioButton
                         Grid.Column="2"
+                        Content="Referee"
                         VerticalContentAlignment="Center"
                         TextBlock.FontSize="15"
                         TextBlock.LineHeight="22">
-                        Referee
                     </RadioButton>
                 </Grid>
             </Grid>
         </StackPanel>
         <StackPanel>
             <TextBlock
-                Text="{Binding PersonType}"
+                Text="{Binding Nationality}"
                 Height="25">
                 
             </TextBlock>

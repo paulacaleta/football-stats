@@ -23,10 +23,5 @@ namespace GUI
         {
             InitializeComponent();
         }
-
-        private void OnRadioButtonPlayerChecked(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
