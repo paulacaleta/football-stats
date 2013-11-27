@@ -5,11 +5,12 @@
         xmlns:createPerson="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
         xmlns:nats="clr-namespace:FootballStats.Common;assembly=FootballStats"
         xmlns:playerPos="clr-namespace:FootballStats.Persons;assembly=FootballStats"
-        Title="CreatePlayerWindow" Height="550" Width="725">
+        Title="CreatePlayerWindow" Height="220" Width="725"
+        ResizeMode="CanMinimize">
     <Window.DataContext>
         <createPerson:CreatePersonViewModel></createPerson:CreatePersonViewModel>
     </Window.DataContext>
-    
+
     <Window.Resources>
         <ObjectDataProvider 
             x:Key="natsEnum"                            
@@ -47,195 +48,187 @@
         <Style x:Name="TextBoxStyle" x:Key="TextBoxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="FontWeight" Value="SemiBold"></Setter>
-            
+
         </Style>
     </Window.Resources>
-    
+
     <StackPanel>
         <TextBox Text="Enter new person information bellow"
                  FontSize="20"
                  FontWeight="Bold"
-                 TextAlignment="Center">            
+                 TextAlignment="Center">
         </TextBox>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <StackPanel>
+            <StackPanel
+                Grid.Column="0">
                 <DockPanel>
                     <TextBlock
-                    Style="{StaticResource ResourceKey=TextBlockStyle}"                    
-                    Text="First Name"
-                    DockPanel.Dock="Left">
-                    </TextBlock>
-                    <TextBox
-                    Text="{Binding FirstName}"
-                    DockPanel.Dock="Right"
-                    Style="{StaticResource TextBoxStyle}">
-                    </TextBox>
-                </DockPanel>
-                <DockPanel>
-                    <TextBlock
-                    Style="{StaticResource ResourceKey=TextBlockStyle}"                    
-                    Text="Middle Name"
-                    DockPanel.Dock="Left">
-                    </TextBlock>
-                    <TextBox
-                    Text="{Binding MiddleName}"
-                    DockPanel.Dock="Right"
-                    Style="{StaticResource TextBoxStyle}">
-                    </TextBox>
-                </DockPanel>
-                <DockPanel>
-                    <TextBlock
-                    Style="{StaticResource ResourceKey=TextBlockStyle}"                    
-                    Text="Last Name"
-                    DockPanel.Dock="Left">
-                    </TextBlock>
-                    <TextBox
-                    Text="{Binding LastName}"
-                    DockPanel.Dock="Right"
-                    Style="{StaticResource TextBoxStyle}">
-                    </TextBox>
-                </DockPanel>
-
-            </StackPanel>
-            
-        </Grid>
-        
-
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Grid                    
-                    Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <TextBlock
-                        Grid.Column="0"
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
-                        TextAlignment="Left"
-                        Text="Weekly wage"
+                        Text="First Name"
                         DockPanel.Dock="Left">
-                </TextBlock>
-                <TextBox
-                        Grid.Column="1"
-                        Text="{Binding WeeklyWage}"                        
-                        VerticalAlignment="Center"
-                        FontSize="15">
-                </TextBox>
-            </Grid>
-            <StackPanel
-                    Orientation="Horizontal">
+                    </TextBlock>
+                    <TextBox
+                        Text="{Binding FirstName}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Middle Name"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Text="{Binding MiddleName}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Last Name"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Text="{Binding LastName}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Weekly Wage"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Text="{Binding WeeklyWage}"
+                        TextAlignment="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
 
             </StackPanel>
 
             <StackPanel
-                    Orientation="Horizontal"
-                    Grid.Column="1">
-                <TextBlock
+                Grid.Column="1"
+                Orientation="Vertical">
+                <DockPanel>
+                    <TextBlock
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                         TextAlignment="Center"
                         Text="Nationality"
-                        Width="120"
                         DockPanel.Dock="Left">
-                </TextBlock>
-                <ComboBox
+                    </TextBlock>
+                    <ComboBox
                         ItemsSource="{Binding Source={StaticResource natsEnum}}"
                         SelectedItem="{Binding Nationality}"
                         FontSize="15"
-                        Width="115">
-                </ComboBox>
-            </StackPanel>
-            <StackPanel
-                    Orientation="Horizontal">
+                        DockPanel.Dock="Right">
+                    </ComboBox>
+                </DockPanel>
 
-            </StackPanel>
-
-            <DockPanel
-                    Grid.Column="2">
-                <TextBlock
+                <DockPanel>
+                    <TextBlock
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                         TextAlignment="Center"
                         Text="Type"
-                        Width="100"
                         DockPanel.Dock="Left">
-                </TextBlock>
-                <ComboBox
+                    </TextBlock>
+                    <ComboBox
                         Name="PersonTypeComboBox"
                         DockPanel.Dock="Right"
                         ItemsSource="{Binding PersonTypesList}"
                         SelectedItem="{Binding PersonType}"
                         FontSize="15"
                         SelectionChanged="OnPersonTypeComboBoxSelectionChanged">
-                </ComboBox>
-            </DockPanel>
-            <StackPanel
+                    </ComboBox>
+                </DockPanel>
+
+                <StackPanel
                     Orientation="Horizontal">
+                    <StackPanel
+                        Orientation="Vertical">
+                        <TextBlock
+                            Foreground="Gray"
+                            Name="PlayerPositionTextBox"
+                            DockPanel.Dock="Left"
+                            Text="Player Position"
+                            Style="{StaticResource ResourceKey=TextBlockStyle}">
+                        </TextBlock>
+
+                        <ComboBox
+                            Name="PlayerPositionComboBox"
+                            ItemsSource="{Binding Source={StaticResource playerPosEnum}}"
+                            SelectedItem="{Binding PlayerPosition}"
+                            FontSize="13"
+                            IsEnabled="False">
+
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Orientation="Vertical">
+                        <TextBlock
+                            Foreground="Gray"
+                            Name="StaffPositionTextBox"
+                            Text="Staff Position"
+                            Style="{StaticResource ResourceKey=TextBlockStyle}" Width="182">
+                        </TextBlock>
+
+                        <ComboBox
+                            Name="StaffPositionComboBox"
+                            ItemsSource="{Binding Source={StaticResource staffPosEnum}}"
+                            SelectedItem="{Binding StaffPosition}"
+                            FontSize="13"
+                            IsEnabled="False">
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
 
             </StackPanel>
-
-            <StackPanel>
-
-            </StackPanel>
-
         </Grid>
 
-        <DockPanel
-            Height="25">                
-            <StackPanel
-                Orientation="Horizontal">
+        <Canvas>
+
+            <DockPanel>
                 <TextBlock
-                DockPanel.Dock="Left"
-                Text="Player Position"
-                Style="{StaticResource ResourceKey=TextBlockStyle}">
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Date of Birth"
+                        DockPanel.Dock="Left">
                 </TextBlock>
-
-                <ComboBox
-                    Name="PositionsComboBox"
-                    ItemsSource="{Binding Source={StaticResource playerPosEnum}}"
-                    Width="150"
-                    Height="25"
-                    IsEnabled="False">
-
-                </ComboBox>
-            </StackPanel>
-            
-            <DockPanel
-                DockPanel.Dock="Right">
-
-                <TextBlock
-                Text="Staff Position"
-                    Width="125"
-                Style="{StaticResource ResourceKey=TextBlockStyle}">
-                </TextBlock>
-
-                <ComboBox
-                    ItemsSource="{Binding Source={StaticResource playerPosEnum}}"
-                    Width="135"
-                    Height="25"
-                    IsEnabled="False">
-
-                </ComboBox>
-
+                <TextBox
+                        Text="{Binding DateOfBirth}"
+                        TextAlignment="Right"
+                        Style="{StaticResource TextBoxStyle}"
+                    Width="85">
+                </TextBox>
             </DockPanel>
+
+            <Button
+                Width="100"
+                Height="35" Canvas.Left="430" Canvas.Top="11"
+                Content="Create"
+                FontSize="15"
+                FontWeight="Bold">
+
+            </Button>
             
-        </DockPanel>
-        
-        <StackPanel>
-            <TextBlock
-                Text="{Binding PersonType}"
-                Height="25">
-                
-            </TextBlock>
-        </StackPanel>
+            <Button
+                Width="100"
+                Height="35" Canvas.Left="585" Canvas.Top="11"
+                Content="Cancel"
+                FontSize="15"
+                FontWeight="Bold">
+
+            </Button>
+        </Canvas>
+
     </StackPanel>
 </Window>

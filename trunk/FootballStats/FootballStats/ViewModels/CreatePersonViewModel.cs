@@ -13,7 +13,7 @@ namespace FootballStats.ViewModels
     public class CreatePersonViewModel : ICommand
     {
         // Shared
-        public string PersonType { get; set; } 
+        public string PersonType { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
@@ -32,7 +32,7 @@ namespace FootballStats.ViewModels
         }
 
         // Player
-        public IList<PlayerPosition> PlayerPositions { get; set; }
+        public PlayerPosition PlayerPosition { get; set; }
 
         // Staff
         public StaffPosition StaffPosition { get; set; }
@@ -82,13 +82,10 @@ namespace FootballStats.ViewModels
         {
             Player newPlayer = new Player(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
             newPlayer.SetWeeklyWage(this.WeeklyWage);
-            foreach (var pos in this.PlayerPositions)
-            {
-                newPlayer.AddPosition(pos);
-            }
+            newPlayer.AddPosition(this.PlayerPosition);
             // TODO: Add where?
         }
 
-        
+
     }
 }

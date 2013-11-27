@@ -28,11 +28,27 @@ namespace GUI
         {
             if (this.PersonTypeComboBox.SelectedItem == "Player")
             {
-                this.PositionsComboBox.IsEnabled = true;
+                this.PlayerPositionComboBox.IsEnabled = true;
+                this.StaffPositionComboBox.IsEnabled = false;
+
+                this.PlayerPositionTextBox.Foreground = Brushes.Black;
+                this.StaffPositionTextBox.Foreground = Brushes.Gray;
+            }
+            else if (this.PersonTypeComboBox.SelectedItem == "Staff")
+            {
+                this.PlayerPositionComboBox.IsEnabled = false;
+                this.StaffPositionComboBox.IsEnabled = true;
+
+                this.PlayerPositionTextBox.Foreground = Brushes.Gray;
+                this.StaffPositionTextBox.Foreground = Brushes.Black;
             }
             else
             {
-                this.PositionsComboBox.IsEnabled = false;
+                this.PlayerPositionComboBox.IsEnabled = false;
+                this.StaffPositionComboBox.IsEnabled = false;
+
+                this.PlayerPositionTextBox.Foreground = Brushes.Gray;
+                this.StaffPositionTextBox.Foreground = Brushes.Gray;
             }
         }
     }
