@@ -4,6 +4,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:createPerson="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
         xmlns:nats="clr-namespace:FootballStats.Common;assembly=FootballStats"
+        xmlns:playerPos="clr-namespace:FootballStats.Persons;assembly=FootballStats"
         Title="CreatePlayerWindow" Height="550" Width="725">
     <Window.DataContext>
         <createPerson:CreatePersonViewModel></createPerson:CreatePersonViewModel>
@@ -16,6 +17,14 @@
             ObjectType="{x:Type sys:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type TypeName="nats:Nationality"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider 
+            x:Key="playerPosEnum"                            
+            MethodName="GetValues" 
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="playerPos:PlayerPosition"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
         <Style
@@ -200,7 +209,16 @@
                 Style="{StaticResource ResourceKey=TextBlockStyle}">
                 
             </TextBlock>
-            <StackPanel>
+            <StackPanel
+                Orientation="Horizontal">
+                <ListBox
+                    DataContext="{Binding Source={StaticResource playerPosEnum}}"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontSize="15"
+                    Width="150"
+                    Height="25">                   
+                </ListBox>
                 
             </StackPanel>
             

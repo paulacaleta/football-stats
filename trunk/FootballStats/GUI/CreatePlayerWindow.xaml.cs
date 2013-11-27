@@ -23,5 +23,10 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void OnCheckBoxGoalkeeperChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
