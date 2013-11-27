@@ -81,21 +81,50 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+
+                <Grid                    
+                    Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock
+                        Grid.Column="0"
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        TextAlignment="Left"
+                        Text="Weekly wage"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Grid.Column="1"
+                        Text="{Binding WeeklyWage}"                        
+                        VerticalAlignment="Center"
+                        FontSize="15">
+                    </TextBox>
+                </Grid>
+                <StackPanel
+                    Orientation="Horizontal">
+
+                </StackPanel>
+
                 <StackPanel
                     Orientation="Horizontal"
-                    Grid.Column="0">                    
+                    Grid.Column="1">                    
                     <TextBlock
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                         TextAlignment="Center"
                         Text="Nationality"
-                        Width="180"
+                        Width="120"
                         DockPanel.Dock="Left">
                     </TextBlock>
                     <ComboBox
                         ItemsSource="{Binding Source={StaticResource natsEnum}}"
-                        SelectedItem="{Binding Nationality}"                        
-                        Width="150">   
+                        SelectedItem="{Binding Nationality}"
+                        FontSize="15"
+                        Width="115">   
                     </ComboBox>
                 </StackPanel>
                 <StackPanel
@@ -103,7 +132,7 @@
                     
                 </StackPanel>
                 
-                <Grid
+                <!--<Grid
                     Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
@@ -133,12 +162,53 @@
                         TextBlock.FontSize="15"
                         TextBlock.LineHeight="22">
                     </RadioButton>
-                </Grid>
+                </Grid>-->
+
+                <DockPanel
+                    Grid.Column="2">
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        TextAlignment="Center"
+                        Text="Type"
+                        Width="100"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <ComboBox
+                        DockPanel.Dock="Right"
+                        ItemsSource="{Binding PersonTypesList}"
+                        SelectedItem="{Binding PersonType}"
+                        FontSize="15">
+                    </ComboBox>
+                </DockPanel>
+                <StackPanel
+                    Orientation="Horizontal">
+
+                </StackPanel>
+                
+                <StackPanel>
+                    
+                </StackPanel>
+
             </Grid>
         </StackPanel>
+        
+        <DockPanel
+            Height="25">
+            <TextBlock
+                DockPanel.Dock="Left"
+                Text="Positions"
+                Style="{StaticResource ResourceKey=TextBlockStyle}">
+                
+            </TextBlock>
+            <StackPanel>
+                
+            </StackPanel>
+            
+        </DockPanel>
+        
         <StackPanel>
             <TextBlock
-                Text="{Binding Nationality}"
+                Text="{Binding PersonType}"
                 Height="25">
                 
             </TextBlock>

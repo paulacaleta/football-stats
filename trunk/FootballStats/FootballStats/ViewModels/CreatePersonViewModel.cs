@@ -13,9 +13,7 @@ namespace FootballStats.ViewModels
     public class CreatePersonViewModel : ICommand
     {
         // Shared
-        public string PersonType { get; set; }
-
-        public 
+        public string PersonType { get; set; } 
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
@@ -24,6 +22,14 @@ namespace FootballStats.ViewModels
 
         // ClubAffiliated
         public decimal WeeklyWage { get; set; }
+
+        public IEnumerable<string> PersonTypesList
+        {
+            get
+            {
+                return new List<string> { "Player", "Staff", "Referee" };
+            }
+        }
 
         // Player
         public IList<PlayerPosition> PlayerPositions { get; set; }
@@ -44,15 +50,15 @@ namespace FootballStats.ViewModels
 
         public void Execute(object parameter)
         {
-            if (this.PersonType == "player")
+            if (this.PersonType == "Player")
             {
                 CreatePlayer();
             }
-            else if (this.PersonType == "staff")
+            else if (this.PersonType == "Staff")
             {
                 CreateStaff();
             }
-            else if (this.PersonType == "referee")
+            else if (this.PersonType == "Referee")
             {
                 CreateReferee();
             }
