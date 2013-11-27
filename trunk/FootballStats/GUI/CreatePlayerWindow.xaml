@@ -27,10 +27,18 @@
                 <x:Type TypeName="playerPos:PlayerPosition"/>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        <ObjectDataProvider 
+            x:Key="staffPosEnum"                            
+            MethodName="GetValues" 
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="playerPos:StaffPosition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
         <Style
             x:Key="TextBlockStyle"
         TargetType="TextBlock">
-            <Setter Property="Width" Value="250"></Setter>
+            <Setter Property="Width" Value="175"></Setter>
             <Setter Property="Height" Value="25"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
@@ -49,178 +57,176 @@
                  FontWeight="Bold"
                  TextAlignment="Center">            
         </TextBox>
-        <StackPanel>
-            <DockPanel>
-                <TextBlock
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <DockPanel>
+                    <TextBlock
                     Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                     Text="First Name"
                     DockPanel.Dock="Left">
-                </TextBlock>
-                <TextBox
+                    </TextBlock>
+                    <TextBox
                     Text="{Binding FirstName}"
                     DockPanel.Dock="Right"
                     Style="{StaticResource TextBoxStyle}">
-                </TextBox>
-            </DockPanel>
-            <DockPanel>
-                <TextBlock
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
                     Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                     Text="Middle Name"
                     DockPanel.Dock="Left">
-                </TextBlock>
-                <TextBox
+                    </TextBlock>
+                    <TextBox
                     Text="{Binding MiddleName}"
                     DockPanel.Dock="Right"
                     Style="{StaticResource TextBoxStyle}">
-                </TextBox>
-            </DockPanel>
-            <DockPanel>
-                <TextBlock
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
                     Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                     Text="Last Name"
                     DockPanel.Dock="Left">
-                </TextBlock>
-                <TextBox
+                    </TextBlock>
+                    <TextBox
                     Text="{Binding LastName}"
                     DockPanel.Dock="Right"
                     Style="{StaticResource TextBoxStyle}">
-                </TextBox>
-            </DockPanel>
-            <Grid>
+                    </TextBox>
+                </DockPanel>
+
+            </StackPanel>
+            
+        </Grid>
+        
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid                    
+                    Grid.Column="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Grid                    
-                    Grid.Column="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    
-                    <TextBlock
+                <TextBlock
                         Grid.Column="0"
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                         TextAlignment="Left"
                         Text="Weekly wage"
                         DockPanel.Dock="Left">
-                    </TextBlock>
-                    <TextBox
+                </TextBlock>
+                <TextBox
                         Grid.Column="1"
                         Text="{Binding WeeklyWage}"                        
                         VerticalAlignment="Center"
                         FontSize="15">
-                    </TextBox>
-                </Grid>
-                <StackPanel
+                </TextBox>
+            </Grid>
+            <StackPanel
                     Orientation="Horizontal">
 
-                </StackPanel>
+            </StackPanel>
 
-                <StackPanel
+            <StackPanel
                     Orientation="Horizontal"
-                    Grid.Column="1">                    
-                    <TextBlock
+                    Grid.Column="1">
+                <TextBlock
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                         TextAlignment="Center"
                         Text="Nationality"
                         Width="120"
                         DockPanel.Dock="Left">
-                    </TextBlock>
-                    <ComboBox
+                </TextBlock>
+                <ComboBox
                         ItemsSource="{Binding Source={StaticResource natsEnum}}"
                         SelectedItem="{Binding Nationality}"
                         FontSize="15"
-                        Width="115">   
-                    </ComboBox>
-                </StackPanel>
-                <StackPanel
+                        Width="115">
+                </ComboBox>
+            </StackPanel>
+            <StackPanel
                     Orientation="Horizontal">
-                    
-                </StackPanel>
-                
-                <!--<Grid
-                    Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    
-                    <RadioButton
-                        Content="Player"
-                        VerticalContentAlignment="Center"
-                        TextBlock.FontSize="15"
-                        TextBlock.LineHeight="22">
-                    </RadioButton>
-                    
-                    <RadioButton
-                        Grid.Column="1"
-                        Content="Staff"
-                        VerticalContentAlignment="Center"
-                        TextBlock.FontSize="15"
-                        TextBlock.LineHeight="22">
-                    </RadioButton>
-                   
-                    <RadioButton
-                        Grid.Column="2"
-                        Content="Referee"
-                        VerticalContentAlignment="Center"
-                        TextBlock.FontSize="15"
-                        TextBlock.LineHeight="22">
-                    </RadioButton>
-                </Grid>-->
 
-                <DockPanel
+            </StackPanel>
+
+            <DockPanel
                     Grid.Column="2">
-                    <TextBlock
+                <TextBlock
                         Style="{StaticResource ResourceKey=TextBlockStyle}"                    
                         TextAlignment="Center"
                         Text="Type"
                         Width="100"
                         DockPanel.Dock="Left">
-                    </TextBlock>
-                    <ComboBox
+                </TextBlock>
+                <ComboBox
+                        Name="PersonTypeComboBox"
                         DockPanel.Dock="Right"
                         ItemsSource="{Binding PersonTypesList}"
                         SelectedItem="{Binding PersonType}"
-                        FontSize="15">
-                    </ComboBox>
-                </DockPanel>
-                <StackPanel
+                        FontSize="15"
+                        SelectionChanged="OnPersonTypeComboBoxSelectionChanged">
+                </ComboBox>
+            </DockPanel>
+            <StackPanel
                     Orientation="Horizontal">
 
-                </StackPanel>
-                
-                <StackPanel>
-                    
-                </StackPanel>
+            </StackPanel>
 
-            </Grid>
-        </StackPanel>
-        
+            <StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
         <DockPanel
-            Height="25">
-            <TextBlock
-                DockPanel.Dock="Left"
-                Text="Positions"
-                Style="{StaticResource ResourceKey=TextBlockStyle}">
-                
-            </TextBlock>
+            Height="25">                
             <StackPanel
                 Orientation="Horizontal">
-                <ListBox
-                    DataContext="{Binding Source={StaticResource playerPosEnum}}"
-                    VerticalAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    FontSize="15"
+                <TextBlock
+                DockPanel.Dock="Left"
+                Text="Player Position"
+                Style="{StaticResource ResourceKey=TextBlockStyle}">
+                </TextBlock>
+
+                <ComboBox
+                    Name="PositionsComboBox"
+                    ItemsSource="{Binding Source={StaticResource playerPosEnum}}"
                     Width="150"
-                    Height="25">                   
-                </ListBox>
-                
+                    Height="25"
+                    IsEnabled="False">
+
+                </ComboBox>
             </StackPanel>
+            
+            <DockPanel
+                DockPanel.Dock="Right">
+
+                <TextBlock
+                Text="Staff Position"
+                    Width="125"
+                Style="{StaticResource ResourceKey=TextBlockStyle}">
+                </TextBlock>
+
+                <ComboBox
+                    ItemsSource="{Binding Source={StaticResource playerPosEnum}}"
+                    Width="135"
+                    Height="25"
+                    IsEnabled="False">
+
+                </ComboBox>
+
+            </DockPanel>
             
         </DockPanel>
         

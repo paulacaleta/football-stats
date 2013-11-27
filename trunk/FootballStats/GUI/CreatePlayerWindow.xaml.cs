@@ -24,9 +24,16 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void OnCheckBoxGoalkeeperChecked(object sender, RoutedEventArgs e)
+        private void OnPersonTypeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (this.PersonTypeComboBox.SelectedItem == "Player")
+            {
+                this.PositionsComboBox.IsEnabled = true;
+            }
+            else
+            {
+                this.PositionsComboBox.IsEnabled = false;
+            }
         }
     }
 }
