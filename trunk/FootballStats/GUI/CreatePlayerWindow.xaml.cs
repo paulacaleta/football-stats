@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FootballStats.Common;
+using FootballStats.Persons;
+using FootballStats.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +22,7 @@ namespace GUI
     /// </summary>
     public partial class CreatePlayerWindow : Window
     {
+
         public CreatePlayerWindow()
         {
             InitializeComponent();
@@ -50,6 +54,45 @@ namespace GUI
                 this.PlayerPositionTextBox.Foreground = Brushes.Gray;
                 this.StaffPositionTextBox.Foreground = Brushes.Gray;
             }
+        }
+
+        private void OnCreateButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (this.PersonTypeComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("You mus select person type!");
+                return;
+            }
+            CreatePersonViewModel newModel = new CreatePersonViewModel();
+            newModel.FirstName = this.FirstNameTextBox.Text;
+            newModel.MiddleName = this.MiddletNameTextBox.Text;
+            newModel.LastName = this.LastNameTextBox.Text;
+
+            newModel.WeeklyWage = int.Parse(this.WeeklyWageTextBox.Text);
+            newModel.DateOfBirth = this.DateOfBirthTextBox.Text;
+
+            newModel.Nationality = (Nationality)this.NationalityComboBox.SelectedItem;
+            
+            newModel.PersonType = this.PersonTypeComboBox.SelectedItem.ToString();
+
+            newModel.PlayerPosition = (PlayerPosition)this.PlayerPositionComboBox.SelectedItem;
+            newModel.StaffPosition = (StaffPosition)this.StaffPositionComboBox.SelectedItem;
+
+            try
+            {
+                newModel.Execute();
+                this.Close();
+            }
+            catch (InvalidProgramException)
+            {
+                MessageBox.Show("You must enter more informationa about the person!");                
+            }
+            
+        }
+
+        private void OnCancelButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

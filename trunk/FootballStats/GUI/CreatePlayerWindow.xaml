@@ -72,6 +72,7 @@
                         DockPanel.Dock="Left">
                     </TextBlock>
                     <TextBox
+                        Name="FirstNameTextBox"
                         Text="{Binding FirstName}"
                         DockPanel.Dock="Right"
                         Style="{StaticResource TextBoxStyle}">
@@ -84,6 +85,7 @@
                         DockPanel.Dock="Left">
                     </TextBlock>
                     <TextBox
+                        Name="MiddletNameTextBox"
                         Text="{Binding MiddleName}"
                         DockPanel.Dock="Right"
                         Style="{StaticResource TextBoxStyle}">
@@ -96,6 +98,7 @@
                         DockPanel.Dock="Left">
                     </TextBlock>
                     <TextBox
+                        Name="LastNameTextBox"
                         Text="{Binding LastName}"
                         DockPanel.Dock="Right"
                         Style="{StaticResource TextBoxStyle}">
@@ -108,6 +111,7 @@
                         DockPanel.Dock="Left">
                     </TextBlock>
                     <TextBox
+                        Name="WeeklyWageTextBox"
                         Text="{Binding WeeklyWage}"
                         TextAlignment="Right"
                         Style="{StaticResource TextBoxStyle}">
@@ -127,6 +131,7 @@
                         DockPanel.Dock="Left">
                     </TextBlock>
                     <ComboBox
+                        Name="NationalityComboBox"
                         ItemsSource="{Binding Source={StaticResource natsEnum}}"
                         SelectedItem="{Binding Nationality}"
                         FontSize="15"
@@ -204,14 +209,16 @@
                         DockPanel.Dock="Left">
                 </TextBlock>
                 <TextBox
-                        Text="{Binding DateOfBirth}"
-                        TextAlignment="Right"
-                        Style="{StaticResource TextBoxStyle}"
+                    Name="DateOfBirthTextBox"
+                    Text="{Binding DateOfBirth}"
+                    TextAlignment="Right"
+                    Style="{StaticResource TextBoxStyle}"
                     Width="85">
                 </TextBox>
             </DockPanel>
 
             <Button
+                Click="OnCreateButtonClick"
                 Width="100"
                 Height="35" Canvas.Left="430" Canvas.Top="11"
                 Content="Create"
@@ -221,6 +228,7 @@
             </Button>
             
             <Button
+                Click="OnCancelButtonClick"
                 Width="100"
                 Height="35" Canvas.Left="585" Canvas.Top="11"
                 Content="Cancel"

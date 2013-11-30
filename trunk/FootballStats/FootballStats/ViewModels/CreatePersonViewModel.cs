@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace FootballStats.ViewModels
 {
-    public class CreatePersonViewModel : ICommand
+    public class CreatePersonViewModel
     {
         // Shared
         public string PersonType { get; set; }
@@ -37,7 +37,7 @@ namespace FootballStats.ViewModels
         // Staff
         public StaffPosition StaffPosition { get; set; }
 
-        public bool CanExecute(object parameter)
+        public bool CanExecute()
         {
             if (this.FirstName != null && this.LastName != null && this.DateOfBirth != null && this.Nationality != null)
             {
@@ -48,19 +48,26 @@ namespace FootballStats.ViewModels
 
         public event EventHandler CanExecuteChanged;
 
-        public void Execute(object parameter)
+        public void Execute()
         {
-            if (this.PersonType == "Player")
+            if (CanExecute())
             {
-                CreatePlayer();
+                if (this.PersonType == "Player")
+                {
+                    CreatePlayer();
+                }
+                else if (this.PersonType == "Staff")
+                {
+                    CreateStaff();
+                }
+                else if (this.PersonType == "Referee")
+                {
+                    CreateReferee();
+                }
             }
-            else if (this.PersonType == "Staff")
+            else
             {
-                CreateStaff();
-            }
-            else if (this.PersonType == "Referee")
-            {
-                CreateReferee();
+                throw new InvalidProgramException("First name, last name, date of birth and nationality are mandatory!");
             }
         }
 
@@ -83,7 +90,7 @@ namespace FootballStats.ViewModels
             Player newPlayer = new Player(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
             newPlayer.SetWeeklyWage(this.WeeklyWage);
             newPlayer.AddPosition(this.PlayerPosition);
-            // TODO: Add where?
+            // TODO: Add where?            
         }
 
 
