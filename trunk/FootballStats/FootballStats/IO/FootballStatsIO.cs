@@ -15,27 +15,23 @@ namespace FootballStats.IO
     {
         //Person Save/Load information
         #region Person Save/Load
-        public static void SavePerson<T>(T person)
+        //Player
+        public static void SavePlayer(List<Player> players)
         {
-            string typeOfPerson = person.GetType().ToString();
+            string path = String.Format(@"..\..\PersonInformation\Players.txt");
             
-            //Trimming needless information.
-            typeOfPerson = typeOfPerson.Remove(0, 22);
-
-            string path = String.Format(@"..\..\PlayerInformation\{0}.txt", typeOfPerson);
-
-            //Write in file without deleteing existing text!
             using (StreamWriter write = new StreamWriter(path, true))
             {
-                write.WriteLine(person.ToString());
+                foreach (var player in players)
+                {
+                    write.WriteLine(player.Serialize());
+                }
             }
         }
-
-
         public static List<Player> ParsePlayersFromPlayerTxt()
         {
             List<Player> returnList = new List<Player>();
-            string path = String.Format(@"..\..\PlayerInformation\Player.txt");
+            string path = String.Format(@"..\..\PersonInformation\Player.txt");
             StringBuilder sb = new StringBuilder();
 
             using (StreamReader read = new StreamReader(path))
@@ -124,15 +120,29 @@ namespace FootballStats.IO
                     clubAfiliation = null;
                     weaklyWage = 0;
                 }
-                
+
             }
 
             return returnList;
         }
-        public static List<StaffMember> ParsePlayersFromStaffMemberTxt() 
+
+        //StaffMember
+        public static void SaveStaffMember(List<StaffMember> staff) 
+        {
+            string path = String.Format(@"..\..\PersonInformation\StaffMembers.txt");
+
+            using (StreamWriter write = new StreamWriter(path, true))
+            {
+                foreach (var staffMember in staff)
+                {
+                    write.WriteLine(staffMember.Serialize());
+                }
+            }
+        }
+        public static List<StaffMember> ParsePlayersFromStaffMemberTxt()
         {
             List<StaffMember> returnList = new List<StaffMember>();
-            string path = String.Format(@"..\..\PlayerInformation\StaffMember.txt");
+            string path = String.Format(@"..\..\PersonInformation\StaffMember.txt");
             StringBuilder sb = new StringBuilder();
 
             using (StreamReader read = new StreamReader(path))
@@ -225,10 +235,24 @@ namespace FootballStats.IO
 
             return returnList;
         }
+
+        //Referee
+        public static void SaveReferee(List<StaffMember> referes) 
+        {
+            string path = String.Format(@"..\..\PersonInformation\StaffMembers.txt");
+
+            using (StreamWriter write = new StreamWriter(path, true))
+            {
+                foreach (var referee in referes)
+                {
+                    write.WriteLine(referee.Serialize());
+                }
+            }
+        }
         public static List<Referee> ParseRefereesFromRefereeTxt() 
         {
             List<Referee> returnList = new List<Referee>();
-            string path = String.Format(@"..\..\PlayerInformation\Referee.txt");
+            string path = String.Format(@"..\..\PersonInformation\Referee.txt");
             StringBuilder sb = new StringBuilder();
 
             using (StreamReader read = new StreamReader(path))
