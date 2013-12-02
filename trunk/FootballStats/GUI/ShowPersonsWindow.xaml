@@ -12,14 +12,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ItemsControl ItemsSource="{Binding Persons}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <RadioButton
-                        GroupName="phonesRadioButtons"
-                                 Content="{Binding}"/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <ListBox ItemsSource="{Binding Players}"
+            ></ListBox>
     </Grid>
 </Window>
