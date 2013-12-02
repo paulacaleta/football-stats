@@ -14,6 +14,7 @@ namespace FootballStats.ViewModels
         {
             get
             {
+                World.Load();
                 return World.Players;
             }
         }

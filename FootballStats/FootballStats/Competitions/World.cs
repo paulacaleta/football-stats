@@ -15,15 +15,25 @@ using FootballStats.Persons;
         public static List<Referee> Referees = new List<Referee>();
         private static int personID = 1;
 
-        static World() 
+        private static bool isLoaded = false;
+
+
+        public static void Load()
         {
-            Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
-            Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
-            Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
-            
-            //ToDo: fix ID
-            personID = FootballStatsIO.ParsePlayersFromPlayerTxt().Count;
+            if (!isLoaded)
+            {
+                Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
+                Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
+                Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
+            }            
         }
+        //static World() 
+        //{
+           
+            
+        //    //ToDo: fix ID
+        //    //personID = FootballStatsIO.ParsePlayersFromPlayerTxt().Count;
+        //}
         
         public static int PersonID
         {
