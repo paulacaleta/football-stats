@@ -16,9 +16,9 @@ namespace FootballStats.IO
         //Person Save/Load information
         #region Person Save/Load
         //Player
-        public static void SavePlayer(List<Player> players)
+        public static void SavePlayers(List<Player> players)
         {
-            string path = String.Format(@"..\..\PersonInformation\Players.txt");
+            string path = String.Format(@"..\..\..\FootballStats\PersonInformation\Player.txt");
             
             using (StreamWriter write = new StreamWriter(path, true))
             {
@@ -31,7 +31,7 @@ namespace FootballStats.IO
         public static List<Player> ParsePlayersFromPlayerTxt()
         {
             List<Player> returnList = new List<Player>();
-            string path = String.Format(@"..\..\PersonInformation\Player.txt");
+            string path = String.Format(@"..\..\..\FootballStats\PersonInformation\Player.txt");
             StringBuilder sb = new StringBuilder();
 
             using (StreamReader read = new StreamReader(path))
@@ -79,7 +79,12 @@ namespace FootballStats.IO
                 else if (i % 7 == 4)
                 {
                     //Position
-                    position = (PlayerPosition)Enum.Parse(typeof(PlayerPosition), parseHelper[i]);
+                    string[] splitPosition = parseHelper[i].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (var item in splitPosition)
+                    {
+                        position = (PlayerPosition)Enum.Parse(typeof(PlayerPosition), item);
+                    }
                 }
                 else if (i % 7 == 5)
                 {
@@ -127,9 +132,9 @@ namespace FootballStats.IO
         }
 
         //StaffMember
-        public static void SaveStaffMember(List<StaffMember> staff) 
+        public static void SaveStaffMembers(List<StaffMember> staff) 
         {
-            string path = String.Format(@"..\..\PersonInformation\StaffMembers.txt");
+            string path = String.Format(@"..\..\..\FootballStats\PersonInformation\StaffMember.txt");
 
             using (StreamWriter write = new StreamWriter(path, true))
             {
@@ -142,7 +147,7 @@ namespace FootballStats.IO
         public static List<StaffMember> ParsePlayersFromStaffMemberTxt()
         {
             List<StaffMember> returnList = new List<StaffMember>();
-            string path = String.Format(@"..\..\PersonInformation\StaffMember.txt");
+            string path = String.Format(@"..\..\..\FootballStats\PersonInformation\StaffMember.txt");
             StringBuilder sb = new StringBuilder();
 
             using (StreamReader read = new StreamReader(path))
@@ -237,9 +242,9 @@ namespace FootballStats.IO
         }
 
         //Referee
-        public static void SaveReferee(List<StaffMember> referes) 
+        public static void SaveReferees(List<Referee> referes) 
         {
-            string path = String.Format(@"..\..\PersonInformation\StaffMembers.txt");
+            string path = String.Format(@"..\..\..\FootballStats\PersonInformation\Referee.txt");
 
             using (StreamWriter write = new StreamWriter(path, true))
             {
@@ -252,7 +257,7 @@ namespace FootballStats.IO
         public static List<Referee> ParseRefereesFromRefereeTxt() 
         {
             List<Referee> returnList = new List<Referee>();
-            string path = String.Format(@"..\..\PersonInformation\Referee.txt");
+            string path = String.Format(@"..\..\..\FootballStats\PersonInformation\Referee.txt");
             StringBuilder sb = new StringBuilder();
 
             using (StreamReader read = new StreamReader(path))
