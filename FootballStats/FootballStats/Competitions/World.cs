@@ -17,7 +17,6 @@ using FootballStats.Persons;
 
         private static bool isLoaded = false;
 
-
         public static void Load()
         {
             if (!isLoaded)
@@ -59,7 +58,5 @@ using FootballStats.Persons;
                 throw new InvalidClubException(message); 
             }            
         }
-
-        
     }
 }

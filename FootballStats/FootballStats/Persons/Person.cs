@@ -141,6 +141,11 @@
             return this.PersonID ^ this.PersonID;
         }
 
+        public override string ToString()
+        {
+            return String.Format("Name: {0}\n LastName : {1}", this.name.FirstName, this.name.LastName);
+        }
+
         public virtual string Serialize()
         {
             string returnValue = string.Format("{0};{1};{4}.{3}.{2};{5}",this.PersonID , this.Name.Serialize(), this.BirthDate.Year, this.birthDate.Month, this.birthDate.Day, this.Nationality.ToString());
@@ -148,6 +153,5 @@
             return returnValue.ToString();
         }
 
-      
     }
 }
