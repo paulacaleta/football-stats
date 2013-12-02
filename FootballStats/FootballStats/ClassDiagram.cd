@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FootballStats.Persons.ClubAffiliatedPerson" Collapsed="true">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAAAAAAAAAAAAAAAAAAAAAAAABAACQAAAAAAAAA=</HashCode>
+      <FileName>Persons\ClubAffiliatedPerson.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FootballStats.Persons.Person" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAABAAAAAQAAAAEAAAAAAAIAEAADAA=</HashCode>
+      <FileName>Persons\Person.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FootballStats.Persons.Player" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Persons\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FootballStats.Persons.Referee" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persons\Referee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FootballStats.Persons.StaffMember" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAEAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persons\StaffMember.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FootballStats.TestProgram" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>TestProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="FootballStats.Persons.Name" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAIEAAAABAAAAAAAAQAAAAEAAAAAAAAAAACBAAAAg=</HashCode>
+      <FileName>Persons\Name.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="FootballStats.Clubs.IClub" Collapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAgAAgAAAAAABIAAAQAACAAAAAAEAgAAEAACAA=</HashCode>
+      <FileName>Clubs\IClub.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FootballStats.Clubs.IClubStats" Collapsed="true">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAABACAAAAABCAAAAAAQAAAACAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Clubs\IClubStats.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FootballStats.Persons.IClubAffiliated" Collapsed="true">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAA=</HashCode>
+      <FileName>Persons\IClubAffiliated.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FootballStats.Persons.IPerson" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAEAADAA=</HashCode>
+      <FileName>Persons\IPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FootballStats.Persons.IPlayer" Collapsed="true">
+    <Position X="9.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Persons\IPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FootballStats.Persons.IStaffMember" Collapsed="true">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Persons\IStaffMember.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="FootballStats.Common.Nationality" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>61E7L4OeFlq+BPq63f+eli6SVA5Ut1x8HZuZBmTO6Gc=</HashCode>
+      <FileName>Common\Nationality.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FootballStats.Persons.PlayerPosition" Collapsed="true">
+    <Position X="9.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACBAAAAAAAIAAAAAAEAAAgAAAA=</HashCode>
+      <FileName>Persons\PlayerPosition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FootballStats.Persons.StaffPosition" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAgAABAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Persons\StaffPosition.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

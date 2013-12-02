@@ -1,0 +1,242 @@
+﻿<Window x:Class="GUI.CreatePlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:createPerson="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
+        xmlns:nats="clr-namespace:FootballStats.Common;assembly=FootballStats"
+        xmlns:playerPos="clr-namespace:FootballStats.Persons;assembly=FootballStats"
+        Title="CreatePlayerWindow" Height="220" Width="725"
+        ResizeMode="CanMinimize">
+    <Window.DataContext>
+        <createPerson:CreatePersonViewModel></createPerson:CreatePersonViewModel>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ObjectDataProvider 
+            x:Key="natsEnum"                            
+            MethodName="GetValues" 
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="nats:Nationality"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider 
+            x:Key="playerPosEnum"                            
+            MethodName="GetValues" 
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="playerPos:PlayerPosition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider 
+            x:Key="staffPosEnum"                            
+            MethodName="GetValues" 
+            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="playerPos:StaffPosition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <Style
+            x:Key="TextBlockStyle"
+        TargetType="TextBlock">
+            <Setter Property="Width" Value="175"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Name="TextBoxStyle" x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
+
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+        <TextBlock Text="Enter new person information bellow"
+                 FontSize="20"
+                 FontWeight="Bold"
+                 TextAlignment="Center">
+        </TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.Column="0">
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="First Name"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Name="FirstNameTextBox"
+                        Text="{Binding FirstName}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Middle Name"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Name="MiddletNameTextBox"
+                        Text="{Binding MiddleName}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Last Name"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Name="LastNameTextBox"
+                        Text="{Binding LastName}"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Weekly Wage"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <TextBox
+                        Name="WeeklyWageTextBox"
+                        Text="{Binding WeeklyWage}"
+                        TextAlignment="Right"
+                        Style="{StaticResource TextBoxStyle}">
+                    </TextBox>
+                </DockPanel>
+
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Vertical">
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        TextAlignment="Center"
+                        Text="Nationality"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <ComboBox
+                        Name="NationalityComboBox"
+                        ItemsSource="{Binding Source={StaticResource natsEnum}}"
+                        SelectedItem="{Binding Nationality}"
+                        FontSize="15"
+                        DockPanel.Dock="Right">
+                    </ComboBox>
+                </DockPanel>
+
+                <DockPanel>
+                    <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        TextAlignment="Center"
+                        Text="Type"
+                        DockPanel.Dock="Left">
+                    </TextBlock>
+                    <ComboBox
+                        Name="PersonTypeComboBox"
+                        DockPanel.Dock="Right"
+                        ItemsSource="{Binding PersonTypesList}"
+                        SelectedItem="{Binding PersonType}"
+                        FontSize="15"
+                        SelectionChanged="OnPersonTypeComboBoxSelectionChanged">
+                    </ComboBox>
+                </DockPanel>
+
+                <StackPanel
+                    Orientation="Horizontal">
+                    <StackPanel
+                        Orientation="Vertical">
+                        <TextBlock
+                            Foreground="Gray"
+                            Name="PlayerPositionTextBox"
+                            DockPanel.Dock="Left"
+                            Text="Player Position"
+                            Style="{StaticResource ResourceKey=TextBlockStyle}">
+                        </TextBlock>
+
+                        <ComboBox
+                            Name="PlayerPositionComboBox"
+                            ItemsSource="{Binding Source={StaticResource playerPosEnum}}"
+                            SelectedItem="{Binding PlayerPosition}"
+                            FontSize="13"
+                            IsEnabled="False">
+
+                        </ComboBox>
+                    </StackPanel>
+
+                    <StackPanel
+                        Orientation="Vertical">
+                        <TextBlock
+                            Foreground="Gray"
+                            Name="StaffPositionTextBox"
+                            Text="Staff Position"
+                            Style="{StaticResource ResourceKey=TextBlockStyle}" Width="182">
+                        </TextBlock>
+
+                        <ComboBox
+                            Name="StaffPositionComboBox"
+                            ItemsSource="{Binding Source={StaticResource staffPosEnum}}"
+                            SelectedItem="{Binding StaffPosition}"
+                            FontSize="13"
+                            IsEnabled="False">
+                        </ComboBox>
+                    </StackPanel>
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+
+        <Canvas>
+
+            <DockPanel>
+                <TextBlock
+                        Style="{StaticResource ResourceKey=TextBlockStyle}"                    
+                        Text="Date of Birth"
+                        DockPanel.Dock="Left">
+                </TextBlock>
+                <TextBox
+                    Name="DateOfBirthTextBox"
+                    Text="{Binding DateOfBirth}"
+                    TextAlignment="Right"
+                    Style="{StaticResource TextBoxStyle}"
+                    Width="85">
+                </TextBox>
+            </DockPanel>
+
+            <Button
+                Click="OnCreateButtonClick"
+                Width="100"
+                Height="35" Canvas.Left="430" Canvas.Top="11"
+                Content="Create"
+                FontSize="15"
+                FontWeight="Bold">
+
+            </Button>
+            
+            <Button
+                Click="OnCancelButtonClick"
+                Width="100"
+                Height="35" Canvas.Left="585" Canvas.Top="11"
+                Content="Cancel"
+                FontSize="15"
+                FontWeight="Bold">
+
+            </Button>
+        </Canvas>
+
+    </StackPanel>
+</Window>
