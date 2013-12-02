@@ -5,14 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using FootballStats.Clubs;
 using FootballStats.Competitions;
+using FootballStats.Persons;
 using System.IO;
 
 namespace FootballStats.IO
 {
     public static class FootballStatsIO
     {
+        //Player Save/Load information
+        #region Player Save/Load
+        public static void SavePlayer(Player player)
+        {
+
+        }
+
+        #endregion 
+
         // Club Save/Load information
-        // TODO: additional information
+        #region Club Save/Load
         public static void SaveClubInformation(Club club)
         {
             string path = String.Format(@"..\..\ClubInformation\{0}.txt", club.Name);
@@ -22,7 +32,6 @@ namespace FootballStats.IO
                 write.Write(club.ToString());
             }
         }
-
         public static string LoadClubInformation(string clubName)
         {
             string path = String.Format(@"..\..\ClubInformation\{0}.txt", clubName);
@@ -35,17 +44,13 @@ namespace FootballStats.IO
                     returnValue = read.ReadToEnd();
                 }
             }
-            catch (Exception ex)
+            catch (FileNotFoundException)
             {
-                //TODO: implement custom exception
-                //Ant this is just :D stupid !!! fix later!
-                ex = new Exception("Non existing team!");
-                throw ex;
+                Console.WriteLine("File not found.");
             }
 
             return returnValue;
         }
-
         public static void DeleteClubInformation(string clubName)
         {
             string path = String.Format(@"..\..\ClubInformation\{0}.txt", clubName);
@@ -64,9 +69,10 @@ namespace FootballStats.IO
             }       
 
         }
+        #endregion 
 
         // Season Save/Load information
-        #region Save/Load
+        #region Season Save/Load
 
         private static void SaveMatchInformation(Match match, Season season)
         {

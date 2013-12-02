@@ -336,25 +336,7 @@
 
         public override string ToString()
         {
-            string teamAndStaffForPrint = null;
-            StringBuilder sb = new StringBuilder();
-
-            if (this.Team.Count != 0)
-            {
-                sb.Append("TEAM:\n");
-                sb.Append(this.Team.ExtendedToString());
-            }
-
-            if (this.Staff.Count != 0)
-            {
-                sb.Append("STAFF:\n");
-                sb.Append(this.Staff.ExtendedToString());
-            }
-
-            teamAndStaffForPrint = sb.ToString();
-
-            string stringValue = string.Format("Club Name: {0}\nNationality: {1}\n{2}", this.Name, this.Nationality.ToString(), teamAndStaffForPrint ?? "null");
-
+            string stringValue = string.Format("Club Name: {0}\nNationality: {1}", this.Name, this.Nationality.ToString());
             return stringValue.ToString();
         }
     }
