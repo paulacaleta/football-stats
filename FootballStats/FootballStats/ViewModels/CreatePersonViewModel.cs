@@ -67,6 +67,7 @@ namespace FootballStats.ViewModels
                 {
                     World.Staff.Add(newPerson as StaffMember);
                 }
+                World.Save();
             }
             else
             {

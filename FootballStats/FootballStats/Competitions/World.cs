@@ -26,6 +26,14 @@ using FootballStats.Persons;
                 Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
             }            
         }
+
+        public static void Save() 
+        {
+            FootballStatsIO.SavePlayers(Players);
+            FootballStatsIO.SaveStaffMembers(Staff);
+            FootballStatsIO.SaveReferees(Referees);
+        }
+
         //static World() 
         //{
            
