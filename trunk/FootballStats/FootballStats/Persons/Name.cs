@@ -104,7 +104,7 @@
             }
         }
 
-        public override string ToString()
+        public string Serialize()
         {
             string returnValue = string.Format("{0},{1},{2}", this.FirstName, this.MiddleName, this.LastName);
 

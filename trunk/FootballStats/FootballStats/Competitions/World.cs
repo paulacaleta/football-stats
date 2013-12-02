@@ -17,10 +17,12 @@ using FootballStats.Persons;
 
         static World() 
         {
-            //Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
-            //Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
-            //Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
-            //personID = FootballStatsIO.ParsePlayersFromPlayerTxt().Count;
+            Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
+            Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
+            Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
+            
+            //ToDo: fix ID
+            personID = FootballStatsIO.ParsePlayersFromPlayerTxt().Count;
         }
         
         public static int PersonID

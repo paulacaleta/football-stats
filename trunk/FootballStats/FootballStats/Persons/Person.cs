@@ -141,9 +141,9 @@
             return this.PersonID ^ this.PersonID;
         }
 
-        public override string ToString()
+        public virtual string Serialize()
         {
-            string returnValue = string.Format("{0};{1};{4}.{3}.{2};{5}",this.PersonID , this.Name.ToString(), this.BirthDate.Year, this.birthDate.Month, this.birthDate.Day, this.Nationality.ToString());
+            string returnValue = string.Format("{0};{1};{4}.{3}.{2};{5}",this.PersonID , this.Name.Serialize(), this.BirthDate.Year, this.birthDate.Month, this.birthDate.Day, this.Nationality.ToString());
 
             return returnValue.ToString();
         }

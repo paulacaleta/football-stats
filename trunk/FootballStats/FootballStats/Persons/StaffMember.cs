@@ -38,9 +38,9 @@
             this.staffPosition = newStaffPosition;
         }
 
-        public override string ToString()
+        public override string Serialize()
         {
-            string returnValue = string.Format("{0};{1};{2};{3}", base.ToString(), this.StaffPosition.ToString(), this.AfiliatedClub, this.WeeklyWage());
+            string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), this.StaffPosition.ToString(), this.AfiliatedClub, this.WeeklyWage());
 
             return returnValue.ToString();
         }
