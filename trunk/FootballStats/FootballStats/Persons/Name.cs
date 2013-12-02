@@ -106,7 +106,7 @@
 
         public override string ToString()
         {
-            string returnValue = string.Format("Name: {0}, {1}, {2}", this.FirstName, this.MiddleName, this.LastName);
+            string returnValue = string.Format("{0},{1},{2}", this.FirstName, this.MiddleName, this.LastName);
 
             return returnValue.ToString();
         }

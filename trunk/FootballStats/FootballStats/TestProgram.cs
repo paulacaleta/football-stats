@@ -77,9 +77,14 @@
             testSeason.AddMatch(testMatch);
             testSeason.AddReferee(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
 
-            FootballStatsIO.SaveClubInformation(levski);
+            levski.Team[1].AddPosition(PlayerPosition.DF);
+            levski.Team[1].AddPosition(PlayerPosition.FW);
 
-            Console.WriteLine(FootballStatsIO.LoadClubInformation("levski"));
+            FootballStatsIO.SavePerson(levski.Team[2]);
+            FootballStatsIO.SavePerson(levski.Team[0]);
+            FootballStatsIO.SavePerson(levski.Staff[1]);
+            FootballStatsIO.SavePerson(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
+
         }
 
         private static void PlayerCreationTest()

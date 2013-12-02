@@ -12,13 +12,25 @@ namespace FootballStats.IO
 {
     public static class FootballStatsIO
     {
-        //Player Save/Load information
-        #region Player Save/Load
-        public static void SavePlayer(Player player)
+        //Person Save/Load information
+        #region Person Save/Load
+        public static void SavePerson<T>(T person)
         {
+            string typeOfPerson = person.GetType().ToString();
+            
+            //Trimming needless information.
+            typeOfPerson = typeOfPerson.Remove(0, 22);
 
+            string path = String.Format(@"..\..\PlayerInformation\{0}.txt", typeOfPerson);
+
+            //Write in file without deleteing existing text!
+            using (StreamWriter write = new StreamWriter(path, true))
+            {
+                write.WriteLine(person.ToString());
+            }
         }
 
+        //TODO: AddDeletePerson wich can delete a file and then write everything from the world player list!!
         #endregion 
 
         // Club Save/Load information

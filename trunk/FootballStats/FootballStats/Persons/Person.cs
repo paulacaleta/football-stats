@@ -11,6 +11,7 @@
         private DateTime birthDate;
         private Nationality nationality;
         private int personID;
+       
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {
@@ -71,14 +72,14 @@
             }
         }
 
-        private int PersonID
+        public int PersonID
         {
             get
             {
                 return this.personID;
             }
 
-            set
+           private set
             {
                 this.personID = value;
             }
@@ -143,9 +144,11 @@
 
         public override string ToString()
         {
-            string returnValue = string.Format("{0}\nBirthDate: {1}\nNationality: {2}", this.Name.ToString(), this.BirthDate.ToString(), this.Nationality.ToString());
+            string returnValue = string.Format("{0};{1};{2};{3}",this.PersonID , this.Name.ToString(), this.BirthDate.Year, this.Nationality.ToString());
 
             return returnValue.ToString();
         }
+
+      
     }
 }

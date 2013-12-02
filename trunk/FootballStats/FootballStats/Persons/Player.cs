@@ -7,11 +7,19 @@
     public class Player : ClubAffiliatedPerson, IPlayer
     {
         private IList<PlayerPosition> positions = new List<PlayerPosition>();
-        // TODO: Affiliated club
+        private string afiliatedClub;
+
 
         public Player(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
+            this.AfiliatedClub = "NotSet";
+        }
+
+        public string AfiliatedClub
+        {
+            get { return this.afiliatedClub; }
+            set { this.afiliatedClub = value; }
         }
 
         public IList<PlayerPosition> Positions
@@ -55,27 +63,27 @@
 
         public override string ToString()
         {
-            if (this.Positions.Count != 0)
+
+            string positionToPrint = null;
+            StringBuilder sb = new StringBuilder();
+
+            if (this.Positions.Count == 0)
             {
-                string positionToPrint = null;
-                StringBuilder sb = new StringBuilder();
-
-                for (int i = 0; i < this.Positions.Count; i++)
-                {
-                    sb.Append(this.Positions[i]);
-                    sb.Append(';');
-                }
-
-                positionToPrint = sb.ToString();
-
-                string returnValue = string.Format("{0}\nPlayer position: {1}\n", base.ToString(), positionToPrint);
-
-                return returnValue.ToString();
+                 positionToPrint = "NotSet";
             }
             else
             {
-                return base.ToString();
+                for (int i = 0; i < this.Positions.Count; i++)
+                {
+                    sb.Append(this.Positions[i]);
+                    sb.Append(',');
+                }
+                positionToPrint = sb.ToString();
             }
+
+            string returnValue = string.Format("{0};{1};{2};{3}", base.ToString(), positionToPrint, this.AfiliatedClub, this.WeeklyWage());
+
+            return returnValue.ToString();
         }
     }
 }
