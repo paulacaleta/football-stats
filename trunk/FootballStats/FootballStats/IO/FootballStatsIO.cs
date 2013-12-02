@@ -7,6 +7,7 @@ using FootballStats.Clubs;
 using FootballStats.Competitions;
 using FootballStats.Persons;
 using System.IO;
+using FootballStats.Common;
 
 namespace FootballStats.IO
 {
@@ -29,6 +30,274 @@ namespace FootballStats.IO
                 write.WriteLine(person.ToString());
             }
         }
+
+
+        public static List<Player> ParsePlayersFromPlayerTxt()
+        {
+            List<Player> returnList = new List<Player>();
+            string path = String.Format(@"..\..\PlayerInformation\Player.txt");
+            StringBuilder sb = new StringBuilder();
+
+            using (StreamReader read = new StreamReader(path))
+            {
+                sb.Append(read.ReadToEnd());
+            }
+            string[] parseHelper = sb.ToString().Split(new[] { ";", "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+
+            int ID = 0;
+            string firstName = null;
+            string middleName = null;
+            string lastName = null;
+            string dateOfBirth = null;
+            Nationality nationality = Nationality.Bulgarian; // This doesnt matter because nationality is mendetory in the constructor.
+            PlayerPosition position = PlayerPosition.NotSet;
+            string clubAfiliation = null;
+            decimal weaklyWage = 0;
+
+            for (int i = 0; i < parseHelper.Length; i++)
+            {
+                if (i % 7 == 0)
+                {
+                    //ID
+                    ID = int.Parse(parseHelper[i]);
+
+                }
+                else if (i % 7 == 1)
+                {
+                    //Name
+                    string[] splitName = parseHelper[i].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    firstName = splitName[0];
+                    middleName = splitName[1];
+                    lastName = splitName[2];
+                }
+                else if (i % 7 == 2)
+                {
+                    //DateOfBirth
+                    dateOfBirth = parseHelper[i];
+                }
+                else if (i % 7 == 3)
+                {
+                    //Nationality
+                    nationality = (Nationality)Enum.Parse(typeof(Nationality), parseHelper[i]);
+                }
+                else if (i % 7 == 4)
+                {
+                    //Position
+                    position = (PlayerPosition)Enum.Parse(typeof(PlayerPosition), parseHelper[i]);
+                }
+                else if (i % 7 == 5)
+                {
+                    //ClubAfiliation
+                    clubAfiliation = parseHelper[i];
+                }
+                else if (i % 7 == 6)
+                {
+                    //WeaklyWage
+                    weaklyWage = Decimal.Parse(parseHelper[i]);
+                }
+                else
+                {
+                    //TODO: implement custom exception
+                    throw new Exception("Player Not Saved Correctly!");
+                }
+
+                if (i % 7 == 6 && i > 0)
+                {
+                    //Initialize Constructor
+                    Player tempPlayer = new Player(firstName, middleName, lastName, dateOfBirth, nationality);
+                    tempPlayer.PersonID = ID;
+                    tempPlayer.Positions.Add(position);
+                    tempPlayer.SetWeeklyWage(weaklyWage);
+                    tempPlayer.AfiliatedClub = clubAfiliation;
+
+                    //Add Everything into the list that the method returns
+                    returnList.Add(tempPlayer);
+
+                    //We need to defult every variable
+                    ID = 0;
+                    firstName = null;
+                    middleName = null;
+                    lastName = null;
+                    dateOfBirth = null;
+                    nationality = Nationality.Bulgarian; // This doesnt matter because nationality is mendetory in the constructor.
+                    position = PlayerPosition.NotSet;
+                    clubAfiliation = null;
+                    weaklyWage = 0;
+                }
+                
+            }
+
+            return returnList;
+        }
+        public static List<StaffMember> ParsePlayersFromStaffMemberTxt() 
+        {
+            List<StaffMember> returnList = new List<StaffMember>();
+            string path = String.Format(@"..\..\PlayerInformation\StaffMember.txt");
+            StringBuilder sb = new StringBuilder();
+
+            using (StreamReader read = new StreamReader(path))
+            {
+                sb.Append(read.ReadToEnd());
+            }
+            string[] parseHelper = sb.ToString().Split(new[] { ";", "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+
+            int ID = 0;
+            string firstName = null;
+            string middleName = null;
+            string lastName = null;
+            string dateOfBirth = null;
+            Nationality nationality = Nationality.Bulgarian; // This doesnt matter because nationality is mendetory in the constructor.
+            StaffPosition position = StaffPosition.NotSet;
+            string clubAfiliation = null;
+            decimal weaklyWage = 0;
+
+            for (int i = 0; i < parseHelper.Length; i++)
+            {
+                if (i % 7 == 0)
+                {
+                    //ID
+                    ID = int.Parse(parseHelper[i]);
+
+                }
+                else if (i % 7 == 1)
+                {
+                    //Name
+                    string[] splitName = parseHelper[i].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    firstName = splitName[0];
+                    middleName = splitName[1];
+                    lastName = splitName[2];
+                }
+                else if (i % 7 == 2)
+                {
+                    //DateOfBirth
+                    dateOfBirth = parseHelper[i];
+                }
+                else if (i % 7 == 3)
+                {
+                    //Nationality
+                    nationality = (Nationality)Enum.Parse(typeof(Nationality), parseHelper[i]);
+                }
+                else if (i % 7 == 4)
+                {
+                    //Position
+                    position = (StaffPosition)Enum.Parse(typeof(StaffPosition), parseHelper[i]);
+                }
+                else if (i % 7 == 5)
+                {
+                    //ClubAfiliation
+                    clubAfiliation = parseHelper[i];
+                }
+                else if (i % 7 == 6)
+                {
+                    //WeaklyWage
+                    weaklyWage = Decimal.Parse(parseHelper[i]);
+                }
+                else
+                {
+                    //TODO: implement custom exception
+                    throw new Exception("Staff member Not Saved Correctly!");
+                }
+
+                if (i % 7 == 6 && i > 0)
+                {
+                    //Initialize Constructor
+                    StaffMember tempStaff = new StaffMember(firstName, middleName, lastName, dateOfBirth, nationality);
+                    tempStaff.PersonID = ID;
+                    tempStaff.StaffPosition = position;
+                    tempStaff.SetWeeklyWage(weaklyWage);
+                    tempStaff.AfiliatedClub = clubAfiliation;
+
+                    //Add Everything into the list that the method returns
+                    returnList.Add(tempStaff);
+
+                    //We need to defult every variable
+                    ID = 0;
+                    firstName = null;
+                    middleName = null;
+                    lastName = null;
+                    dateOfBirth = null;
+                    nationality = Nationality.Bulgarian; // This doesnt matter because nationality is mendetory in the constructor.
+                    position = StaffPosition.NotSet;
+                    clubAfiliation = null;
+                    weaklyWage = 0;
+                }
+            }
+
+            return returnList;
+        }
+        public static List<Referee> ParseRefereesFromRefereeTxt() 
+        {
+            List<Referee> returnList = new List<Referee>();
+            string path = String.Format(@"..\..\PlayerInformation\Referee.txt");
+            StringBuilder sb = new StringBuilder();
+
+            using (StreamReader read = new StreamReader(path))
+            {
+                sb.Append(read.ReadToEnd());
+            }
+            string[] parseHelper = sb.ToString().Split(new[] { ";", "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+
+            int ID = 0;
+            string firstName = null;
+            string middleName = null;
+            string lastName = null;
+            string dateOfBirth = null;
+            Nationality nationality = Nationality.Bulgarian; // This doesnt matter because nationality is mendetory in the constructor.
+
+            for (int i = 0; i < parseHelper.Length; i++)
+            {
+                if (i % 4 == 0)
+                {
+                    //ID
+                    ID = int.Parse(parseHelper[i]);
+
+                }
+                else if (i % 4 == 1)
+                {
+                    //Name
+                    string[] splitName = parseHelper[i].Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                    firstName = splitName[0];
+                    middleName = splitName[1];
+                    lastName = splitName[2];
+                }
+                else if (i % 4 == 2)
+                {
+                    //DateOfBirth
+                    dateOfBirth = parseHelper[i];
+                }
+                else if (i % 4 == 3)
+                {
+                    //Nationality
+                    nationality = (Nationality)Enum.Parse(typeof(Nationality), parseHelper[i]);
+                }
+                else
+                {
+                    //TODO: implement custom exception
+                    throw new Exception("Staff member Not Saved Correctly!");
+                }
+
+                if (i % 4 == 3 && i > 0)
+                {
+                    //Initialize Constructor
+                    Referee tempRefferee = new Referee(firstName, middleName, lastName, dateOfBirth, nationality);
+                    tempRefferee.PersonID = ID;
+
+                    //Add Everything into the list that the method returns
+                    returnList.Add(tempRefferee);
+
+                    //We need to defult every variable
+                    ID = 0;
+                    firstName = null;
+                    middleName = null;
+                    lastName = null;
+                    dateOfBirth = null;
+                    nationality = Nationality.Bulgarian;
+                }
+            }
+
+            return returnList;
+        }
+
 
         //TODO: AddDeletePerson wich can delete a file and then write everything from the world player list!!
         #endregion 

@@ -5,12 +5,23 @@
     using FootballStats.Clubs;
     using FootballStats.Common;
 using FootballStats.Persons;
+    using FootballStats.IO;
 
     public static class World
     {        
         public static List<Club> Clubs = new List<Club>();
-        public static List<Person> Persons = new List<Person>();
+        public static List<Player> Players = new List<Player>();
+        public static List<StaffMember> Staff = new List<StaffMember>();
+        public static List<Referee> Referees = new List<Referee>();
         private static int personID = 1;
+
+        static World() 
+        {
+            Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
+            Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
+            Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
+            personID = FootballStatsIO.ParsePlayersFromPlayerTxt().Count;
+        }
         
         public static int PersonID
         {
@@ -24,7 +35,6 @@ using FootballStats.Persons;
                 personID = value;
             }
         }
-
         public static void AddClub(Club club)
         {
             if (!Clubs.Contains(club))
@@ -37,5 +47,7 @@ using FootballStats.Persons;
                 throw new InvalidClubException(message); 
             }            
         }
+
+        
     }
 }

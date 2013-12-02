@@ -22,7 +22,6 @@
             this.Name = name;
             this.BirthDate = DateTime.Parse(birthDate);
             this.Nationality = nationality;
-
             this.PersonID = World.PersonID++;
         }
 
@@ -79,7 +78,7 @@
                 return this.personID;
             }
 
-           private set
+            set
             {
                 this.personID = value;
             }
@@ -144,7 +143,7 @@
 
         public override string ToString()
         {
-            string returnValue = string.Format("{0};{1};{2};{3}",this.PersonID , this.Name.ToString(), this.BirthDate.Year, this.Nationality.ToString());
+            string returnValue = string.Format("{0};{1};{4}.{3}.{2};{5}",this.PersonID , this.Name.ToString(), this.BirthDate.Year, this.birthDate.Month, this.birthDate.Day, this.Nationality.ToString());
 
             return returnValue.ToString();
         }

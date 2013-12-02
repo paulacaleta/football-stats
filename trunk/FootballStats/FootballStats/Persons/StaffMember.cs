@@ -27,6 +27,10 @@
             {
                 return this.staffPosition;
             }
+            set 
+            {
+                this.staffPosition = value;
+            }
         }
 
         public void SetStaffPosition(StaffPosition newStaffPosition)

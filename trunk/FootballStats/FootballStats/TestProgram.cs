@@ -80,11 +80,16 @@
             levski.Team[1].AddPosition(PlayerPosition.DF);
             levski.Team[1].AddPosition(PlayerPosition.FW);
 
-            FootballStatsIO.SavePerson(levski.Team[2]);
-            FootballStatsIO.SavePerson(levski.Team[0]);
-            FootballStatsIO.SavePerson(levski.Staff[1]);
-            FootballStatsIO.SavePerson(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
+           //FootballStatsIO.SavePerson(levski.Team[4]);
+           //FootballStatsIO.SavePerson(levski.Team[2]);
+           //FootballStatsIO.SavePerson(levski.Staff[3]);
+           //FootballStatsIO.SavePerson(new Referee("Baco", "Gacov", "Stoyanov", "15.10.1980", Nationality.Bulgarian));
 
+            List<Player> testGlobalListPlayer = World.Players;
+            List<StaffMember> testGlobalLIstStaff = World.Staff;
+            List<Referee> testGlobalListReff = World.Referees;
+
+            Console.WriteLine();
         }
 
         private static void PlayerCreationTest()

@@ -31,9 +31,9 @@
 
         public void SetWeeklyWage(decimal wage)
         {
-            if (wage <= 0)
+            if (wage < 0)
             {
-                throw new ArgumentOutOfRangeException("Can't have negative or 0 amount for wage!");
+                throw new ArgumentOutOfRangeException("Can't have negative amount for wage!");
             }
 
             this.weeklyWage = wage;
