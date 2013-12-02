@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FootballStats.Persons;
 
 namespace FootballStats.ViewModels
 {
@@ -51,18 +52,20 @@ namespace FootballStats.ViewModels
         public void Execute()
         {
             if (CanExecute())
-            {
-                if (this.PersonType == "Player")
+            {                
+                
+                Person newPerson = CreatePerson(this.PersonType);
+                if (newPerson is Referee)
                 {
-                    CreatePlayer();
+                    World.Referees.Add(newPerson as Referee);
                 }
-                else if (this.PersonType == "Staff")
+                else if (newPerson is Player)
                 {
-                    CreateStaff();
+                    World.Players.Add(newPerson as Player);
                 }
-                else if (this.PersonType == "Referee")
+                else if (newPerson is StaffMember)
                 {
-                    CreateReferee();
+                    World.Staff.Add(newPerson as StaffMember);
                 }
             }
             else
@@ -71,26 +74,43 @@ namespace FootballStats.ViewModels
             }
         }
 
-        private void CreateReferee()
+        private Person CreatePerson(string type)
         {
-            Referee newReferee = new Referee(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
-            // TODO: Add where?
+            if (type == "Player")
+            {
+                return CreatePlayer();
+            }
+            else if (type == "Staff")
+            {
+                return CreateStaff();
+            }
+            else if (type == "Referee")
+            {
+                return CreateReferee();
+            }
+            throw new NotImplementedException();
         }
 
-        private void CreateStaff()
+        private Person CreateReferee()
+        {
+            Referee newReferee = new Referee(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
+            return newReferee;
+        }
+
+        private Person CreateStaff()
         {
             StaffMember newStaff = new StaffMember(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
             newStaff.SetWeeklyWage(this.WeeklyWage);
             newStaff.SetStaffPosition(this.StaffPosition);
-            // TODO: Add where?
+            return newStaff;
         }
 
-        private void CreatePlayer()
+        private Person CreatePlayer()
         {
             Player newPlayer = new Player(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
             newPlayer.SetWeeklyWage(this.WeeklyWage);
             newPlayer.AddPosition(this.PlayerPosition);
-            // TODO: Add where?            
+            return newPlayer;          
         }
 
 

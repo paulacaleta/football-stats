@@ -31,9 +31,10 @@ namespace GUI
             createPlayerWindow.ShowDialog();
         }
 
-        private void OnButtonEditPersonClick(object sender, RoutedEventArgs e)
+        private void OnButtonShowPersonsClick(object sender, RoutedEventArgs e)
         {
-
+            ShowPersonsWindow showPersonsWindow = new ShowPersonsWindow();
+            showPersonsWindow.ShowDialog();
         }
 
     }

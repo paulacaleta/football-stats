@@ -19,9 +19,8 @@
         	    Margin="193,41,38,396"
         	    FontWeight="Bold"
         	    FontSize="18" 
-                Content="Edit Person" 
-                IsEnabled="False"
-                Click="OnButtonEditPersonClick"/>
+                Content="Show Persons"
+                Click="OnButtonShowPersonsClick"/>
 
         <Button Grid.Column="1"
         	    Margin="116,41,115,396"
