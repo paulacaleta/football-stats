@@ -1,6 +1,0 @@
-G:\SkyDrive\Telerik\04. OOP\03.TeamProject\SVNRepo\FootballStats\FootballStats\bin\Debug\FootballStats.exe.config
-G:\SkyDrive\Telerik\04. OOP\03.TeamProject\SVNRepo\FootballStats\FootballStats\bin\Debug\FootballStats.exe
-G:\SkyDrive\Telerik\04. OOP\03.TeamProject\SVNRepo\FootballStats\FootballStats\bin\Debug\FootballStats.pdb
-G:\SkyDrive\Telerik\04. OOP\03.TeamProject\SVNRepo\FootballStats\FootballStats\obj\Debug\FootballStats.csprojResolveAssemblyReference.cache
-G:\SkyDrive\Telerik\04. OOP\03.TeamProject\SVNRepo\FootballStats\FootballStats\obj\Debug\FootballStats.exe
-G:\SkyDrive\Telerik\04. OOP\03.TeamProject\SVNRepo\FootballStats\FootballStats\obj\Debug\FootballStats.pdb
