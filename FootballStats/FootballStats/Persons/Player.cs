@@ -61,7 +61,7 @@
             throw new InvalidPlayerPositionException(message, position);
         }
 
-        public override string ToString()
+        public override string Serialize()
         {
 
             string positionToPrint = null;
@@ -81,7 +81,7 @@
                 positionToPrint = sb.ToString();
             }
 
-            string returnValue = string.Format("{0};{1};{2};{3}", base.ToString(), positionToPrint, this.AfiliatedClub, this.WeeklyWage());
+            string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), positionToPrint, this.AfiliatedClub, this.WeeklyWage());
 
             return returnValue.ToString();
         }
