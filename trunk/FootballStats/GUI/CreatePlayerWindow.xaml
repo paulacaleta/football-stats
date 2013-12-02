@@ -53,11 +53,11 @@
     </Window.Resources>
 
     <StackPanel>
-        <TextBox Text="Enter new person information bellow"
+        <TextBlock Text="Enter new person information bellow"
                  FontSize="20"
                  FontWeight="Bold"
                  TextAlignment="Center">
-        </TextBox>
+        </TextBlock>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>

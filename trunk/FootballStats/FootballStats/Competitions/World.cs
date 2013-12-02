@@ -4,20 +4,14 @@
     using System.Collections.Generic;
     using FootballStats.Clubs;
     using FootballStats.Common;
+using FootballStats.Persons;
 
     public static class World
     {        
-        private static List<Club> allClubs = new List<Club>();
+        public static List<Club> Clubs = new List<Club>();
+        public static List<Person> Persons = new List<Person>();
         private static int personID = 1;
-
-        public static List<Club> AllClubs
-        {
-            get
-            {
-                return allClubs;
-            }
-        }
-
+        
         public static int PersonID
         {
             get
@@ -33,9 +27,9 @@
 
         public static void AddClub(Club club)
         {
-            if (!allClubs.Contains(club))
+            if (!Clubs.Contains(club))
             {
-                allClubs.Add(club);                
+                Clubs.Add(club);                
             }
             else
             {
