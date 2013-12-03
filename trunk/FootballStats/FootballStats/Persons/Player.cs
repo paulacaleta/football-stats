@@ -7,7 +7,7 @@
     public class Player : ClubAffiliatedPerson, IPlayer
     {
         private IList<PlayerPosition> positions = new List<PlayerPosition>();
-        private string afiliatedClub;
+        private string affiliatedClub;
 
 
         public Player(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
@@ -18,8 +18,8 @@
 
         public string AfiliatedClub
         {
-            get { return this.afiliatedClub; }
-            set { this.afiliatedClub = value; }
+            get { return this.affiliatedClub; }
+            set { this.affiliatedClub = value; }
         }
 
         public IList<PlayerPosition> Positions

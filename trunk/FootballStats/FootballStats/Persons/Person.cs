@@ -25,7 +25,7 @@
             this.PersonID = World.PersonID++;
         }
 
-        private Name Name
+        public Name Name
         {
             get
             {
@@ -38,7 +38,7 @@
             }
         }
 
-        private DateTime BirthDate
+        public DateTime BirthDate
         {
             get
             {

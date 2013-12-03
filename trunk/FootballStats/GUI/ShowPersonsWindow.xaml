@@ -6,13 +6,50 @@
     <Window.DataContext>
         <personList:ShowPersonsViewModel></personList:ShowPersonsViewModel>
     </Window.DataContext>
+    <Window.Resources>
+        <Style
+            x:Key="TextBlockStyle"
+        TargetType="TextBlock">
+            <Setter Property="Width" Value="175"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+    
     <Grid
         ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Players}"
-            ></ListBox>
+        <ListBox Name="PlayersListBox"
+            ItemsSource="{Binding Players}"
+            SelectionChanged="OnPlayersListBoxSelectionChanged"
+            ScrollViewer.VerticalScrollBarVisibility="Visible">
+        </ListBox>
+        
+        <StackPanel Grid.Column="1">
+            <TextBlock Name="PersonFirstNameTextBlock"
+                       Style="{StaticResource ResourceKey=TextBlockStyle}">
+                
+            </TextBlock>
+            <TextBlock Name="PersonSecondNameTextBlock"
+                       Style="{StaticResource ResourceKey=TextBlockStyle}">
+
+            </TextBlock>
+            <TextBlock Name="PersonLastNameTextBlock"
+                       Style="{StaticResource ResourceKey=TextBlockStyle}">
+
+            </TextBlock>
+            <TextBlock Name="PersonClubTextBlock"
+                       Style="{StaticResource ResourceKey=TextBlockStyle}">
+                
+            </TextBlock>
+            <Grid>
+                
+            </Grid>
+        </StackPanel>
     </Grid>
 </Window>
