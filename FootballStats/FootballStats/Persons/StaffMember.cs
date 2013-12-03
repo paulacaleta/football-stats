@@ -7,7 +7,7 @@
     public class StaffMember : ClubAffiliatedPerson, IStaffMember
     {
         private StaffPosition staffPosition = StaffPosition.NotSet;
-        private string afiliatedClub;
+        private string affiliatedClub;
 
         public StaffMember(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
@@ -17,8 +17,8 @@
 
         public string AfiliatedClub
         {
-            get { return this.afiliatedClub; }
-            set { this.afiliatedClub = value; }
+            get { return this.affiliatedClub; }
+            set { this.affiliatedClub = value; }
         }
 
         public StaffPosition StaffPosition
