@@ -6,11 +6,20 @@
     public abstract class ClubAffiliatedPerson : Person, IClubAffiliated
     {
         private decimal weeklyWage = 0.0m;
+        private string affiliatedClub;
 
         public ClubAffiliatedPerson(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
+            this.AfiliatedClub = "NotSet";
         }
+
+        public string AfiliatedClub
+        {
+            get { return this.affiliatedClub; }
+            set { this.affiliatedClub = value; }
+        }
+
 
         public decimal WeeklyWage()
         {
