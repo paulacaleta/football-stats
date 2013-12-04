@@ -10,6 +10,8 @@
 
         Nationality Nationality { get; }
 
+        StaffMember Manager { get; }
+
         List<Player> Team { get; }
 
         List<StaffMember> Staff { get; }

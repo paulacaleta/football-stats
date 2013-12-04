@@ -65,7 +65,7 @@
             {
                 this.nationality = value;
             }
-        }
+        }        
 
         public List<Player> Team
         {
@@ -305,6 +305,24 @@
             }
 
             return false;
+        }
+
+        public StaffMember Manager
+        {
+            get
+            {
+                if (this.HasManager())
+                {
+                    for (int i = 0; i < Staff.Count; i++)
+                    {
+                        if (Staff[i].StaffPosition == StaffPosition.Manager)
+                        {
+                            return Staff[i];                            
+                        }
+                    }
+                }
+                return null;
+            }            
         }
 
         #endregion
