@@ -2,7 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:personList="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
-        Title="Show Persons" Height="300" Width="725">
+        Title="Show Persons" Height="300" Width="725"
+        ResizeMode="CanMinimize">
     <Window.DataContext>
         <personList:ShowPersonsViewModel></personList:ShowPersonsViewModel>
     </Window.DataContext>
@@ -43,12 +44,46 @@
                        Style="{StaticResource ResourceKey=TextBlockStyle}">
 
             </TextBlock>
-            <TextBlock Name="PersonClubTextBlock"
+            
+            <Grid
+                ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel
+                    Grid.Column="0">
+                    <TextBlock
+                        Name="PersonAgeTextBlock"
+                        Height="50"
+                        Style="{StaticResource ResourceKey=TextBlockStyle}">
+                    </TextBlock>
+                    
+                    <TextBlock
+                        Name="PersonWageTextBlock"
+                        Height="50"
+                        Style="{StaticResource ResourceKey=TextBlockStyle}">
+                        
+                    </TextBlock>
+                    
+                </StackPanel>
+
+                <StackPanel
+                    Grid.Column="1">
+                    <TextBlock Name="PersonClubTextBlock"
                        Style="{StaticResource ResourceKey=TextBlockStyle}">
-                
-            </TextBlock>
-            <Grid>
-                
+
+                    </TextBlock>
+
+                    <TextBlock
+                        Name="PersonPositionOrRoleTextBlock"
+                        Height="50"
+                        Style="{StaticResource ResourceKey=TextBlockStyle}">
+
+                    </TextBlock>
+
+                </StackPanel>
             </Grid>
         </StackPanel>
     </Grid>

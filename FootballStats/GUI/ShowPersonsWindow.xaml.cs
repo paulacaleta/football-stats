@@ -32,11 +32,36 @@ namespace GUI
 
         private void DisplayPlayerInfo(Person pers)
         {
+            // TOP PANEL
             this.PersonFirstNameTextBlock.Text = pers.Name.FirstName;
             this.PersonSecondNameTextBlock.Text = pers.Name.MiddleName;
             this.PersonLastNameTextBlock.Text = pers.Name.LastName;
-            //if(pers is ClubAffiliatedPerson){this.PersonClubTextBlock.Text = (pers as ClubAffiliatedPerson)} ACTIVATE LATER
+            
 
+            // LEFT PANEL
+            this.PersonAgeTextBlock.Text = string.Format("Age" + Environment.NewLine + pers.GetAge().ToString()+Environment.NewLine);
+            if (pers is ClubAffiliatedPerson) 
+            {                 
+                this.PersonWageTextBlock.Text = 
+                    String.Format("Monthly Wage"+Environment.NewLine + (pers as ClubAffiliatedPerson).MonthlyWage().ToString()
+                    +Environment.NewLine);
+            }
+
+            // RIGHT PANEL
+            if (pers is ClubAffiliatedPerson) { this.PersonClubTextBlock.Text = (pers as ClubAffiliatedPerson).AfiliatedClub; }
+
+            if (pers is Player)
+            {
+                this.PersonPositionOrRoleTextBlock.Text =
+                    String.Format("Player position" + Environment.NewLine + (pers as Player).Positions[0].ToString()
+                    + Environment.NewLine);
+            }
+            else if (pers is StaffMember)
+            {
+                this.PersonPositionOrRoleTextBlock.Text =
+                    String.Format("Staff role" + Environment.NewLine + (pers as StaffMember).StaffPosition.ToString()
+                    + Environment.NewLine);
+            }
         }
     }
 }

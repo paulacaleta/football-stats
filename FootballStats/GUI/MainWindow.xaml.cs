@@ -37,5 +37,11 @@ namespace GUI
             showPersonsWindow.ShowDialog();
         }
 
+        private void OnNewClubButtonClick(object sender, RoutedEventArgs e)
+        {
+            CreateClubWindow createClubWindow = new CreateClubWindow();
+            createClubWindow.ShowDialog();
+        }
+
     }
 }

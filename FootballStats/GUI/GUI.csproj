@@ -53,9 +53,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateClubWindow.xaml.cs">
+      <DependentUpon>CreateClubWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowPersonsWindow.xaml.cs">
       <DependentUpon>ShowPersonsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreateClubWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreatePlayerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

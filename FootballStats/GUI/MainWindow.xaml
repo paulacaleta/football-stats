@@ -22,11 +22,21 @@
                 Content="Show Persons"
                 Click="OnButtonShowPersonsClick"/>
 
+        <Button Grid.Column="0"
+        	Margin="40,161,191,276"
+        	FontWeight="Bold"
+        	FontSize="18"
+            Name="NewClubButton"
+        	Content="New Club"
+        	Click="OnNewClubButtonClick"/>
+
         <Button Grid.Column="1"
         	    Margin="116,41,115,396"
         	    FontWeight="Bold"
         	    FontSize="18"
                 IsEnabled="False"
                 Content="Show Person"/>
+
+
     </Grid>
 </Window>
