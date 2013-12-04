@@ -1,0 +1,135 @@
+﻿<Window x:Class="GUI.ShowClubsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:clubsVM="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
+        Title="ShowClubsWindow" Height="302" Width="700">
+    <Window.DataContext>
+        <clubsVM:ShowClubsViewModel></clubsVM:ShowClubsViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style
+            x:Key="TextBlockStyle"
+        TargetType="TextBlock">
+            <Setter Property="Width" Value="175"></Setter>
+            <Setter Property="Height" Value="25"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+        <Style
+            x:Key="TextBlockMiniStyle"
+        TargetType="TextBlock">
+            <Setter Property="Width" Value="115"></Setter>
+            <Setter Property="Height" Value="63"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontWeight" Value="SemiBold"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel
+            Grid.Column="0">
+            <TextBlock Text="Select Club"
+                       DockPanel.Dock="Top"
+                 FontSize="20"
+                       Height="30"
+                 FontWeight="Bold"
+                 TextAlignment="Center">
+            </TextBlock>
+            <ListBox Name="ClubsListBox"
+                     DockPanel.Dock="Bottom"
+                ItemsSource="{Binding Clubs}"
+                SelectionChanged="OnClubsListBoxSelectionChanged"
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                     FontSize="16">
+            </ListBox>
+        </DockPanel>
+
+        <DockPanel
+            Grid.Column="1">
+            <TextBlock Text="Club Information"
+                       DockPanel.Dock="Top"
+                 FontSize="20"
+                       Height="30"
+                 FontWeight="Bold"
+                 TextAlignment="Center">
+            </TextBlock>
+
+            <DockPanel
+                DockPanel.Dock="Bottom">
+                <StackPanel
+                DockPanel.Dock="Top">
+                    <TextBlock Name="ClubNameTextBlock"
+                    Style="{StaticResource ResourceKey=TextBlockStyle}">
+
+                    </TextBlock>
+
+                    <TextBlock Name="ManagerTextBlock"
+                    Style="{StaticResource ResourceKey=TextBlockStyle}">
+
+                    </TextBlock>                   
+
+                </StackPanel>
+
+                <Grid DockPanel.Dock="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel                        
+                        Grid.Column="0">
+                        <TextBlock Name="TotalPlayersTextBlock"
+                            Style="{StaticResource ResourceKey=TextBlockMiniStyle}">
+                        </TextBlock>
+                        <TextBlock Name="AverageAgeTextBlock"
+                            Style="{StaticResource ResourceKey=TextBlockMiniStyle}">
+
+                        </TextBlock>
+                        <TextBlock Name="AverageWageTextBlock"
+                            Style="{StaticResource ResourceKey=TextBlockMiniStyle}">
+
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel                        
+                        Grid.Column="1">
+                        <TextBlock Name="HighestWageTextBlock"
+                            Style="{StaticResource ResourceKey=TextBlockMiniStyle}">
+                        </TextBlock>
+                        <TextBlock Name="AverageWagePlayersTextBlock"
+                            Style="{StaticResource ResourceKey=TextBlockMiniStyle}">
+                        </TextBlock>
+                        <TextBlock Name="AverageWageStaffTextBlock"
+                            Style="{StaticResource ResourceKey=TextBlockMiniStyle}">
+                        </TextBlock>
+                    </StackPanel>
+
+                </Grid>
+            </DockPanel>
+
+        </DockPanel>
+
+        <DockPanel
+            Grid.Column="2">
+            <TextBlock 
+                DockPanel.Dock="Top"
+                Text="Players and Staff"
+                 FontSize="20"
+                       Height="30"
+                 FontWeight="Bold"
+                 TextAlignment="Center">
+            </TextBlock>
+            
+            <ListBox Name="PlayersAndStaffListBox">
+                
+            </ListBox>
+
+        </DockPanel>
+    </Grid>
+</Window>
