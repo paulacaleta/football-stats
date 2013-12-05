@@ -24,6 +24,7 @@ using FootballStats.Persons;
                 Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
                 Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
                 Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
+                Clubs = FootballStatsIO.ParseClubInformation();
                 isLoaded = true;
             }            
         }
