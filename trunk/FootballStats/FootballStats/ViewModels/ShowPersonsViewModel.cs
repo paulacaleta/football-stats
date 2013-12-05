@@ -18,5 +18,22 @@ namespace FootballStats.ViewModels
                 return World.Players;
             }
         }
+
+        public IEnumerable<Person> FreeAgentPlayers
+        {
+            get
+            {
+                World.Load();
+                List<Player> freePlayers = new List<Player>();
+                foreach (var player in World.Players)
+                {
+                    if (player.AfiliatedClub == "NotSet")
+                    {
+                        freePlayers.Add(player);
+                    }
+                }
+                return freePlayers;
+            }
+        }
     }
 }

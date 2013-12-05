@@ -1,0 +1,36 @@
+﻿<Window x:Class="GUI.AddPlayerToClubWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:personList="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
+        Title="AddPlayerToClubWindow" Height="350" Width="250">
+    <Window.DataContext>
+        <personList:ShowPersonsViewModel></personList:ShowPersonsViewModel>
+    </Window.DataContext>
+    <StackPanel>
+        <TextBlock Name="ClubTextBlock"
+                   DockPanel.Dock="Top"
+                   Height="45">
+            
+        </TextBlock>
+
+        <ListBox Name="PlayersListBox"
+                 Height="200"
+                 DockPanel.Dock="Right"
+            ItemsSource="{Binding FreeAgentPlayers}"
+            ScrollViewer.VerticalScrollBarVisibility="Visible">
+        </ListBox>
+        <Canvas
+        	Height="75">
+
+            <Button
+        		Click="OnAddButtonClick"
+        		Width="100"
+        		Height="35"
+        		Content="Add"
+        		FontSize="15"
+        		FontWeight="Bold" Canvas.Left="69" Canvas.Top="19"/>
+
+
+        </Canvas>
+    </StackPanel>
+</Window>

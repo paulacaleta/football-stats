@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FootballStats.Clubs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,69 @@ namespace GUI
         }
 
         private void OnClubsListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
+            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
+        }
+
+        private void DisplayClubInfo(Club selectedClub)
+        {
+            this.TotalPlayersTextBlock.Text = string.Format(
+                "Total players" + Environment.NewLine + selectedClub.TotalPlayersAtClub().ToString());
+            try
+            {
+                this.AverageAgeTextBlock.Text = string.Format(
+                "Average age" + Environment.NewLine + selectedClub.TeamAverageAge().ToString());
+            }
+            catch (Exception)
+            {
+                this.AverageAgeTextBlock.Text = string.Format(
+               "No players");               
+            }
+
+
+            try
+            {
+                this.HighestWageTextBlock.Text = string.Format(
+                "Highest wage" + Environment.NewLine + selectedClub.HighestPlayerWage().ToString());
+            }
+            catch (Exception)
+            {
+                this.HighestWageTextBlock.Text = string.Format(
+                "No players");
+            }
+
+            try
+            {
+                this.AverageWagePlayersTextBlock.Text = string.Format(
+               "Av. player wage" + Environment.NewLine + selectedClub.AverageWageOfPlayers().ToString());
+            }
+            catch (Exception)
+            {
+                this.AverageWagePlayersTextBlock.Text = string.Format(
+               "No players");
+            }
+
+            try
+            {
+                this.AverageWageStaffTextBlock.Text = string.Format(
+               "Average staff wage" + Environment.NewLine + selectedClub.AverageWageOfStaff().ToString());
+            }
+            catch (Exception)
+            {
+                this.AverageWageStaffTextBlock.Text = string.Format(
+              "No players");
+            }
+           
+        }
+
+        private void OnAddPlayerButtonClick(object sender, RoutedEventArgs e)
+        {
+            AddPlayerToClubWindow addPlayerToClubWindow = new AddPlayerToClubWindow(this.ClubsListBox.SelectedItem as Club);
+            addPlayerToClubWindow.ShowDialog();
+        }
+
+        private void OnRemovePlayerButtonClick(object sender, RoutedEventArgs e)
         {
 
         }
