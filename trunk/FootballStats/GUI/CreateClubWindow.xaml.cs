@@ -34,6 +34,7 @@ namespace GUI
 
             Club newClub = new Club(clubName, nationality);
             World.AddClub(newClub);
+            World.Save();
             this.Close();
         }
 
