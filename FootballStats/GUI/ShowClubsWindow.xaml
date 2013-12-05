@@ -46,7 +46,7 @@
                      DockPanel.Dock="Bottom"
                 ItemsSource="{Binding Clubs}"
                 SelectionChanged="OnClubsListBoxSelectionChanged"
-                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
                      FontSize="16">
             </ListBox>
         </DockPanel>
@@ -73,7 +73,7 @@
                     <TextBlock Name="ManagerTextBlock"
                     Style="{StaticResource ResourceKey=TextBlockStyle}">
 
-                    </TextBlock>                   
+                    </TextBlock>
 
                 </StackPanel>
 
@@ -125,10 +125,37 @@
                  FontWeight="Bold"
                  TextAlignment="Center">
             </TextBlock>
-            
-            <ListBox Name="PlayersAndStaffListBox">
-                
-            </ListBox>
+
+            <StackPanel>
+                <ListBox Name="PlayersAndStaffListBox"
+                         Height="170"
+                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                </ListBox>
+
+                <Canvas>
+                    <Button
+                        Click="OnAddPlayerButtonClick"
+                        Width="100"
+                        Height="35"
+                        Content="Add"
+                        FontSize="15"
+                        FontWeight="Bold" Canvas.Left="9" Canvas.Top="23">
+
+                    </Button>
+
+                    <Button
+                        Click="OnRemovePlayerButtonClick"
+                        Width="100"
+                        Height="35" 
+                        Content="Remove"
+                        FontSize="15"
+                        FontWeight="Bold" Canvas.Left="125" Canvas.Top="23">
+
+                    </Button>
+                </Canvas>
+            </StackPanel>
+
 
         </DockPanel>
     </Grid>
