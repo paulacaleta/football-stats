@@ -33,6 +33,7 @@ using FootballStats.Persons;
             FootballStatsIO.SavePlayers(Players);
             FootballStatsIO.SaveStaffMembers(Staff);
             FootballStatsIO.SaveReferees(Referees);
+            FootballStatsIO.SaveClubInformation(Clubs);
         }
 
         //static World() 

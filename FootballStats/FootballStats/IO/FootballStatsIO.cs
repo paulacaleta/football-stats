@@ -333,18 +333,21 @@ namespace FootballStats.IO
 
         // Club Save/Load information
         #region Club Save/Load
-        public static void SaveClubInformation(Club club)
+        public static void SaveClubInformation(List<Club> clubs)
         {
-            string path = String.Format(@"..\..\ClubInformation\{0}.txt", club.Name);
+            string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt");
 
-            using (StreamWriter write = new StreamWriter(path))
+            foreach (var club in clubs)
             {
-                write.Write(club.ToString());
+                using (StreamWriter write = new StreamWriter(path, true))
+                {
+                    write.Write(club.ToString());
+                }
             }
         }
         public static string LoadClubInformation(string clubName)
         {
-            string path = String.Format(@"..\..\ClubInformation\{0}.txt", clubName);
+            string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt");
             string returnValue = null;
 
             try
@@ -363,7 +366,7 @@ namespace FootballStats.IO
         }
         public static void DeleteClubInformation(string clubName)
         {
-            string path = String.Format(@"..\..\ClubInformation\{0}.txt", clubName);
+            string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt.txt");
 
             try
             {

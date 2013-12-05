@@ -11,7 +11,7 @@
 
         public override string Serialize()
         {
-            return base.Serialize() + ";%";
+            return base.Serialize();
         }
     }
 }
