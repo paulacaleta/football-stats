@@ -349,7 +349,7 @@ namespace FootballStats.IO
         {
             string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt");
             StringBuilder sb = new StringBuilder();
-            List<Club> returnValue = new List<Club>();
+            List<Club> parsedClubInformation = new List<Club>();
 
             using (StreamReader read = new StreamReader(path))
             {
@@ -379,7 +379,7 @@ namespace FootballStats.IO
                 if (i % 2 == 1 && i > 0)
                 {
                     Club temp = new Club(name, nationality);
-                    returnValue.Add(temp);
+                    parsedClubInformation.Add(temp);
 
                     nationality = Nationality.Bulgarian;
                     name = null;
@@ -387,9 +387,9 @@ namespace FootballStats.IO
             }
 
             // Foreach All static lists of player and staf fmembers to find out afiliations.
-            foreach (var club in returnValue)
+            foreach (var club in parsedClubInformation)
             {
-                foreach (var player in club.Team)
+                foreach (var player in World.Players)
                 {
                     if (player.AffiliatedClub == club.Name)
                     {
@@ -397,7 +397,7 @@ namespace FootballStats.IO
                     }
                 }
 
-                foreach (var staff in club.Staff)
+                foreach (var staff in World.Staff)
                 {
                     if (staff.AffiliatedClub == club.Name)
                     {
@@ -406,7 +406,7 @@ namespace FootballStats.IO
                 }
             }
 
-            return returnValue;
+            return parsedClubInformation;
         }
 
         public static void DeleteClubInformation(string clubName)
