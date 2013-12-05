@@ -1,4 +1,5 @@
 ﻿using FootballStats.Clubs;
+using FootballStats.Common;
 using FootballStats.Persons;
 using System;
 using System.Collections.Generic;
@@ -31,8 +32,20 @@ namespace GUI
 
         private void OnAddButtonClick(object sender, RoutedEventArgs e)
         {
-            club.AddPlayer(this.PlayersListBox.SelectedItem as Player);
-            (this.PlayersListBox.SelectedItem as Player).AfiliatedClub = club.Name;
+            try
+            {
+                club.AddPlayer(this.PlayersListBox.SelectedItem as Player);
+                (this.PlayersListBox.SelectedItem as Player).AffiliatedClub = this.club.Name;
+            }
+            catch (InvalidClubException err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            
+
+            //AddPlayerToClubWindow newAddPlayerWindow = new AddPlayerToClubWindow(this.club);
+            //this.Close();
+            //newAddPlayerWindow.ShowDialog();
         }
     }
 }

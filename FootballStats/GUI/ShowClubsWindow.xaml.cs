@@ -1,4 +1,5 @@
 ﻿using FootballStats.Clubs;
+using FootballStats.Persons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace GUI
         {
             DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
             this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
-        }
+        }       
 
         private void DisplayClubInfo(Club selectedClub)
         {
@@ -77,20 +78,29 @@ namespace GUI
             catch (Exception)
             {
                 this.AverageWageStaffTextBlock.Text = string.Format(
-              "No players");
+              "No staff");
             }
            
         }
 
         private void OnAddPlayerButtonClick(object sender, RoutedEventArgs e)
         {
+
             AddPlayerToClubWindow addPlayerToClubWindow = new AddPlayerToClubWindow(this.ClubsListBox.SelectedItem as Club);
             addPlayerToClubWindow.ShowDialog();
+            DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
+            this.PlayersAndStaffListBox.ItemsSource = null;
+            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
         }
 
         private void OnRemovePlayerButtonClick(object sender, RoutedEventArgs e)
         {
-
+            (this.ClubsListBox.SelectedItem as Club).RemovePlayer(this.PlayersAndStaffListBox.SelectedItem as Player);
+            DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
+            this.PlayersAndStaffListBox.ItemsSource = null;
+            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
         }
+
+        
     }
 }
