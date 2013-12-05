@@ -345,25 +345,51 @@ namespace FootballStats.IO
                 }
             }
         }
-        public static string LoadClubInformation(string clubName)
+
+        public static List<Club> ParseClubInformation()
         {
             string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt");
-            string returnValue = null;
+            StringBuilder sb = new StringBuilder();
+            List<Club> returnValue = new List<Club>();
 
-            try
+            using (StreamReader read = new StreamReader(path))
             {
-                using (StreamReader read = new StreamReader(path))
+                sb.Append(read.ReadToEnd());
+            }
+            string[] parseHelper = sb.ToString().Split(new[] {";", "\n", "\r"}, StringSplitOptions.RemoveEmptyEntries);
+
+            Nationality nationality = Nationality.Bulgarian; // Doesnt matter because the nationality is mendetory for Club.
+            string name = null;
+
+            for (int i = 0; i < parseHelper.Length; i++)
+            {
+                if (i % 2 == 0)
                 {
-                    returnValue = read.ReadToEnd();
+                    name = parseHelper[i];
+                }
+                else if (i % 2 == 1)
+                {
+                    nationality = (Nationality)Enum.Parse(typeof(Nationality), parseHelper[i]);
+                }
+                else
+                {
+                    //TODO: implement custom exception
+                    throw new Exception("Player Not Saved Correctly!");
+                }
+
+                if (i % 2 == 1 && i > 0)
+                {
+                    Club temp = new Club(name, nationality);
+                    returnValue.Add(temp);
+
+                    nationality = Nationality.Bulgarian;
+                    name = null;
                 }
             }
-            catch (FileNotFoundException)
-            {
-                Console.WriteLine("File not found.");
-            }
-
+            
             return returnValue;
         }
+
         public static void DeleteClubInformation(string clubName)
         {
             string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt.txt");

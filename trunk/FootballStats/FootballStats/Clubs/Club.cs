@@ -355,7 +355,7 @@
 
         public override string ToString()
         {
-            string stringValue = string.Format("Club Name: {0}\nNationality: {1}\n", this.Name, this.Nationality.ToString());
+            string stringValue = string.Format("{0};{1}", this.Name, this.Nationality.ToString());
             return stringValue.ToString();
         }
     }
