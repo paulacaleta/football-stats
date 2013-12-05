@@ -345,7 +345,6 @@ namespace FootballStats.IO
                 }
             }
         }
-
         public static List<Club> ParseClubInformation()
         {
             string path = String.Format(@"..\..\..\FootballStats\ClubInformation\ClubInformation.txt");
@@ -386,7 +385,27 @@ namespace FootballStats.IO
                     name = null;
                 }
             }
-            
+
+            // Foreach All static lists of player and staf fmembers to find out afiliations.
+            foreach (var club in returnValue)
+            {
+                foreach (var player in club.Team)
+                {
+                    if (player.AffiliatedClub == club.Name)
+                    {
+                        club.Team.Add(player);
+                    }
+                }
+
+                foreach (var staff in club.Staff)
+                {
+                    if (staff.AffiliatedClub == club.Name)
+                    {
+                        club.Staff.Add(staff);
+                    }
+                }
+            }
+
             return returnValue;
         }
 
