@@ -138,6 +138,7 @@
             if (this.Team.Contains(player))
             {
                 this.Team.Remove(player);
+                player.AffiliatedClub = "NotSet";
                 return;
             }
 

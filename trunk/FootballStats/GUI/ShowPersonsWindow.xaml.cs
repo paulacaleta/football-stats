@@ -48,7 +48,7 @@ namespace GUI
             }
 
             // RIGHT PANEL
-            if (pers is ClubAffiliatedPerson) { this.PersonClubTextBlock.Text = (pers as ClubAffiliatedPerson).AfiliatedClub; }
+            if (pers is ClubAffiliatedPerson) { this.PersonClubTextBlock.Text = (pers as ClubAffiliatedPerson).AffiliatedClub; }
 
             if (pers is Player)
             {

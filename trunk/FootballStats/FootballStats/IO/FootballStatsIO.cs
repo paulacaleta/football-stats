@@ -109,7 +109,7 @@ namespace FootballStats.IO
                     tempPlayer.PersonID = ID;
                     tempPlayer.Positions.Add(position);
                     tempPlayer.SetWeeklyWage(weaklyWage);
-                    tempPlayer.AfiliatedClub = clubAfiliation;
+                    tempPlayer.AffiliatedClub = clubAfiliation;
 
                     //Add Everything into the list that the method returns
                     returnList.Add(tempPlayer);
@@ -220,7 +220,7 @@ namespace FootballStats.IO
                     tempStaff.PersonID = ID;
                     tempStaff.StaffPosition = position;
                     tempStaff.SetWeeklyWage(weaklyWage);
-                    tempStaff.AfiliatedClub = clubAfiliation;
+                    tempStaff.AffiliatedClub = clubAfiliation;
 
                     //Add Everything into the list that the method returns
                     returnList.Add(tempStaff);

@@ -11,10 +11,10 @@
         public ClubAffiliatedPerson(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
-            this.AfiliatedClub = "NotSet";
+            this.AffiliatedClub = "NotSet";
         }
 
-        public string AfiliatedClub
+        public string AffiliatedClub
         {
             get { return this.affiliatedClub; }
             set { this.affiliatedClub = value; }

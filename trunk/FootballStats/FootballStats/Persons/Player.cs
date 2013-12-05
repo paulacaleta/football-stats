@@ -72,7 +72,7 @@
                 positionToPrint = sb.ToString();
             }
 
-            string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), positionToPrint, this.AfiliatedClub, this.WeeklyWage());
+            string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), positionToPrint, this.AffiliatedClub, this.WeeklyWage());
 
             return returnValue.ToString();
         }
