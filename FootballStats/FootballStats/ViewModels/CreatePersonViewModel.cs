@@ -110,7 +110,7 @@ namespace FootballStats.ViewModels
         {
             Player newPlayer = new Player(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
             newPlayer.SetWeeklyWage(this.WeeklyWage);
-            newPlayer.AddPosition(this.PlayerPosition);
+            newPlayer.Position = this.PlayerPosition;
             return newPlayer;          
         }
 

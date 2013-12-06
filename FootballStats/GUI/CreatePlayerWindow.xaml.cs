@@ -65,6 +65,7 @@ namespace GUI
             }
             CreatePersonViewModel newModel = new CreatePersonViewModel();
             newModel.FirstName = this.FirstNameTextBox.Text;
+
             newModel.MiddleName = this.MiddletNameTextBox.Text;
             newModel.LastName = this.LastNameTextBox.Text;
 
@@ -72,7 +73,7 @@ namespace GUI
             newModel.DateOfBirth = this.DateOfBirthTextBox.Text;
 
             newModel.Nationality = (Nationality)this.NationalityComboBox.SelectedItem;
-            
+
             newModel.PersonType = this.PersonTypeComboBox.SelectedItem.ToString();
 
             newModel.PlayerPosition = (PlayerPosition)this.PlayerPositionComboBox.SelectedItem;
@@ -85,9 +86,9 @@ namespace GUI
             }
             catch (InvalidProgramException)
             {
-                MessageBox.Show("You must enter more informationa about the person!");                
+                MessageBox.Show("You must enter more informationa about the person!");
             }
-            
+
         }
 
         private void OnCancelButtonClick(object sender, RoutedEventArgs e)

@@ -24,6 +24,11 @@ namespace GUI
         public ShowClubsWindow()
         {
             InitializeComponent();
+            if (ClubsListBox.Items.Count == 0)
+            {
+                MessageBox.Show("There are no clubs in the database." + Environment.NewLine + "Please add a new club.");
+                this.Close();
+            }
         }
 
         private void OnClubsListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -34,6 +39,7 @@ namespace GUI
 
         private void DisplayClubInfo(Club selectedClub)
         {
+            
             this.TotalPlayersTextBlock.Text = string.Format(
                 "Total players" + Environment.NewLine + selectedClub.TotalPlayersAtClub().ToString());
             try

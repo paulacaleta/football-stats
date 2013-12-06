@@ -46,7 +46,15 @@ namespace GUI
         private void OnShowClubsButtonClick(object sender, RoutedEventArgs e)
         {
             ShowClubsWindow showClubsWindow = new ShowClubsWindow();
-            showClubsWindow.ShowDialog();
+            try
+            {
+                showClubsWindow.ShowDialog();
+            }
+            catch (InvalidOperationException)
+            {
+                                
+            }
+            
         }
 
     }

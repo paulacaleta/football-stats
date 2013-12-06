@@ -1,2 +1,0 @@
-5;Baco,Gacov,Stoyanov;15.10.1986;Bulgarian;NotSet;NotSet;0,0
-3;Baco,Bacov,Bacov;15.10.1979;Bulgarian;NotSet;NotSet;0,0

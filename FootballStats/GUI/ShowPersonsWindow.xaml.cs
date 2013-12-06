@@ -41,9 +41,10 @@ namespace GUI
             // LEFT PANEL
             this.PersonAgeTextBlock.Text = string.Format("Age" + Environment.NewLine + pers.GetAge().ToString()+Environment.NewLine);
             if (pers is ClubAffiliatedPerson) 
-            {                 
+            {
+                string monWage = string.Format("{0:0}",(pers as ClubAffiliatedPerson).MonthlyWage());
                 this.PersonWageTextBlock.Text = 
-                    String.Format("Monthly Wage"+Environment.NewLine + (pers as ClubAffiliatedPerson).MonthlyWage().ToString()
+                    String.Format("Monthly Wage"+Environment.NewLine + monWage  
                     +Environment.NewLine);
             }
 
@@ -53,7 +54,7 @@ namespace GUI
             if (pers is Player)
             {
                 this.PersonPositionOrRoleTextBlock.Text =
-                    String.Format("Player position" + Environment.NewLine + (pers as Player).Positions[0].ToString()
+                    String.Format("Player position" + Environment.NewLine + (pers as Player).Position.ToString()
                     + Environment.NewLine);
             }
             else if (pers is StaffMember)

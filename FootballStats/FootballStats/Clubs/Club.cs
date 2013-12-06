@@ -65,7 +65,7 @@
             {
                 this.nationality = value;
             }
-        }        
+        }
 
         public List<Player> Team
         {
@@ -138,7 +138,7 @@
             if (this.Team.Contains(player))
             {
                 this.Team.Remove(player);
-                player.AffiliatedClub = "NotSet";
+                player.AffiliatedClub = "Free Agent";
                 return;
             }
 
@@ -198,7 +198,7 @@
 
             foreach (var player in this.Team)
             {
-                if (player.Positions.Contains(position))
+                if (player.Position == position)
                 {
                     playersPerPosition++;
                 }
@@ -318,12 +318,12 @@
                     {
                         if (Staff[i].StaffPosition == StaffPosition.Manager)
                         {
-                            return Staff[i];                            
+                            return Staff[i];
                         }
                     }
                 }
                 return null;
-            }            
+            }
         }
 
         #endregion
@@ -357,6 +357,11 @@
         {
             string stringValue = string.Format("{0};{1}", this.Name, this.Nationality.ToString());
             return stringValue.ToString();
+        }
+
+        public string Serialize()
+        {
+            return string.Format("{0};{1}", this.Name, this.Nationality);
         }
     }
 }

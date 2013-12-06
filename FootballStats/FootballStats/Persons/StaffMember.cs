@@ -32,9 +32,16 @@
 
         public override string Serialize()
         {
-            string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), this.StaffPosition.ToString(), this.AffiliatedClub, this.WeeklyWage());
+            StringBuilder serialized = new StringBuilder();
 
-            return returnValue.ToString();
+            serialized.Append(base.Serialize());
+            serialized.Append(";");
+            serialized.Append(this.StaffPosition);
+
+            return serialized.ToString();
+            //string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), this.StaffPosition.ToString(), this.AffiliatedClub, this.WeeklyWage());
+
+            //return returnValue.ToString();
         }
     }
 }
