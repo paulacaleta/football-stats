@@ -6,75 +6,90 @@
 
     public class Player : ClubAffiliatedPerson, IPlayer
     {
-        private IList<PlayerPosition> positions = new List<PlayerPosition>();
+        private PlayerPosition position = PlayerPosition.NotSet;
 
         public Player(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
         }
         
-        public IList<PlayerPosition> Positions
+        public PlayerPosition Position
         {
             get
             { 
-                return this.positions;
+                return this.position;
             }
-        }
-
-        public void AddPosition(PlayerPosition position)
-        {
-            // Ensures no position is contained more than once.
-            if (!this.Positions.Contains(position))
+            set
             {
-                this.positions.Add(position);
-                return;
+                this.position = value;
             }
-
-            string message = string.Format("This player position '{0}' already exists.", position);
-            throw new InvalidPlayerPositionException(message, position);
         }
 
-        public void RemovePosition(PlayerPosition position)
-        {
-            if (this.Positions.Contains(position))
-            {
-                for (int i = 0; i < this.Positions.Count; i++)
-                {
-                    if (this.Positions[i] == position)
-                    {
-                        this.positions.RemoveAt(i);
-                        return;
-                    }
-                }
-            }
+        // DELETE LATER
+        //public void AddPosition(PlayerPosition position)
+        //{
+        //    // Ensures no position is contained more than once.
+        //    if (!this.Position.Contains(position))
+        //    {
+        //        this.position.Add(position);
+        //        return;
+        //    }
 
-            string message = string.Format("Cannot find '{0}' player position.", position);
-            throw new InvalidPlayerPositionException(message, position);
-        }
+        //    string message = string.Format("This player position '{0}' already exists.", position);
+        //    throw new InvalidPlayerPositionException(message, position);
+        //}
+
+        // DELETE LATER
+        //public void RemovePosition(PlayerPosition position)
+        //{
+        //    if (this.Position.Contains(position))
+        //    {
+        //        for (int i = 0; i < this.Position.Count; i++)
+        //        {
+        //            if (this.Position[i] == position)
+        //            {
+        //                this.position.RemoveAt(i);
+        //                return;
+        //            }
+        //        }
+        //    }
+
+        //    string message = string.Format("Cannot find '{0}' player position.", position);
+        //    throw new InvalidPlayerPositionException(message, position);
+        //}
 
         public override string Serialize()
         {
+            StringBuilder serialized = new StringBuilder();
 
-            string positionToPrint = null;
-            StringBuilder sb = new StringBuilder();
+            serialized.Append(base.Serialize());
 
-            if (this.Positions.Count == 0)
-            {
-                 positionToPrint = "NotSet";
-            }
-            else
-            {
-                for (int i = 0; i < this.Positions.Count; i++)
-                {
-                    sb.Append(this.Positions[i]);
-                    sb.Append(',');
-                }
-                positionToPrint = sb.ToString();
-            }
+            serialized.Append(";");
+            serialized.Append(this.Position);
 
-            string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), positionToPrint, this.AffiliatedClub, this.WeeklyWage());
+            return serialized.ToString();
 
-            return returnValue.ToString();
+            // DELETE LATER
+            //string positionToPrint = null;
+            //StringBuilder sb = new StringBuilder();
+
+            //if (this.Position.Count == 0)
+            //{
+            //     positionToPrint = "NotSet";
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < this.Position.Count; i++)
+            //    {
+            //        sb.Append(this.Position[i]);
+            //        sb.Append(',');
+            //    }
+            //    positionToPrint = sb.ToString();
+            //}
+
+            //string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), positionToPrint, this.AffiliatedClub, this.WeeklyWage());
+
+            //return returnValue.ToString();
         }
     }
 }

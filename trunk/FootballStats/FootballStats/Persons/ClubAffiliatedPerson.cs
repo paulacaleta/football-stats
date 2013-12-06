@@ -2,6 +2,7 @@
 {
     using System;
     using FootballStats.Common;
+    using System.Text;
 
     public abstract class ClubAffiliatedPerson : Person, IClubAffiliated
     {
@@ -11,7 +12,7 @@
         public ClubAffiliatedPerson(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
-            this.AffiliatedClub = "NotSet";
+            this.AffiliatedClub = "Free Agent";
         }
 
         public string AffiliatedClub
@@ -46,6 +47,19 @@
             }
 
             this.weeklyWage = wage;
+        }
+
+        public override string Serialize()
+        {
+            StringBuilder serialized = new StringBuilder();
+
+            serialized.Append(base.Serialize());
+
+            serialized.Append(";");
+            serialized.Append(this.weeklyWage+";");
+            serialized.Append(this.AffiliatedClub);
+
+            return serialized.ToString();
         }
     }
 }

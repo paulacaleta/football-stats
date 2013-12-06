@@ -4,10 +4,10 @@
 
     public interface IPlayer
     {
-        IList<PlayerPosition> Positions { get; }
+        PlayerPosition Position { get; }
 
-        void AddPosition(PlayerPosition position);
+        //void AddPosition(PlayerPosition position);
 
-        void RemovePosition(PlayerPosition position);
+        //void RemovePosition(PlayerPosition position);
     }
 }

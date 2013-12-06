@@ -1,5 +1,6 @@
 ﻿using FootballStats.Clubs;
 using FootballStats.Common;
+using FootballStats.Competitions;
 using FootballStats.Persons;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,7 @@ namespace GUI
             {
                 club.AddPlayer(this.PlayersListBox.SelectedItem as Player);
                 (this.PlayersListBox.SelectedItem as Player).AffiliatedClub = this.club.Name;
+                World.Save();
             }
             catch (InvalidClubException err)
             {

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="GUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Football Stats" Height="550" Width="725">
+        Title="Football Stats" Height="550" Width="725">    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>

@@ -27,7 +27,7 @@ namespace FootballStats.ViewModels
                 List<Player> freePlayers = new List<Player>();
                 foreach (var player in World.Players)
                 {
-                    if (player.AffiliatedClub == "NotSet")
+                    if (player.AffiliatedClub == "Free Agent")
                     {
                         freePlayers.Add(player);
                     }

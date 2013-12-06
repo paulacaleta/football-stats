@@ -10,7 +10,6 @@
         private Name name;
         private DateTime birthDate;
         private Nationality nationality;
-        private int personID;
        
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
@@ -22,7 +21,7 @@
             this.Name = name;
             this.BirthDate = DateTime.Parse(birthDate);
             this.Nationality = nationality;
-            this.PersonID = World.PersonID++;
+            //this.PersonID = World.PersonID++;
         }
 
         public Name Name
@@ -71,18 +70,18 @@
             }
         }
 
-        public int PersonID
-        {
-            get
-            {
-                return this.personID;
-            }
+        //public int PersonID
+        //{
+        //    get
+        //    {
+        //        return this.personID;
+        //    }
 
-            set
-            {
-                this.personID = value;
-            }
-        }
+        //    set
+        //    {
+        //        this.personID = value;
+        //    }
+        //}
 
         public int GetAge()
         {
@@ -119,27 +118,27 @@
             this.Name = newName;
         }
 
-        public override bool Equals(object obj)
-        {
-            Person person = obj as Person;
+        //public override bool Equals(object obj)
+        //{
+        //    Person person = obj as Person;
 
-            if (person == null)
-            {
-                return false;
-            }
+        //    if (person == null)
+        //    {
+        //        return false;
+        //    }
 
-            if (this.PersonID != person.PersonID)
-            {
-                return false;
-            }
+        //    if (this.PersonID != person.PersonID)
+        //    {
+        //        return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
-        public override int GetHashCode()
-        {
-            return this.PersonID ^ this.PersonID;
-        }
+        //public override int GetHashCode()
+        //{
+        //    return this.PersonID ^ this.PersonID;
+        //}
 
         public override string ToString()
         {
@@ -148,9 +147,16 @@
 
         public virtual string Serialize()
         {
-            string returnValue = string.Format("{0};{1};{4}.{3}.{2};{5}",this.PersonID , this.Name.Serialize(), this.BirthDate.Year, this.birthDate.Month, this.birthDate.Day, this.Nationality.ToString());
+            StringBuilder serialized = new StringBuilder();
 
-            return returnValue.ToString();
+            serialized.Append(this.Name.FirstName+";");
+            serialized.Append(this.Name.MiddleName + ";");
+            serialized.Append(this.Name.LastName + ";");
+            serialized.Append(string.Format("{0}.{1}.{2}",
+                this.BirthDate.Day, this.BirthDate.Month, this.BirthDate.Year+";"));
+            serialized.Append(this.Nationality);
+
+            return serialized.ToString();
         }
 
     }
