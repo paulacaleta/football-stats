@@ -138,7 +138,7 @@
             if (this.Team.Contains(player))
             {
                 this.Team.Remove(player);
-                player.AffiliatedClub = "Free Agent";
+                player.AffiliatedClub = "Free Agent";                
                 return;
             }
 
@@ -232,7 +232,7 @@
 
             foreach (var player in this.Team)
             {
-                avregeWage += player.MonthlyWage();
+                avregeWage += player.WeeklyWage();
             }
 
             return avregeWage / this.Team.Count;
@@ -268,9 +268,9 @@
 
             foreach (var player in this.Team)
             {
-                if (player.MonthlyWage() > highestPlayerWage)
+                if (player.WeeklyWage() > highestPlayerWage)
                 {
-                    highestPlayerWage = player.MonthlyWage();
+                    highestPlayerWage = player.WeeklyWage();
                 }
             }
 

@@ -1,1 +1,2 @@
 Emil;Slavov;Slavov;15.12.1988;Gabonese;150;CSKA;FW
+Alexander;Ivanov;Petrov;15.12.1975;Bulgarian;430;Levski;FW

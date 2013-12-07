@@ -1,28 +1,51 @@
 ﻿<Window x:Class="GUI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Football Stats" Height="550" Width="725">    
+        Title="Football Stats" Height="550" Width="725"
+        ResizeMode="CanMinimize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0"
+        <Canvas>
+            <TextBlock
+                TextAlignment="Center"
+                VerticalAlignment="Bottom"
+                FontSize="50"
+                FontWeight="Medium"
+                Foreground="Blue" Canvas.Left="30" Canvas.Top="44">
+                Football stats
+            </TextBlock>
+            <Canvas>
+                <Image
+                Name="FootballerImage"
+                Height="367"
+                Canvas.Left="41" Canvas.Top="116" Width="293"                
+                />
+            </Canvas>
+            
+
+
+        </Canvas>
+
+
+        <Button Grid.Column="1"
                 Margin="40,41,191,396"
                 FontWeight="Bold"
                 FontSize="18"
                 Name="CreatePersonButton"
                 Content="New Person"
                 Click="OnButtonCreatePersonClick"/>
-        <Button Grid.Column="0"
+        <Button Grid.Column="1"
         	    Margin="193,41,38,396"
         	    FontWeight="Bold"
         	    FontSize="18" 
                 Content="Show Persons"
                 Click="OnButtonShowPersonsClick"/>
 
-        <Button Grid.Column="0"
+        <Button Grid.Column="1"
         	Margin="40,151,191,286"
         	FontWeight="Bold"
         	FontSize="18"
@@ -30,19 +53,12 @@
         	Content="New Club"
         	Click="OnNewClubButtonClick"/>
 
-        <Button Grid.Column="0"
+        <Button Grid.Column="1"
         	Margin="193,151,38,286"
         	FontWeight="Bold"
         	FontSize="18" 
         	Content="Show Clubs"
         	Click="OnShowClubsButtonClick"/>
-
-        <Button Grid.Column="1"
-        	    Margin="116,41,115,396"
-        	    FontWeight="Bold"
-        	    FontSize="18"
-                IsEnabled="False"
-                Content="Show Person"/>
 
     </Grid>
 </Window>

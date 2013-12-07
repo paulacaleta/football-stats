@@ -2,7 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:clubsVM="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
-        Title="ShowClubsWindow" Height="302" Width="700">
+        Title="ShowClubsWindow" Height="302" Width="700"
+        Closed="OnWindowClosed">
+    
     <Window.DataContext>
         <clubsVM:ShowClubsViewModel></clubsVM:ShowClubsViewModel>
     </Window.DataContext>

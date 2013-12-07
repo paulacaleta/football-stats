@@ -1,4 +1,5 @@
 ﻿using FootballStats.Clubs;
+using FootballStats.Competitions;
 using FootballStats.Persons;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace GUI
             try
             {
                 this.HighestWageTextBlock.Text = string.Format(
-                "Highest wage" + Environment.NewLine + selectedClub.HighestPlayerWage().ToString());
+                "Highest wage" + Environment.NewLine + "{0:0.00}", selectedClub.HighestPlayerWage());
             }
             catch (Exception)
             {
@@ -68,7 +69,7 @@ namespace GUI
             try
             {
                 this.AverageWagePlayersTextBlock.Text = string.Format(
-               "Av. player wage" + Environment.NewLine + selectedClub.AverageWageOfPlayers().ToString());
+               "Av. player wage" + Environment.NewLine + "{0:0.00}", selectedClub.AverageWageOfPlayers());
             }
             catch (Exception)
             {
@@ -79,7 +80,7 @@ namespace GUI
             try
             {
                 this.AverageWageStaffTextBlock.Text = string.Format(
-               "Average staff wage" + Environment.NewLine + selectedClub.AverageWageOfStaff().ToString());
+               "Average staff wage" + Environment.NewLine + "{0:0.00}", selectedClub.AverageWageOfStaff().ToString());
             }
             catch (Exception)
             {
@@ -104,7 +105,12 @@ namespace GUI
             (this.ClubsListBox.SelectedItem as Club).RemovePlayer(this.PlayersAndStaffListBox.SelectedItem as Player);
             DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
             this.PlayersAndStaffListBox.ItemsSource = null;
-            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
+            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;            
+        }
+
+        private void OnWindowClosed(object sender, EventArgs e)
+        {
+            World.Save();
         }
 
         
