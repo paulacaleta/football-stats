@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using FootballStats.Clubs;
     using FootballStats.Common;
-using FootballStats.Persons;
+    using FootballStats.Persons;
     using FootballStats.IO;
 
     public static class World
@@ -13,7 +13,6 @@ using FootballStats.Persons;
         public static List<Player> Players = new List<Player>();
         public static List<StaffMember> Staff = new List<StaffMember>();
         public static List<Referee> Referees = new List<Referee>();
-        //private static int personID = 1;
 
         private static bool isLoaded = false;
 
@@ -21,12 +20,8 @@ using FootballStats.Persons;
         {
             if (!isLoaded)
             {
-                FootballStatsIO.LoadWorld();
+                SaveLoad.SaveLoader.LoadWorld();
                 AssociatePersonsToClubs();
-                //Players = FootballStatsIO.ParsePlayersFromPlayerTxt();
-                //Staff = FootballStatsIO.ParsePlayersFromStaffMemberTxt();
-                //Referees = FootballStatsIO.ParseRefereesFromRefereeTxt();
-                //Clubs = FootballStatsIO.ParseClubInformation();
                 isLoaded = true;
             }            
         }
@@ -68,33 +63,9 @@ using FootballStats.Persons;
 
         public static void Save() 
         {
-            FootballStatsIO.SaveWorld();
-            //FootballStatsIO.SavePlayers(Players);
-            //FootballStatsIO.SaveStaffMembers(Staff);
-            //FootballStatsIO.SaveReferees(Referees);
-            //FootballStatsIO.SaveClubInformation(Clubs);
+            SaveLoad.SaveLoader.SaveWorld();
         }
-
-        //static World() 
-        //{
-           
-            
-        //    //ToDo: fix ID
-        //    //personID = FootballStatsIO.ParsePlayersFromPlayerTxt().Count;
-        //}
-        
-        //public static int PersonID
-        //{
-        //    get
-        //    {
-        //        return personID;
-        //    }
-
-        //    set
-        //    {
-        //        personID = value;
-        //    }
-        //}
+       
         public static void AddClub(Club club)
         {
             if (!Clubs.Contains(club))
