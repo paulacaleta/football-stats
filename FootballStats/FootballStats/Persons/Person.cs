@@ -142,7 +142,7 @@
 
         public override string ToString()
         {
-            return String.Format("Name: {0}\n LastName : {1}", this.name.FirstName, this.name.LastName);
+            return String.Format("{0} {1}", this.name.FirstName, this.name.LastName);
         }
 
         public virtual string Serialize()

@@ -13,9 +13,9 @@ namespace FootballStats.IO
 {
     public static class SaveLoad
     {
-        private static string path = "..\\..\\..\\Database\\";
+        
 
-        public static IO SaveLoader { get; private set; }
+        internal static IO SaveLoader { get; private set; }
 
         static SaveLoad()
         {
@@ -24,6 +24,8 @@ namespace FootballStats.IO
 
         public class IO
         {
+            private static string path = "..\\..\\..\\Database\\";
+
             internal IO()
             {
                 

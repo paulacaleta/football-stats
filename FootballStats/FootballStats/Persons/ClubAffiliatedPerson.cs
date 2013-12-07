@@ -61,5 +61,10 @@
 
             return serialized.ToString();
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + string.Format(", {0}", this.AffiliatedClub);
+        }
     }
 }

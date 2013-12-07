@@ -23,6 +23,12 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
+            
+            BitmapImage logo = new BitmapImage();
+            logo.BeginInit();
+            logo.UriSource = new Uri("pack://application:,,,/GUI;component/footballer.jpg");
+            logo.EndInit();
+            this.FootballerImage.Source = logo;
         }
 
         private void OnButtonCreatePersonClick(object sender, RoutedEventArgs e)
