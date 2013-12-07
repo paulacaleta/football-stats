@@ -54,7 +54,7 @@
     <Compile Include="Competitions\Match.cs" />
     <Compile Include="Competitions\Season.cs" />
     <Compile Include="Competitions\World.cs" />
-    <Compile Include="IO\FootballStatsIO.cs" />
+    <Compile Include="IO\SaveLoad.cs" />
     <Compile Include="Persons\ClubAffiliatedPerson.cs" />
     <Compile Include="Persons\IClubAffiliated.cs" />
     <Compile Include="Persons\IPlayer.cs" />
