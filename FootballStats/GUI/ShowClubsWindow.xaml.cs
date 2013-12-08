@@ -35,12 +35,20 @@ namespace GUI
         private void OnClubsListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
-            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
+            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).PlayersAndStaff;            
         }       
 
         private void DisplayClubInfo(Club selectedClub)
         {
-            
+            if(selectedClub.HasManager())
+            {
+                this.ManagerTextBlock.Text = selectedClub.Manager.Name.FirstName + " " + selectedClub.Manager.Name.LastName;
+            }
+            else
+            {
+                this.ManagerTextBlock.Text = "Club has no manager";
+            }
+
             this.TotalPlayersTextBlock.Text = string.Format(
                 "Total players" + Environment.NewLine + selectedClub.TotalPlayersAtClub().ToString());
             try
@@ -61,7 +69,7 @@ namespace GUI
                 "Highest wage" + Environment.NewLine + "{0:0.00}", selectedClub.HighestPlayerWage());
             }
             catch (Exception)
-            {
+            {                
                 this.HighestWageTextBlock.Text = string.Format(
                 "No players");
             }
@@ -100,19 +108,38 @@ namespace GUI
             this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
         }
 
-        private void OnRemovePlayerButtonClick(object sender, RoutedEventArgs e)
+        private void OnRemoveButtonClick(object sender, RoutedEventArgs e)
         {
-            (this.ClubsListBox.SelectedItem as Club).RemovePlayer(this.PlayersAndStaffListBox.SelectedItem as Player);
+            if (this.PlayersAndStaffListBox.SelectedItem is Player)
+            {
+                (this.ClubsListBox.SelectedItem as Club).RemovePlayer(this.PlayersAndStaffListBox.SelectedItem as Player);
+            }
+            else if (this.PlayersAndStaffListBox.SelectedItem is StaffMember)
+            {
+                (this.ClubsListBox.SelectedItem as Club).RemoveStaffMember(this.PlayersAndStaffListBox.SelectedItem as StaffMember);
+            }
+            
             DisplayClubInfo(this.ClubsListBox.SelectedItem as Club);
             this.PlayersAndStaffListBox.ItemsSource = null;
-            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;            
+            this.PlayersAndStaffListBox.ItemsSource = (this.ClubsListBox.SelectedItem as Club).Team;
+            World.Save();
         }
 
         private void OnWindowClosed(object sender, EventArgs e)
         {
-            World.Save();
+            //World.Save();
         }
 
-        
+        private void OnPlayersAndStaffListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (this.PlayersAndStaffListBox.SelectedItem != null)
+            {
+                this.RemoveButton.IsEnabled = true;
+            }
+            else
+            {
+                this.RemoveButton.IsEnabled = false;
+            }
+        }
     }
 }

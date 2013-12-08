@@ -10,29 +10,36 @@ namespace FootballStats.ViewModels
 {
     public class ShowPersonsViewModel
     {
-        public IEnumerable<Person> Players
+        public IEnumerable<Person> Persons
         {
             get
             {
                 World.Load();
-                return World.Players;
+                return World.Persons;
             }
         }
 
-        public IEnumerable<Person> FreeAgentPlayers
+        public IEnumerable<Person> FreeAgents
         {
             get
             {
                 World.Load();
-                List<Player> freePlayers = new List<Player>();
+                List<ClubAffiliatedPerson> freeAgents = new List<ClubAffiliatedPerson>();
                 foreach (var player in World.Players)
                 {
                     if (player.AffiliatedClub == "Free Agent")
                     {
-                        freePlayers.Add(player);
+                        freeAgents.Add(player);
                     }
                 }
-                return freePlayers;
+                foreach (var staff in World.Staff)
+                {
+                    if (staff.AffiliatedClub == "Free Agent")
+                    {
+                        freeAgents.Add(staff);
+                    }
+                }
+                return freeAgents;
             }
         }
     }

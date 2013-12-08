@@ -3,31 +3,31 @@
     using System;
     using FootballStats.Persons;
 
-    public class InvalidClubException : Exception
+    public class ClubException : ApplicationException
     {
         private IPerson personException;
 
-        public InvalidClubException()
+        public ClubException()
         {
         }
 
-        public InvalidClubException(string message)
+        public ClubException(string message)
             : base(message)
         {
         }
 
-        public InvalidClubException(string message, Exception innerException)
+        public ClubException(string message, Exception innerException)
             : base(message, innerException)
         {
         }
 
-        public InvalidClubException(string message, IPerson personException)
+        public ClubException(string message, IPerson personException)
             : base(message)
         {
             this.PersonException = personException;
         }
 
-        public InvalidClubException(string message, IPerson personException, Exception innerException)
+        public ClubException(string message, IPerson personException, Exception innerException)
             : base(message, innerException)
         {
             this.PersonException = personException;

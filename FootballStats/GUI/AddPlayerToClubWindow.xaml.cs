@@ -2,6 +2,7 @@
 using FootballStats.Common;
 using FootballStats.Competitions;
 using FootballStats.Persons;
+using FootballStats.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,26 +29,31 @@ namespace GUI
         {
             InitializeComponent();
             this.club = club;
-            this.ClubTextBlock.Text = this.club.ToString();
+            this.ClubTextBlock.Text = this.club.Name;
         }
 
         private void OnAddButtonClick(object sender, RoutedEventArgs e)
         {
             try
             {
-                club.AddPlayer(this.PlayersListBox.SelectedItem as Player);
-                (this.PlayersListBox.SelectedItem as Player).AffiliatedClub = this.club.Name;
+                if (this.PlayersListBox.SelectedItem is Player)
+                {
+                    club.AddPlayer(this.PlayersListBox.SelectedItem as Player);
+                }
+                else if (this.PlayersListBox.SelectedItem is StaffMember)
+                {
+                    club.AddStaffMember(this.PlayersListBox.SelectedItem as StaffMember);
+                }
+                
+                (this.PlayersListBox.SelectedItem as ClubAffiliatedPerson).AffiliatedClub = this.club.Name;                
                 World.Save();
+                this.PlayersListBox.ItemsSource = null;
+                this.PlayersListBox.ItemsSource = new ShowPersonsViewModel().FreeAgents;
             }
-            catch (InvalidClubException err)
+            catch (ClubException err)
             {
                 MessageBox.Show(err.Message);
             }
-            
-
-            //AddPlayerToClubWindow newAddPlayerWindow = new AddPlayerToClubWindow(this.club);
-            //this.Close();
-            //newAddPlayerWindow.ShowDialog();
         }
     }
 }

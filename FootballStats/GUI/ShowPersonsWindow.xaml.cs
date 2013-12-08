@@ -48,8 +48,14 @@ namespace GUI
                     +Environment.NewLine);
             }
 
+
             // RIGHT PANEL
             if (pers is ClubAffiliatedPerson) { this.PersonClubTextBlock.Text = (pers as ClubAffiliatedPerson).AffiliatedClub; }
+            else if (pers is Referee)
+            {
+                this.PersonClubTextBlock.Text =
+                    String.Format("Referee");
+            }
 
             if (pers is Player)
             {
@@ -63,6 +69,7 @@ namespace GUI
                     String.Format("Staff role" + Environment.NewLine + (pers as StaffMember).StaffPosition.ToString()
                     + Environment.NewLine);
             }
+            
         }
     }
 }

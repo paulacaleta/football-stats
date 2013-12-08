@@ -1,4 +1,5 @@
 ﻿using FootballStats.Common;
+using FootballStats.Competitions;
 using FootballStats.Persons;
 using FootballStats.ViewModels;
 using System;
@@ -26,6 +27,7 @@ namespace GUI
         public CreatePlayerWindow()
         {
             InitializeComponent();
+            World.Load();
         }
 
         private void OnPersonTypeComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,7 +62,7 @@ namespace GUI
         {
             if (this.PersonTypeComboBox.SelectedItem == null)
             {
-                MessageBox.Show("You mus select person type!");
+                MessageBox.Show("You must select person type!");
                 return;
             }
             CreatePersonViewModel newModel = new CreatePersonViewModel();
@@ -84,11 +86,14 @@ namespace GUI
                 newModel.Execute();
                 this.Close();
             }
-            catch (InvalidProgramException)
+            catch (InvalidPersonDataException exception)
             {
-                MessageBox.Show("You must enter more informationa about the person!");
+                MessageBox.Show(String.Format("{0}", exception.Message));
             }
-
+            catch (FormatException fe)
+            {
+                MessageBox.Show(String.Format("{0}", fe.Message));
+            }
         }
 
         private void OnCancelButtonClick(object sender, RoutedEventArgs e)

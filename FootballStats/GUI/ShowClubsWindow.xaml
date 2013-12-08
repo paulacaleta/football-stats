@@ -73,7 +73,8 @@
                     </TextBlock>
 
                     <TextBlock Name="ManagerTextBlock"
-                    Style="{StaticResource ResourceKey=TextBlockStyle}">
+                    Style="{StaticResource ResourceKey=TextBlockStyle}"
+                               >
 
                     </TextBlock>
 
@@ -131,12 +132,15 @@
             <StackPanel>
                 <ListBox Name="PlayersAndStaffListBox"
                          Height="170"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto">
+                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                         SelectionChanged="OnPlayersAndStaffListBoxSelectionChanged"
+                         FontSize="16">
 
                 </ListBox>
 
                 <Canvas>
                     <Button
+                        Name="AddButton"
                         Click="OnAddPlayerButtonClick"
                         Width="100"
                         Height="35"
@@ -147,12 +151,14 @@
                     </Button>
 
                     <Button
-                        Click="OnRemovePlayerButtonClick"
+                        Name="RemoveButton"
+                        Click="OnRemoveButtonClick"
                         Width="100"
                         Height="35" 
                         Content="Remove"
                         FontSize="15"
-                        FontWeight="Bold" Canvas.Left="125" Canvas.Top="23">
+                        FontWeight="Bold" Canvas.Left="125" Canvas.Top="23"
+                        IsEnabled="False">
 
                     </Button>
                 </Canvas>

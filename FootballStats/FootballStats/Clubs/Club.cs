@@ -24,6 +24,8 @@
 
         #region Properties
 
+        
+
         public string Name
         {
             get
@@ -107,6 +109,17 @@
             }
         }
 
+        public List<ClubAffiliatedPerson> PlayersAndStaff
+        {
+            get
+            {
+                List<ClubAffiliatedPerson> playersAndStaff = new List<ClubAffiliatedPerson>();
+                playersAndStaff.AddRange(this.Team);
+                playersAndStaff.AddRange(this.Staff);
+                return playersAndStaff;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -129,8 +142,8 @@
                 return;
             }
 
-            string message = string.Format("{0} already exists!", player);
-            throw new InvalidClubException(message);
+            string message = string.Format("{0} is already at this club!", player);
+            throw new ClubException(message);
         }
 
         public void RemovePlayer(Player player)
@@ -142,8 +155,8 @@
                 return;
             }
 
-            string message = string.Format("{0} does not exist!", player);
-            throw new InvalidClubException(message);
+            string message = string.Format("{0} is not playing for this club!", player);
+            throw new ClubException(message);
         }
 
         public void AddStaffMember(StaffMember staffMember)
@@ -154,28 +167,29 @@
                 return;
             }
 
-            string message = string.Format("{0} already exists!", staffMember);
-            throw new InvalidClubException(message);
+            string message = string.Format("{0} is already at this club!", staffMember);
+            throw new ClubException(message);
         }
 
         public void RemoveStaffMember(StaffMember staffMember)
         {
             if (this.Staff.Contains(staffMember))
             {
+                staffMember.AffiliatedClub = "Free Agent";
                 this.Staff.Remove(staffMember);
                 return;
             }
 
             string message = string.Format("{0} does not exist!", staffMember);
-            throw new InvalidClubException(message);
+            throw new ClubException(message);
         }
 
         public double TeamAverageAge()
         {
             if (this.Team.Count == 0)
             {
-                string message = string.Format("Team {0} does not have players!", this.Team);
-                throw new InvalidClubException(message);
+                string message = string.Format("Team {0} does not have any players!", this.Team);
+                throw new ClubException(message);
             }
 
             double averageAge = 0;
@@ -211,7 +225,7 @@
         {
             foreach (var staffMember in this.Staff)
             {
-                if (staffMember.StaffPosition.Equals(StaffPosition.Coach))
+                if (staffMember.StaffPosition.Equals(StaffPosition.Manager))
                 {
                     return true;
                 }
@@ -225,7 +239,7 @@
             if (this.Team.Count == 0)
             {
                 string message = string.Format("Team {0} does not have players!", this.Team);
-                throw new InvalidClubException(message);
+                throw new ClubException(message);
             }
 
             decimal avregeWage = 0;
@@ -243,7 +257,7 @@
             if (this.Staff.Count == 0)
             {
                 string message = string.Format("Team {0} does not have staff members!", this.Staff);
-                throw new InvalidClubException(message);
+                throw new ClubException(message);
             }
 
             decimal avregeWage = 0;
@@ -261,7 +275,7 @@
             if (this.Team.Count == 0)
             {
                 string message = string.Format("Team {0} does not have players!", this.Team);
-                throw new InvalidClubException(message);
+                throw new ClubException(message);
             }
 
             decimal highestPlayerWage = 0;
@@ -282,7 +296,7 @@
             if (this.Team.Count == 0)
             {
                 string message = string.Format("Team {0} does not have players!", this.Team);
-                throw new InvalidClubException(message);
+                throw new ClubException(message);
             }
 
             int count = 0;
@@ -339,10 +353,12 @@
 
             if (this.Name != club.Name)
             {
-                if (this.Nationality != club.Nationality)
-                {
-                    return false;
-                }
+                return false;
+                
+            }
+            if (this.Nationality != club.Nationality)
+            {
+                return false;
             }
 
             return true;
@@ -355,9 +371,9 @@
 
         public override string ToString()
         {
-            string stringValue = string.Format("{0};{1}", this.Name, this.Nationality.ToString());
+            string stringValue = string.Format("{0}", this.Name);
             return stringValue.ToString();
-        }
+        }        
 
         public string Serialize()
         {
