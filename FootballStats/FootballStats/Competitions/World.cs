@@ -1,11 +1,10 @@
 ﻿namespace FootballStats.Competitions
 {
-    using System;
     using System.Collections.Generic;
     using FootballStats.Clubs;
     using FootballStats.Common;
-    using FootballStats.Persons;
     using FootballStats.IO;
+    using FootballStats.Persons;
 
     public static class World
     {        
@@ -31,18 +30,22 @@
             get
             {
                 List<Person> persons = new List<Person>();
+
                 foreach (var player in Players)
                 {
                     persons.Add(player);
                 }
+
                 foreach (var staff in Staff)
                 {
                     persons.Add(staff);
                 }
+
                 foreach (var referee in Referees)
                 {
                     persons.Add(referee);
                 }
+
                 return persons;
             }
         }
@@ -53,6 +56,7 @@
             {
                 Associate(person);
             }
+
             foreach (var person in Staff)
             {
                 Associate(person);

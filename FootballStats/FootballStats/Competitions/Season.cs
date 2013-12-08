@@ -1,6 +1,5 @@
 ﻿namespace FootballStats.Competitions
 {
-    using System;
     using System.Collections.Generic;
     using System.Text;
     using FootballStats.Clubs;

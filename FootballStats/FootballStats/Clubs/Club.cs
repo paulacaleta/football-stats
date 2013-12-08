@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Text;
     using FootballStats.Common;
     using FootballStats.Persons;
 
@@ -22,9 +21,7 @@
             this.Nationality = nationality;
         }
 
-        #region Properties
-
-        
+        #region Properties        
 
         public string Name
         {
@@ -117,6 +114,25 @@
                 playersAndStaff.AddRange(this.Team);
                 playersAndStaff.AddRange(this.Staff);
                 return playersAndStaff;
+            }
+        }
+
+        public StaffMember Manager
+        {
+            get
+            {
+                if (this.HasManager())
+                {
+                    for (int i = 0; i < this.Staff.Count; i++)
+                    {
+                        if (this.Staff[i].StaffPosition == StaffPosition.Manager)
+                        {
+                            return this.Staff[i];
+                        }
+                    }
+                }
+
+                return null;
             }
         }
 
@@ -322,24 +338,6 @@
             return false;
         }
 
-        public StaffMember Manager
-        {
-            get
-            {
-                if (this.HasManager())
-                {
-                    for (int i = 0; i < Staff.Count; i++)
-                    {
-                        if (Staff[i].StaffPosition == StaffPosition.Manager)
-                        {
-                            return Staff[i];
-                        }
-                    }
-                }
-                return null;
-            }
-        }
-
         #endregion
 
         public override bool Equals(object obj)
@@ -353,9 +351,9 @@
 
             if (this.Name != club.Name)
             {
-                return false;
-                
+                return false;                
             }
+
             if (this.Nationality != club.Nationality)
             {
                 return false;

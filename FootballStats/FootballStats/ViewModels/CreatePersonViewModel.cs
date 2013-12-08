@@ -1,12 +1,7 @@
-﻿using FootballStats.Common;
-using FootballStats.Competitions;
-using FootballStats.Persons;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+using FootballStats.Common;
+using FootballStats.Competitions;
 using FootballStats.Persons;
 
 namespace FootballStats.ViewModels
