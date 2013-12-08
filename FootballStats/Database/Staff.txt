@@ -1,2 +1,2 @@
-dsfds;fdsf;dsfds;1.5.1988;Afghan;15;Amkar;Manager
-Manager;Man;TEST;5.2.1980;Motswana;80;MyFavoriteTestClub;Manager
+﻿Arsène;Wenger;Wenger;22.10.1949;French;494449;Arsenal;Coach
+The;Big;Boss;1.2.1965;Bulgarian;123456789;Arsenal;Manager
