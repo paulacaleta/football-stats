@@ -1,3 +1,21 @@
-Player;Player;One;12.1.1988;Afghan;150;Krilya;GK
-Player;Player;Two;2.3.1988;Afghan;890;MyFavoriteTestClub;FW
-Player;Player;Three;4.2.1990;Barbadian;780;Free Agent;MF
+﻿Emiliano;Viviano;Viviano;1.12.1985;Italian;161449;Arsenal;GK
+Bacary;Sagna;Sagna;14.2.1983;French;156156;Arsenal;DF
+Per;Mertesacker;Mertesacker;29.9.1984;German;54651;Arsenal;DF
+Thomas;Vermaelen;Vermaelen;14.11.1985;Belgian;65146;Arsenal;DF
+Laurent;Koscielny;Koscielny;10.9.1985;French;56465;Arsenal;DF
+Ignacio;none;Monreal-Eraso;26.2.1986;Spanish;165144;Arsenal;DF
+Carl;Jenkinson;Jenkinson;8.2.1992;British;51546;Arsenal;DF
+Kieran;Gibbs;Gibbs;26.9.1989;British;56546;Arsenal;DF
+Tomáš;Rosický;Rosický;4.10.1980;Czech;165169;Arsenal;MF
+Mikel;none;Arteta-Amatriain;26.3.1982;Spanish;91415;Arsenal;MF
+Jack;Wilshere;Wilshere;1.1.1992;British;156616;Arsenal;MF
+Mesut;Özil;Özil;15.10.1988;German;91949;Arsenal;MF
+Aaron;Ramsey;Ramsey;26.12.1990;Welsh;91951;Arsenal;MF
+Santiago;none;Cazorla-González;13.12.1984;Spanish;161649;Arsenal;MF
+Ryo;Miyaichi;Miyaichi;14.12.1992;Japanese;156519;Arsenal;MF
+Lukas;Podolski;Podolski;4.6.1985;German;999999;Arsenal;FW
+Olivier;Giroud;Giroud;30.9.1986;French;545646;Arsenal;FW
+Theo;Walcott;Walcott;16.3.1989;British;156651;Arsenal;FW
+Alex;none;Oxlade-Chamberlain;15.8.1993;British;915145;Arsenal;FW
+Yaya;Sanogo;Sanogo;27.1.1993;French;156164;Arsenal;FW
+Chu-Young;Park;Park;10.7.1985;SouthKorean;151549;Arsenal;FW
