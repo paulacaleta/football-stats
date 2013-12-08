@@ -21,7 +21,6 @@
             this.Name = name;
             this.BirthDate = DateTime.Parse(birthDate);
             this.Nationality = nationality;
-            //this.PersonID = World.PersonID++;
         }
 
         public Name Name
@@ -52,7 +51,7 @@
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Invalid birth date input!");
+                    throw new InvalidPersonDataException("Year of birth can't be earlier than 1920 or later than today!");
                 }
             }
         }
@@ -69,19 +68,6 @@
                 this.nationality = value;
             }
         }
-
-        //public int PersonID
-        //{
-        //    get
-        //    {
-        //        return this.personID;
-        //    }
-
-        //    set
-        //    {
-        //        this.personID = value;
-        //    }
-        //}
 
         public int GetAge()
         {
@@ -117,28 +103,6 @@
             newName.LastName = lastName;
             this.Name = newName;
         }
-
-        //public override bool Equals(object obj)
-        //{
-        //    Person person = obj as Person;
-
-        //    if (person == null)
-        //    {
-        //        return false;
-        //    }
-
-        //    if (this.PersonID != person.PersonID)
-        //    {
-        //        return false;
-        //    }
-
-        //    return true;
-        //}
-
-        //public override int GetHashCode()
-        //{
-        //    return this.PersonID ^ this.PersonID;
-        //}
 
         public override string ToString()
         {

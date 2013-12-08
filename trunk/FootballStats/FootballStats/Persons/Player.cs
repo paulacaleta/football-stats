@@ -39,7 +39,7 @@
 
         public override string ToString()
         {
-            return base.ToString() + string.Format(", {0}", this.Position);
+            return string.Format("{0} {1} - {2}", this.Name.FirstName, this.Name.LastName, this.Position);
         }
     }
 }

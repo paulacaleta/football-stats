@@ -34,10 +34,10 @@ namespace FootballStats.IO
             #region Save
             public void SaveWorld()
             {
-                SavePlayers();
+                SaveClubs();   
+                SaveReferees();                
                 SaveStaff();
-                SaveReferees();
-                SaveClubs();
+                SavePlayers();  
             }
 
             private void SaveClubs()

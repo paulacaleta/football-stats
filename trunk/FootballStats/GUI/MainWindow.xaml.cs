@@ -26,7 +26,7 @@ namespace GUI
             
             BitmapImage logo = new BitmapImage();
             logo.BeginInit();
-            logo.UriSource = new Uri("pack://application:,,,/GUI;component/footballer.jpg");
+            logo.UriSource = new Uri("pack://application:,,,/GUI;component/Resources/footballer.jpg");
             logo.EndInit();
             this.FootballerImage.Source = logo;
         }

@@ -39,9 +39,6 @@
             serialized.Append(this.StaffPosition);
 
             return serialized.ToString();
-            //string returnValue = string.Format("{0};{1};{2};{3}", base.Serialize(), this.StaffPosition.ToString(), this.AffiliatedClub, this.WeeklyWage());
-
-            //return returnValue.ToString();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace FootballStats.Persons
 {
+    using FootballStats.Common;
     using System;
 
     public struct Name
@@ -21,13 +22,12 @@
 
             set
             {
-                // First name is mandatory
                 if (value.Length < MinNameLength || value == null)
                 {
                     string message = string.Format(
                             "First name should be at least {0} characters.", MinNameLength);
 
-                    throw new ArgumentOutOfRangeException(message);
+                    throw new InvalidPersonDataException(message);
                 }
 
                 if (value.Length > FirstAndMiddleNameMaxLength)
@@ -35,7 +35,12 @@
                     string message = string.Format(
                         "First name should be no longer than {0} characters.", FirstAndMiddleNameMaxLength);
 
-                    throw new ArgumentOutOfRangeException(message);
+                    throw new InvalidPersonDataException(message);
+                }
+
+                if (ContainsNonLetterCharacter(value))
+                {
+                    ThrowInvalidCharInNameException();
                 }
 
                 this.firstName = value;
@@ -58,7 +63,7 @@
                         string message = string.Format(
                             "Middle name should be at least {0} characters.", MinNameLength);
 
-                        throw new ArgumentOutOfRangeException(message);
+                        throw new InvalidPersonDataException(message);
                     }
 
                     if (value.Length > FirstAndMiddleNameMaxLength)
@@ -66,7 +71,12 @@
                         string message = string.Format(
                             "Middle name should be no longer than {0} characters.", FirstAndMiddleNameMaxLength);
 
-                        throw new ArgumentOutOfRangeException(message);
+                        throw new InvalidPersonDataException(message);
+                    }
+
+                    if (ContainsNonLetterCharacter(value))
+                    {
+                        ThrowInvalidCharInNameException();
                     }
                 }
 
@@ -89,7 +99,7 @@
                     string message = string.Format(
                             "Last name should be at least {0} characters.", MinNameLength);
 
-                    throw new ArgumentOutOfRangeException(message);
+                    throw new InvalidPersonDataException(message);
                 }
 
                 if (value.Length > LastNameMaxLength)
@@ -97,11 +107,35 @@
                     string message = string.Format(
                         "Last name should be no longer than {0} characters.", LastNameMaxLength);
 
-                    throw new ArgumentOutOfRangeException(message);
+                    throw new InvalidPersonDataException(message);
+                }
+
+                if (ContainsNonLetterCharacter(value))
+                {
+                    ThrowInvalidCharInNameException();
                 }
 
                 this.lastName = value;
             }
+        }
+        
+        private bool ContainsNonLetterCharacter(string str)
+        {
+            foreach (var character in str)
+            {
+                if (!char.IsLetter(character) && character!='-')
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void ThrowInvalidCharInNameException()
+        {
+            string message = string.Format(
+                "Name must contain letters only!");
+
+            throw new InvalidPersonDataException(message);
         }
 
         public string Serialize()

@@ -1,2 +1,3 @@
-Emil;Slavov;Slavov;15.12.1988;Gabonese;150;CSKA;FW
-Alexander;Ivanov;Petrov;15.12.1975;Bulgarian;430;Levski;FW
+Player;Player;One;12.1.1988;Afghan;150;Krilya;GK
+Player;Player;Two;2.3.1988;Afghan;890;MyFavoriteTestClub;FW
+Player;Player;Three;4.2.1990;Barbadian;780;Free Agent;MF

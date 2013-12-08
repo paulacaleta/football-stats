@@ -26,6 +26,27 @@
             }            
         }
 
+        public static IEnumerable<Person> Persons
+        {
+            get
+            {
+                List<Person> persons = new List<Person>();
+                foreach (var player in Players)
+                {
+                    persons.Add(player);
+                }
+                foreach (var staff in Staff)
+                {
+                    persons.Add(staff);
+                }
+                foreach (var referee in Referees)
+                {
+                    persons.Add(referee);
+                }
+                return persons;
+            }
+        }
+
         private static void AssociatePersonsToClubs()
         {
             foreach (var person in Players)
@@ -74,8 +95,8 @@
             }
             else
             {
-                string message = string.Format("{0} is already exists!", club);
-                throw new InvalidClubException(message); 
+                string message = string.Format("{0} already exists!", club);
+                throw new ClubException(message); 
             }            
         }
     }

@@ -8,10 +8,5 @@
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
         }
-
-        public override string Serialize()
-        {
-            return base.Serialize();
-        }
     }
 }

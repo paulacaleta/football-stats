@@ -19,34 +19,41 @@
         </Style>
     </Window.Resources>
     
-    <Grid
-        ShowGridLines="True">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ListBox Name="PlayersListBox"
-            ItemsSource="{Binding Players}"
+            ItemsSource="{Binding Persons}"
             SelectionChanged="OnPlayersListBoxSelectionChanged"
-            ScrollViewer.VerticalScrollBarVisibility="Visible">
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 FontSize="16">
         </ListBox>
         
         <StackPanel Grid.Column="1">
             <TextBlock Name="PersonFirstNameTextBlock"
+                       FontSize="18"
                        Style="{StaticResource ResourceKey=TextBlockStyle}">
                 
             </TextBlock>
             <TextBlock Name="PersonSecondNameTextBlock"
+                       FontSize="18"
                        Style="{StaticResource ResourceKey=TextBlockStyle}">
 
             </TextBlock>
             <TextBlock Name="PersonLastNameTextBlock"
+                       FontSize="18"
                        Style="{StaticResource ResourceKey=TextBlockStyle}">
 
             </TextBlock>
             
-            <Grid
-                ShowGridLines="True">
+            <TextBlock
+                Height="20">
+                
+            </TextBlock>
+            
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>

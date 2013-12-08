@@ -1,2 +1,3 @@
-CSKA;Bahraini
-Levski;Beninese
+Krilya;Russian
+Amkar;Russian
+MyFavoriteTestClub;NorthKorean

@@ -43,7 +43,7 @@
         {
             if (wage < 0)
             {
-                throw new ArgumentOutOfRangeException("Can't have negative amount for wage!");
+                throw new InvalidPersonDataException("Can't have negative amount for wage!");
             }
 
             this.weeklyWage = wage;
