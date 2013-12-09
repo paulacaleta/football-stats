@@ -1,2 +1,1 @@
-﻿Arsène;Wenger;Wenger;22.10.1949;French;494449;Arsenal;Coach
-The;Big;Boss;1.2.1965;Bulgarian;123456789;Arsenal;Manager
+﻿Arsène;Wenger;Wenger;22.10.1949;French;494449;Arsenal;Manager

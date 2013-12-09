@@ -40,6 +40,7 @@ namespace GUI
 
         private void DisplayClubInfo(Club selectedClub)
         {
+            this.ClubNameTextBlock.Text = selectedClub.Name;
             if(selectedClub.HasManager())
             {
                 this.ManagerTextBlock.Text = selectedClub.Manager.Name.FirstName + " " + selectedClub.Manager.Name.LastName;
@@ -54,7 +55,7 @@ namespace GUI
             try
             {
                 this.AverageAgeTextBlock.Text = string.Format(
-                "Average age" + Environment.NewLine + selectedClub.TeamAverageAge().ToString());
+                "Average age" + Environment.NewLine + string.Format("{0:0}", selectedClub.TeamAverageAge()));
             }
             catch (Exception)
             {
@@ -66,7 +67,7 @@ namespace GUI
             try
             {
                 this.HighestWageTextBlock.Text = string.Format(
-                "Highest wage" + Environment.NewLine + "{0:0.00}", selectedClub.HighestPlayerWage());
+                "Highest wage" + Environment.NewLine + "{0:0}", selectedClub.HighestPlayerWage());
             }
             catch (Exception)
             {                
@@ -77,7 +78,7 @@ namespace GUI
             try
             {
                 this.AverageWagePlayersTextBlock.Text = string.Format(
-               "Av. player wage" + Environment.NewLine + "{0:0.00}", selectedClub.AverageWageOfPlayers());
+               "Av. player wage" + Environment.NewLine + "{0:0}", selectedClub.AverageWageOfPlayers());
             }
             catch (Exception)
             {
@@ -88,7 +89,7 @@ namespace GUI
             try
             {
                 this.AverageWageStaffTextBlock.Text = string.Format(
-               "Average staff wage" + Environment.NewLine + "{0:0.00}", selectedClub.AverageWageOfStaff().ToString());
+               "Average staff wage" + Environment.NewLine + "{0:0}", selectedClub.AverageWageOfStaff());
             }
             catch (Exception)
             {
