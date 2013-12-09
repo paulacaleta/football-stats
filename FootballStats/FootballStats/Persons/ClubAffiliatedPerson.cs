@@ -1,26 +1,34 @@
 ﻿namespace FootballStats.Persons
 {
-    using System;
-    using FootballStats.Common;
     using System.Text;
+    using FootballStats.Common;
 
     public abstract class ClubAffiliatedPerson : Person, IClubAffiliated
     {
+        private const string FreeAgent = "Free Agent";
         private decimal weeklyWage = 0.0m;
         private string affiliatedClub;
 
         public ClubAffiliatedPerson(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
-            this.AffiliatedClub = "Free Agent";
+            this.AffiliatedClub = FreeAgent;
         }
 
         public string AffiliatedClub
         {
-            get { return this.affiliatedClub; }
-            set { this.affiliatedClub = value; }
+            get
+            {
+                return this.affiliatedClub;
+            }
+
+            set
+            {
+                this.affiliatedClub = value;
+            }
         }
 
+        #region Methods
 
         public decimal WeeklyWage()
         {
@@ -56,7 +64,7 @@
             serialized.Append(base.Serialize());
 
             serialized.Append(";");
-            serialized.Append(this.weeklyWage+";");
+            serialized.Append(this.weeklyWage + ";");
             serialized.Append(this.AffiliatedClub);
 
             return serialized.ToString();
@@ -66,5 +74,7 @@
         {
             return base.ToString() + string.Format(", {0}", this.AffiliatedClub);
         }
+
+        #endregion
     }
 }

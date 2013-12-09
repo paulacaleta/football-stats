@@ -1,6 +1,5 @@
 ﻿namespace FootballStats.Persons
 {
-    using System.Collections.Generic;
     using System.Text;
     using FootballStats.Common;
 
@@ -12,13 +11,14 @@
             : base(firstName, middleName, lastName, birthDate, nationality)
         {
         }
-        
+
         public PlayerPosition Position
         {
             get
-            { 
+            {
                 return this.position;
             }
+
             set
             {
                 this.position = value;
@@ -30,11 +30,10 @@
             StringBuilder serialized = new StringBuilder();
 
             serialized.Append(base.Serialize());
-
             serialized.Append(";");
             serialized.Append(this.Position);
 
-            return serialized.ToString();            
+            return serialized.ToString();
         }
 
         public override string ToString()

@@ -1,19 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using FootballStats.Common;
-using FootballStats.Competitions;
-using FootballStats.Persons;
-
-namespace FootballStats.ViewModels
+﻿namespace FootballStats.ViewModels
 {
+    using System;
+    using System.Collections.Generic;
+    using FootballStats.Common;
+    using FootballStats.Competitions;
+    using FootballStats.Persons;
+
     public class CreatePersonViewModel
     {
+        public event EventHandler CanExecuteChanged;
+
+        #region Properties
+
         // Shared
         public string PersonType { get; set; }
+
         public string FirstName { get; set; }
+
         public string MiddleName { get; set; }
+
         public string LastName { get; set; }
+
         public Nationality Nationality { get; set; }
+
         public string DateOfBirth { get; set; }
 
         // ClubAffiliated
@@ -31,7 +40,11 @@ namespace FootballStats.ViewModels
         public PlayerPosition PlayerPosition { get; set; }
 
         // Staff
-        public StaffPosition StaffPosition { get; set; }
+        public StaffPosition StaffPosition { get; set; }        
+
+        #endregion
+
+        #region Methods
 
         public bool CanExecute()
         {
@@ -39,17 +52,16 @@ namespace FootballStats.ViewModels
             {
                 return true;
             }
-            return false;
-        }
 
-        public event EventHandler CanExecuteChanged;
+            return false;
+        }        
 
         public void Execute()
         {
-            if (CanExecute())
-            {                
-                
-                Person newPerson = CreatePerson(this.PersonType);
+            if (this.CanExecute())
+            {
+                Person newPerson = this.CreatePerson(this.PersonType);
+
                 if (newPerson is Referee)
                 {
                     World.Referees.Add(newPerson as Referee);
@@ -62,6 +74,7 @@ namespace FootballStats.ViewModels
                 {
                     World.Staff.Add(newPerson as StaffMember);
                 }
+
                 World.Save();
             }
             else
@@ -74,41 +87,47 @@ namespace FootballStats.ViewModels
         {
             if (type == "Player")
             {
-                return CreatePlayer();
+                return this.CreatePlayer();
             }
             else if (type == "Staff")
             {
-                return CreateStaff();
+                return this.CreateStaff();
             }
             else if (type == "Referee")
             {
-                return CreateReferee();
+                return this.CreateReferee();
             }
+
             throw new NotImplementedException();
         }
 
         private Person CreateReferee()
         {
             Referee newReferee = new Referee(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
+
             return newReferee;
         }
 
         private Person CreateStaff()
         {
             StaffMember newStaff = new StaffMember(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
+
             newStaff.SetWeeklyWage(this.WeeklyWage);
             newStaff.SetStaffPosition(this.StaffPosition);
+
             return newStaff;
         }
 
         private Person CreatePlayer()
         {
             Player newPlayer = new Player(this.FirstName, this.MiddleName, this.LastName, this.DateOfBirth, this.Nationality);
+
             newPlayer.SetWeeklyWage(this.WeeklyWage);
             newPlayer.Position = this.PlayerPosition;
-            return newPlayer;          
+
+            return newPlayer;
         }
 
-
+        #endregion
     }
 }

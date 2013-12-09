@@ -1,26 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FootballStats.Clubs;
-using FootballStats.Competitions;
-using FootballStats.Persons;
-using System.IO;
-using FootballStats.Common;
-
-namespace FootballStats.IO
+﻿namespace FootballStats.IO
 {
+    using System;
+    using System.IO;
+    using FootballStats.Clubs;
+    using FootballStats.Common;
+    using FootballStats.Competitions;
+    using FootballStats.Persons;
+
     public static class SaveLoad
     {
-        
-
-        internal static IO SaveLoader { get; private set; }
-
         static SaveLoad()
         {
             SaveLoader = new IO();
         }
+
+        internal static IO SaveLoader { get; private set; }
 
         public class IO
         {
@@ -28,16 +22,16 @@ namespace FootballStats.IO
 
             internal IO()
             {
-                
             }
 
             #region Save
+
             public void SaveWorld()
             {
-                SaveClubs();   
-                SaveReferees();                
-                SaveStaff();
-                SavePlayers();  
+                this.SaveClubs();
+                this.SaveReferees();
+                this.SaveStaff();
+                this.SavePlayers();
             }
 
             private void SaveClubs()
@@ -91,15 +85,17 @@ namespace FootballStats.IO
                     }
                 }
             }
+
             #endregion
 
             #region Load // REFACTORING NEEDED
+
             public void LoadWorld()
             {
-                LoadFile("Players.txt");
-                LoadFile("Staff.txt");
-                LoadFile("Referees.txt");
-                LoadFile("Clubs.txt");
+                this.LoadFile("Players.txt");
+                this.LoadFile("Staff.txt");
+                this.LoadFile("Referees.txt");
+                this.LoadFile("Clubs.txt");
             }
 
             private void LoadFile(string textFileName)
@@ -112,10 +108,18 @@ namespace FootballStats.IO
                     string[] entityData = line.Split(';');
                     switch (textFileName)
                     {
-                        case "Players.txt": LoadSinglePlayer(entityData); break;
-                        case "Staff.txt": LoadSingleStaff(entityData); break;
-                        case "Referees.txt": LoadSingleReferee(entityData); break;
-                        case "Clubs.txt": LoadSingleClub(entityData); break;
+                        case "Players.txt":
+                            this.LoadSinglePlayer(entityData);
+                            break;
+                        case "Staff.txt":
+                            this.LoadSingleStaff(entityData);
+                            break;
+                        case "Referees.txt":
+                            this.LoadSingleReferee(entityData);
+                            break;
+                        case "Clubs.txt":
+                            this.LoadSingleClub(entityData);
+                            break;
                         default:
                             break;
                     }
@@ -159,7 +163,11 @@ namespace FootballStats.IO
                 StaffPosition pos = (StaffPosition)Enum.Parse(typeof(StaffPosition), entityData[7]);
 
                 StaffMember newStaff = new StaffMember(firstName, middleName, lastName, dateOfBirth, nat);
-                if (club != "Free Agent") { newStaff.AffiliatedClub = club; }
+                if (club != "Free Agent")
+                { 
+                    newStaff.AffiliatedClub = club;
+                }
+
                 newStaff.SetWeeklyWage(weeklyWage);
                 newStaff.StaffPosition = pos;
 
@@ -180,13 +188,18 @@ namespace FootballStats.IO
                 PlayerPosition pos = (PlayerPosition)Enum.Parse(typeof(PlayerPosition), entityData[7]);
 
                 Player newPlayer = new Player(firstName, middleName, lastName, dateOfBirth, nat);
-                if (club != "Free Agent") { newPlayer.AffiliatedClub = club; }
+                if (club != "Free Agent")
+                {
+                    newPlayer.AffiliatedClub = club; 
+                }
+
                 newPlayer.SetWeeklyWage(weeklyWage);
                 newPlayer.Position = pos;
 
                 World.Players.Add(newPlayer);
             }
-            #endregion        
-        }       
+
+            #endregion
+        }
     }
 }
