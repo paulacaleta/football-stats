@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FootballStats.Clubs;
-using FootballStats.Competitions;
-
-namespace FootballStats.ViewModels
+﻿namespace FootballStats.ViewModels
 {
+    using System.Collections.Generic;
+    using FootballStats.Clubs;
+    using FootballStats.Competitions;
+
     public class ShowClubsViewModel
     {
         public IEnumerable<Club> Clubs

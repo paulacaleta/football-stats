@@ -1,6 +1,5 @@
 ﻿namespace FootballStats.Persons
 {
-    using System;
     using System.Text;
     using FootballStats.Common;
 
@@ -19,7 +18,8 @@
             {
                 return this.staffPosition;
             }
-            set 
+
+            set
             {
                 this.staffPosition = value;
             }

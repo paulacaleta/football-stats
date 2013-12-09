@@ -75,7 +75,7 @@
     <Compile Include="ViewModels\ShowPersonsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="_FootballStatsClassDiagram.cd" />
     <None Include="Competitions\_CompetitionsClassDiagram.cd" />
     <None Include="Persons\_PersonsClassDiagram.cd" />
   </ItemGroup>

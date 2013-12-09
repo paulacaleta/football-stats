@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FootballStats.Competitions.Competition" Collapsed="true">
+  <Class Name="FootballStats.Competitions.FinalScore" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAQAAAgEAAAAAAAIAAAgAAA=</HashCode>
-      <FileName>Competitions\Competition.cs</FileName>
+      <HashCode>ACAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAAhAAA=</HashCode>
+      <FileName>Competitions\FinalScore.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FootballStats.Competitions.Match" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACABAJAIAAAAAABAAAAAAYAQAGAAAAIAACEUAAAAnAA=</HashCode>
+      <HashCode>ACgAAIAIAACAAABEAAACAAAQAgAAAAIAAAESAAAQnAA=</HashCode>
       <FileName>Competitions\Match.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -25,14 +25,14 @@
   <Class Name="FootballStats.Competitions.Season" Collapsed="true">
     <Position X="0.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAABQAIAAQAAQAAACAIAAAAAABIAAACAAEAAAAAQ=</HashCode>
+      <HashCode>ABABAABQAAAIQAAUAAACAAAAAAAAAIAAAAAAEAAAAAQ=</HashCode>
       <FileName>Competitions\Season.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FootballStats.Competitions.World" Collapsed="true">
     <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAwAQAAMABAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAHAAAACAgAAAAAIAACAEAAAQ=</HashCode>
       <FileName>Competitions\World.cs</FileName>
     </TypeIdentifier>
   </Class>

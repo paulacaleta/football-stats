@@ -7,23 +7,13 @@
     using FootballStats.Persons;
 
     public static class World
-    {        
+    {
         public static List<Club> Clubs = new List<Club>();
         public static List<Player> Players = new List<Player>();
         public static List<StaffMember> Staff = new List<StaffMember>();
         public static List<Referee> Referees = new List<Referee>();
 
         private static bool isLoaded = false;
-
-        public static void Load()
-        {
-            if (!isLoaded)
-            {
-                SaveLoad.SaveLoader.LoadWorld();
-                AssociatePersonsToClubs();
-                isLoaded = true;
-            }            
-        }
 
         public static IEnumerable<Person> Persons
         {
@@ -50,6 +40,34 @@
             }
         }
 
+        public static void Load()
+        {
+            if (!isLoaded)
+            {
+                SaveLoad.SaveLoader.LoadWorld();
+                AssociatePersonsToClubs();
+                isLoaded = true;
+            }
+        }
+
+        public static void Save()
+        {
+            SaveLoad.SaveLoader.SaveWorld();
+        }
+
+        public static void AddClub(Club club)
+        {
+            if (!Clubs.Contains(club))
+            {
+                Clubs.Add(club);
+            }
+            else
+            {
+                string message = string.Format("{0} already exists!", club);
+                throw new ClubException(message);
+            }
+        }
+
         private static void AssociatePersonsToClubs()
         {
             foreach (var person in Players)
@@ -62,7 +80,7 @@
                 Associate(person);
             }
         }
-  
+
         private static void Associate(ClubAffiliatedPerson person)
         {
             if (person.AffiliatedClub != "Free Agent")
@@ -84,24 +102,6 @@
                     }
                 }
             }
-        }
-
-        public static void Save() 
-        {
-            SaveLoad.SaveLoader.SaveWorld();
-        }
-       
-        public static void AddClub(Club club)
-        {
-            if (!Clubs.Contains(club))
-            {
-                Clubs.Add(club);                
-            }
-            else
-            {
-                string message = string.Format("{0} already exists!", club);
-                throw new ClubException(message); 
-            }            
         }
     }
 }

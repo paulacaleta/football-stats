@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FootballStats.Competitions;
-using FootballStats.Persons;
-
-namespace FootballStats.ViewModels
+﻿namespace FootballStats.ViewModels
 {
+    using System.Collections.Generic;
+    using FootballStats.Competitions;
+    using FootballStats.Persons;
+
     public class ShowPersonsViewModel
     {
         public IEnumerable<Person> Persons
@@ -15,6 +11,7 @@ namespace FootballStats.ViewModels
             get
             {
                 World.Load();
+
                 return World.Persons;
             }
         }
@@ -25,6 +22,7 @@ namespace FootballStats.ViewModels
             {
                 World.Load();
                 List<ClubAffiliatedPerson> freeAgents = new List<ClubAffiliatedPerson>();
+
                 foreach (var player in World.Players)
                 {
                     if (player.AffiliatedClub == "Free Agent")
@@ -32,6 +30,7 @@ namespace FootballStats.ViewModels
                         freeAgents.Add(player);
                     }
                 }
+
                 foreach (var staff in World.Staff)
                 {
                     if (staff.AffiliatedClub == "Free Agent")
@@ -39,6 +38,7 @@ namespace FootballStats.ViewModels
                         freeAgents.Add(staff);
                     }
                 }
+
                 return freeAgents;
             }
         }

@@ -1,7 +1,6 @@
 ﻿namespace FootballStats.Persons
 {
     using FootballStats.Common;
-    using System;
 
     public struct Name
     {
@@ -93,7 +92,6 @@
 
             set
             {
-                // Last name is mandatory
                 if (value.Length < MinNameLength || value == null)
                 {
                     string message = string.Format(
@@ -118,22 +116,22 @@
                 this.lastName = value;
             }
         }
-        
+
         private bool ContainsNonLetterCharacter(string str)
         {
             foreach (var character in str)
             {
-                if (!char.IsLetter(character) && character!='-')
+                if (!char.IsLetter(character) && character != '-')
                 {
                     return true;
                 }
             }
             return false;
         }
+
         private void ThrowInvalidCharInNameException()
         {
-            string message = string.Format(
-                "Name must contain letters only!");
+            string message = string.Format("Name must contain letters only!");
 
             throw new InvalidPersonDataException(message);
         }

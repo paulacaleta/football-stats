@@ -3,14 +3,12 @@
     using System;
     using System.Text;
     using FootballStats.Common;
-    using FootballStats.Competitions;
 
     public abstract class Person : IPerson
     {
         private Name name;
         private DateTime birthDate;
         private Nationality nationality;
-       
 
         protected Person(string firstName, string middleName, string lastName, string birthDate, Nationality nationality)
         {
@@ -22,6 +20,8 @@
             this.BirthDate = DateTime.Parse(birthDate);
             this.Nationality = nationality;
         }
+
+        #region Properties
 
         public Name Name
         {
@@ -69,11 +69,16 @@
             }
         }
 
+        #endregion
+
+        #region Methods
+
         public int GetAge()
         {
             // Age is calculated up to the current moment    
             DateTime today = DateTime.Today;
             int personAge = today.Year - this.BirthDate.Year;
+
             if (this.BirthDate > today.AddYears(-personAge))
             {
                 personAge--;
@@ -86,6 +91,7 @@
         {
             StringBuilder name = new StringBuilder();
             name.Append(this.Name.FirstName);
+
             if (this.Name.MiddleName != null)
             {
                 name.AppendFormat(" {0}", this.Name.MiddleName);
@@ -106,22 +112,23 @@
 
         public override string ToString()
         {
-            return String.Format("{0} {1}", this.name.FirstName, this.name.LastName);
+            return string.Format("{0} {1}", this.name.FirstName, this.name.LastName);
         }
 
         public virtual string Serialize()
         {
             StringBuilder serialized = new StringBuilder();
 
-            serialized.Append(this.Name.FirstName+";");
+            serialized.Append(this.Name.FirstName + ";");
             serialized.Append(this.Name.MiddleName + ";");
             serialized.Append(this.Name.LastName + ";");
             serialized.Append(string.Format("{0}.{1}.{2}",
-                this.BirthDate.Day, this.BirthDate.Month, this.BirthDate.Year+";"));
+                this.BirthDate.Day, this.BirthDate.Month, this.BirthDate.Year + ";"));
             serialized.Append(this.Nationality);
 
             return serialized.ToString();
         }
 
+        #endregion
     }
 }

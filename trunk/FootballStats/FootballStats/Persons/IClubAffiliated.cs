@@ -9,6 +9,7 @@
         decimal YearlyWage();
 
         void SetWeeklyWage(decimal wage);
+
         // TODO: Return club or none if unemployed
         // void ChangeClub(Club newClub);
     }
