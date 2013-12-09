@@ -2,8 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:clubsVM="clr-namespace:FootballStats.ViewModels;assembly=FootballStats"
-        Title="ShowClubsWindow" Height="302" Width="700"
-        Closed="OnWindowClosed">
+        Title="ShowClubsWindow" Height="302" Width="850"
+        Closed="OnWindowClosed"
+        ResizeMode="CanMinimize">
     
     <Window.DataContext>
         <clubsVM:ShowClubsViewModel></clubsVM:ShowClubsViewModel>
@@ -21,22 +22,20 @@
         <Style
             x:Key="TextBlockMiniStyle"
         TargetType="TextBlock">
-            <Setter Property="Width" Value="115"></Setter>
+            <Setter Property="Width" Value="150"></Setter>
             <Setter Property="Height" Value="63"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="FontWeight" Value="SemiBold"></Setter>
             <Setter Property="TextAlignment" Value="Center"></Setter>
         </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <StackPanel
+        Orientation="Horizontal">
 
         <DockPanel
-            Grid.Column="0">
+            Grid.Column="0"
+            Width="200">
+            
             <TextBlock Text="Select Club"
                        DockPanel.Dock="Top"
                  FontSize="20"
@@ -54,7 +53,8 @@
         </DockPanel>
 
         <DockPanel
-            Grid.Column="1">
+            Grid.Column="1"
+            Width="350">
             <TextBlock Text="Club Information"
                        DockPanel.Dock="Top"
                  FontSize="20"
@@ -119,7 +119,8 @@
         </DockPanel>
 
         <DockPanel
-            Grid.Column="2">
+            Grid.Column="2"
+            Width="288">
             <TextBlock 
                 DockPanel.Dock="Top"
                 Text="Players and Staff"
@@ -132,6 +133,7 @@
             <StackPanel>
                 <ListBox Name="PlayersAndStaffListBox"
                          Height="170"
+                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
                          ScrollViewer.VerticalScrollBarVisibility="Auto"
                          SelectionChanged="OnPlayersAndStaffListBoxSelectionChanged"
                          FontSize="16">
@@ -166,5 +168,5 @@
 
 
         </DockPanel>
-    </Grid>
+    </StackPanel>
 </Window>
